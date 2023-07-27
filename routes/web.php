@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Website\SuratPengantar\PklController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('website.home.index');
 })->name('index');
+
+Route::group(['prefix' => 'surat-pengantar', 'as' => 'surat-pengantar.'], function () {
+    Route::get('/pkl', [PklController::class, 'index'])->name('pkl');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

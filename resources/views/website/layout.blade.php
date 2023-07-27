@@ -18,14 +18,16 @@
   @include('website.partials.navbar')
   <!-- End Header -->
 
-  <main id="main">
-    @yield('content')
+  <main id="main" class="d-flex flex-column justify-content-between vh-100">
+    <div class="flex-grow-1">
+        @yield('content')
+    </div>
+
+    <!-- ======= Footer ======= -->
+    @include('website.partials.footer')
+    <!-- End Footer -->
   </main>
   <!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  @include('website.partials.footer')
-  <!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

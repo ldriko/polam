@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,11 @@ use App\Http\Controllers\Admin\Dashboard\DashboardController;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index'])->name('index');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('login', [AuthController::class, 'index'])->name('auth.login');
+Route::post('login', [AuthController::class, 'login'])->name('auth.login.process');
+
+Route::group(['middleware' => 'auth.employee'], function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('index');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('logout', [AuthController::class, 'logout'])->name('auth.logout');
+});

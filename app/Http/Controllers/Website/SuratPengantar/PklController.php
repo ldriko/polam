@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Website\SuratPengantar;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Submission;
+use Illuminate\Support\Facades\Auth;
 
 class PklController extends Controller
 {
@@ -30,6 +32,22 @@ class PklController extends Controller
             }
         }
 
-        return $request;
+        $create = Submission::create([
+            'user_id' => Auth::id(),
+            'type' => 'pkl',
+            'data' => json_encode($request->except('_token')),
+        ]);
+
+        if ($create) {
+            return redirect()->route('surat-pengantar.pkl.index')->with([
+                'status' => 'success',
+                'message' => 'Ajuan berhasil disimpan',
+            ]);
+        }
+
+        return redirect()->route('surat-pengantar.pkl.index')->with([
+            'status' => 'error',
+            'message' => 'Ajuan gagal disimpan',
+        ]);
     }
 }

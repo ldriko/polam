@@ -31,6 +31,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Bagian Surat Pengantar
+    Route::group(['prefix' => 'surat-pengantar', 'as' => 'surat-pengantar.'], function () {
+        Route::get('/pkl', [PklController::class, 'index'])->name('pkl');
+    });
 });
 
 require __DIR__.'/auth.php';

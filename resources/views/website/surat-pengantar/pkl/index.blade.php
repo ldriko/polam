@@ -72,17 +72,20 @@
         <h2>Surat Pengantar PKL</h2>
         <p>Form Pengajuan</p>
       </header>
-      <form action="#" method="post" class="php-email-form">
+      <form action="{{ route('surat-pengantar.pkl.store') }}" method="post">
+        @foreach($errors->all() as $message)
+          {{ $message }}
+        @endforeach
         @csrf
         <div class="row mb-4">
           <h5>Mahasiswa 1</h5>
           <div class="col">
             <label for="exampleFormControlInput1" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-            <input type="text" name="name[]" class="form-control" value="{{ Auth::user()->name }}" disabled>
+            <input type="text" name="name[]" class="form-control" value="{{ Auth::user()->name }}" readonly>
           </div>
           <div class="col">
             <label for="exampleFormControlInput1" class="form-label">NPM Mahasiswa <span class="text-danger">*</span></label>
-            <input type="text" name="registration_number[]" class="form-control" value="{{ Auth::user()->registration_number }}" disabled>
+            <input type="text" name="registration_number[]" class="form-control" value="{{ Auth::user()->registration_number }}" readonly>
           </div>
         </div>
 
@@ -126,29 +129,29 @@
           <h5>Informasi Perusahaan</h5>
           <div class="col">
             <label for="exampleFormControlInput1" class="form-label">Nama Instansi/Perusahaan <span class="text-danger">*</span></label>
-            <input type="text" name="company_name" class="form-control">
+            <input type="text" name="company_name" class="form-control" required>
           </div>
           <div class="col">
             <label for="exampleFormControlInput1" class="form-label">Nama Bagian/Divisi <span class="text-danger">*</span></label>
-            <input type="text" name="company_division" class="form-control">
+            <input type="text" name="company_division" class="form-control" required>
           </div>
         </div>
 
         <div class="row mb-3">
           <div class="col">
             <label for="exampleFormControlInput1" class="form-label">Nomor Telfon Perusahaan <span class="text-danger">*</span></label>
-            <input type="text" name="company_phone" class="form-control">
+            <input type="text" name="company_phone" class="form-control" required>
           </div>
           <div class="col">
             <label for="exampleFormControlInput1" class="form-label">Tanggal Mulai PKL <span class="text-danger">*</span></label>
-            <input type="date" name="starting_date" class="form-control">
+            <input type="date" name="starting_date" class="form-control" required>
           </div>
         </div>
 
         <div class="row mb-4">
           <div class="col">
             <label for="exampleFormControlInput1" class="form-label">Alamat Perusahaan <span class="text-danger">*</span></label>
-            <input type="text" name="company_address" class="form-control">
+            <input type="text" name="company_address" class="form-control" required>
           </div>
         </div>
 

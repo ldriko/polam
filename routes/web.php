@@ -34,7 +34,8 @@ Route::middleware('auth')->group(function () {
 
     // Bagian Surat Pengantar
     Route::group(['prefix' => 'surat-pengantar', 'as' => 'surat-pengantar.'], function () {
-        Route::get('/pkl', [PklController::class, 'index'])->name('pkl');
+        Route::get('/pkl', [PklController::class, 'index'])->name('pkl.index');
+        Route::post('/pkl', [PklController::class, 'store'])->name('pkl.store');
     });
 });
 

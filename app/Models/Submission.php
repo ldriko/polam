@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Submission extends Model
 {
@@ -22,4 +23,24 @@ class Submission extends Model
     protected $types = [
         'pkl' // Surat pengajuan pkl
     ];
+
+    function user() {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    function getFormattedCreatedAtAttribute() {
+        return Carbon::parse($this->created_at)->locale('id')->translatedFormat('d F Y H:i');
+    }
+
+    function getStatusAttribute() {
+        if ($this->approved_at != null) {
+            return 'Telah Disetujui';
+        }
+
+        if ($this->verified_at != null) {
+            return 'Menunggu Persetujuan';
+        }
+
+        return 'Menunggu Verifikasi';
+    }
 }

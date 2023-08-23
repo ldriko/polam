@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Auth;
 class PklController extends Controller
 {
     function index() {
-        return view('website.surat-pengantar.pkl.index');
+        $submissions = Submission::where('user_id', Auth::id())->where('type', 'pkl')->with('user')->orderBy('created_at', 'desc')->get();
+        return view('website.surat-pengantar.pkl.index', compact('submissions'));
     }
 
     function store(Request $request) {

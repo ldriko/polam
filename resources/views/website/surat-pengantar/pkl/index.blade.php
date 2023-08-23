@@ -37,33 +37,17 @@
         </tr>
       </thead>
       <tbody class="text-center align-middle">
+        @foreach ($submissions as $key => $submission)
         <tr>
-          <td>1.</td>
-          <td>Nama Mahasiswa</td>
-          <td>20 Juli 2023</td>
-          <td>Verifikasi Staff</td>
+          <td>{{ $key+1 }}.</td>
+          <td>{{ $submission->user->name }}</td>
+          <td>{{ $submission->formattedCreatedAt }}</td>
+          <td>{{ $submission->status }}</td>
           <td>
             <button class="btn btn-primary">Buka</button>
           </td>
         </tr>
-        <tr>
-          <td>2.</td>
-          <td>Nama Mahasiswa 2</td>
-          <td>22 Juli 2023</td>
-          <td>Verifikasi Wadek 1</td>
-          <td>
-            <button class="btn btn-primary">Buka</button>
-          </td>
-        </tr>
-        <tr>
-          <td>3.</td>
-          <td>Nama Mahasiswa 3</td>
-          <td>22 Juli 2023</td>
-          <td>Ditolak Staff</td>
-          <td>
-            <button class="btn btn-primary">Buka</button>
-          </td>
-        </tr>
+        @endforeach
       </tbody>
     </table>
 

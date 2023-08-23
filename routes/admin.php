@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Auth\AuthController;
+use App\Http\Controllers\Admin\SuratPengantar\PklController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,10 @@ Route::group(['middleware' => 'auth.employee'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+    Route::group(['as' => 'surat-pengantar.', 'prefix' => 'surat-pengantar'], function() {
+        // Bagian pkl
+        Route::get('pkl', [PklController::class, 'index'])->name('pkl.index');
+        Route::get('pkl/{submission}', [PklController::class, 'show'])->name('pkl.show');
+    });
 });

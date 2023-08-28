@@ -29,13 +29,13 @@
               <div class="col">
                 <div class="form-group">
                   <label>Nama Pemohon</label>
-                  <input type="text" class="form-control" value={{ $submission->user->name }} disabled>
+                  <input type="text" class="form-control" value="{{ $submission->user->name }}" disabled>
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
                   <label>NPM Pemohon</label>
-                  <input type="text" class="form-control" value={{ $submission->user->registration_number }} disabled>
+                  <input type="text" class="form-control" value="{{ $submission->user->registration_number }}" disabled>
                 </div>
               </div>
             </div>
@@ -85,13 +85,13 @@
               <div class="col">
                 <div class="form-group">
                   <label>Nama Perusahaan/Instansi</label>
-                  <input type="text" class="form-control" value={{ $data->company_name }} disabled>
+                  <input type="text" class="form-control" value="{{ $data->company_name }}" disabled>
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
                   <label>Nama Bagian/Divisi</label>
-                  <input type="text" class="form-control" value={{ $data->company_division }} disabled>
+                  <input type="text" class="form-control" value="{{ $data->company_division }}" disabled>
                 </div>
               </div>
             </div>
@@ -99,13 +99,13 @@
               <div class="col">
                 <div class="form-group">
                   <label>Nomor Telfon Perusahaan</label>
-                  <input type="text" class="form-control" value={{ $data->company_phone }} disabled>
+                  <input type="text" class="form-control" value="{{ $data->company_phone }}" disabled>
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
                   <label>Tanggal Mulai PKL</label>
-                  <input type="text" class="form-control" value={{ Carbon\Carbon::parse($data->starting_date)->locale('id') }} disabled>
+                  <input type="text" class="form-control" value="{{ Carbon\Carbon::parse($data->starting_date)->locale('id') }}" disabled>
                 </div>
               </div>
             </div>
@@ -113,7 +113,7 @@
               <div class="col">
                 <div class="form-group">
                   <label>Alamat Perusahaan</label>
-                  <input type="text" class="form-control" value={{ $data->company_address }} disabled>
+                  <input type="text" class="form-control" value="{{ $data->company_address }}" disabled>
                 </div>
               </div>
             </div>

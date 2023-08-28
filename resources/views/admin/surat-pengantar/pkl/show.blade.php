@@ -61,13 +61,13 @@
                   <div class="col">
                     <div class="form-group">
                       <label>Nama Pemohon</label>
-                      <input type="text" class="form-control" value={{ $data->name[$key] }} disabled>
+                      <input type="text" class="form-control" value="{{ $data->name[$key] }}" disabled>
                     </div>
                   </div>
                   <div class="col">
                     <div class="form-group">
                       <label>NPM Pemohon</label>
-                      <input type="text" class="form-control" value={{ $data->registration_number[$key] }} disabled>
+                      <input type="text" class="form-control" value="{{ $data->registration_number[$key] }}" disabled>
                     </div>
                   </div>
                 </div>

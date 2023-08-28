@@ -23,5 +23,35 @@ class EmployeeSeeder extends Seeder
             'registration_number' => '00000000001',
             'password' => Hash::make('pastibisa'),
         ]);
+
+        Employee::create([
+            'employee_position_id' => 7,
+            'department_id' => 1,
+            'name' => 'staff',
+            'email' => 'staff@polam.test',
+            'registration_type' => 'NIP',
+            'registration_number' => '00000000002',
+            'password' => Hash::make('pastibisa'),
+        ]);
+
+        Employee::create([
+            'employee_position_id' => 7,
+            'department_id' => 1,
+            'name' => 'staff 1',
+            'email' => 'staff1@polam.test',
+            'registration_type' => 'NIP',
+            'registration_number' => '00000000003',
+            'password' => Hash::make('pastibisa'),
+        ]);
+
+        Employee::create([
+            'employee_position_id' => 2,
+            'department_id' => 1,
+            'name' => 'dekan',
+            'email' => 'dekan@polam.test',
+            'registration_type' => 'NIP',
+            'registration_number' => '00000000004',
+            'password' => Hash::make('pastibisa'),
+        ]);
     }
 }

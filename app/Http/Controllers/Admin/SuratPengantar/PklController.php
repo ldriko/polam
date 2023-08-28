@@ -30,4 +30,16 @@ class PklController extends Controller
             'message' => 'Ajuan berhasil diverifikasi',
         ]);
     }
+
+    function approve(Request $request, Submission $submission) {
+        $submission->update([
+            'approved_by' => Auth::guard('employee')->id(),
+            'approved_at' => Carbon::now(),
+        ]);
+
+        return redirect()->route('admin.surat-pengantar.pkl.index')->with([
+            'status' => 'success',
+            'message' => 'Ajuan berhasil disetujui',
+        ]);
+    }
 }

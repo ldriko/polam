@@ -5,6 +5,7 @@ namespace App\Models\Employee;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Department;
 
 class Employee extends Authenticatable
 {
@@ -20,4 +21,12 @@ class Employee extends Authenticatable
         'signature',
         'password',
     ];
+
+    function department() {
+        return $this->belongsTo(Department::class, 'department_id', 'id');
+    }
+
+    function position() {
+        return $this->belongsTo(EmployeePosition::class, 'employee_position_id', 'id');
+    }
 }

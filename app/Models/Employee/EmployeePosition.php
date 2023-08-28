@@ -23,4 +23,18 @@ class EmployeePosition extends Model
         3 => 'koorprodi',
         4 => 'staff tu',
     ];
+
+    function getAllowedToVerifyAttribute() {
+        if (in_array($this->level, [0, 4])) {
+            return true;
+        }
+        return false;
+    }
+
+    function getAllowedToApproveAttribute() {
+        if (in_array($this->level, [0, 1, 2])) {
+            return true;
+        }
+        return false;
+    }
 }

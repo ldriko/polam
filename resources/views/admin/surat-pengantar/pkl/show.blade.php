@@ -117,6 +117,11 @@
                 </div>
               </div>
             </div>
+            <div class="row justify-content-end">
+                <div class="col-6 text-right">
+                  <a href="{{ route('admin.surat-pengantar.pkl.verify', $submission->id) }}" class="btn btn-lg btn-primary form-control {{ ($submission->verified_at != null) ? 'disabled':'' }}">Verifikasi</a>
+                </div>
+              </div>
           </div>
         </div>
       </div>

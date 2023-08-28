@@ -28,5 +28,6 @@ Route::group(['middleware' => 'auth.employee'], function () {
         // Bagian pkl
         Route::get('pkl', [PklController::class, 'index'])->name('pkl.index');
         Route::get('pkl/{submission}', [PklController::class, 'show'])->name('pkl.show');
+        Route::get('pkl/{submission}/verify', [PklController::class, 'verify'])->name('pkl.verify');
     });
 });

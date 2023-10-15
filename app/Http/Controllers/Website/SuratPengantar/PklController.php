@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Submission;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PklController extends Controller
 {
@@ -50,5 +51,10 @@ class PklController extends Controller
             'status' => 'error',
             'message' => 'Ajuan gagal disimpan',
         ]);
+    }
+
+    function preview(Request $request) {
+        $file = view('pdf.surat-pengantar.pkl.index')->render();
+        return $file;
     }
 }

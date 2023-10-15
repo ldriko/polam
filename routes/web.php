@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'surat-pengantar', 'as' => 'surat-pengantar.'], function () {
         Route::get('/pkl', [PklController::class, 'index'])->name('pkl.index');
         Route::post('/pkl', [PklController::class, 'store'])->name('pkl.store');
+        Route::get('/pkl/preview/{submission}', [PklController::class, 'preview'])->name('pkl.preview');
     });
 });
 

@@ -44,7 +44,7 @@
           <td>{{ $submission->formattedCreatedAt }}</td>
           <td>{{ $submission->status }}</td>
           <td>
-            <button class="btn btn-primary">Buka</button>
+            <a href="{{ route('surat-pengantar.pkl.preview', $submission->id) }}" target="_blank" class="btn btn-primary">Buka</a>
           </td>
         </tr>
         @endforeach

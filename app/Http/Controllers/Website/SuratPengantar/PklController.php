@@ -55,6 +55,7 @@ class PklController extends Controller
 
     function preview(Request $request) {
         $file = view('pdf.surat-pengantar.pkl.index')->render();
+        // return Pdf::loadHTML($file)->setPaper('a4', 'potrait')->setWarnings(false)->stream();
         return $file;
     }
 }

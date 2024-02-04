@@ -53,8 +53,12 @@ class PklController extends Controller
         ]);
     }
 
-    function preview(Request $request) {
-        $file = view('pdf.surat-pengantar.pkl.index')->render();
+    function preview(Request $request, Submission $submission) {
+        // lazy load relasinya biar ringan
+        $submission->load('user.department', 'approvedByEmployee');
+
+        // Prepare PDF nya
+        $file = view('pdf.surat-pengantar.pkl.index', compact('submission'))->render();
         // return Pdf::loadHTML($file)->setPaper('a4', 'potrait')->setWarnings(false)->stream();
         return $file;
     }

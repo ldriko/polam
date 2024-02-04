@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Department;
+use Illuminate\Support\Facades\Storage;
 
 class Employee extends Authenticatable
 {
@@ -28,5 +29,13 @@ class Employee extends Authenticatable
 
     function position() {
         return $this->belongsTo(EmployeePosition::class, 'employee_position_id', 'id');
+    }
+
+    function getSignatureImageAttribute() {
+        if ($this->signature && Storage::exists($this->signature)) {
+            return asset($this->signature);
+        }
+
+        return asset('website/img/ttd/placeholder.png');
     }
 }

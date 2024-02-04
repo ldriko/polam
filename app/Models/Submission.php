@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use App\Models\Employee\Employee;
 
 class Submission extends Model
 {
@@ -26,6 +27,14 @@ class Submission extends Model
 
     function user() {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    function verifiedByEmployee() {
+        return $this->belongsTo(Employee::class, 'verified_by', 'id');
+    }
+
+    function approvedByEmployee() {
+        return $this->belongsTo(Employee::class, 'approved_by', 'id');
     }
 
     function getFormattedCreatedAtAttribute() {

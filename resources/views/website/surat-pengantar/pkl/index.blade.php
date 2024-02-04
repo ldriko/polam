@@ -23,7 +23,7 @@
 
     <div class="d-flex align-items-center gap-2 mb-2">
       <span>Unduh panduan pengajuan Surat Pengantar PKL</span>
-      <button class="btn btn-warning">Unduh</button>
+      <button class="btn btn-secondary">Unduh</button>
     </div>
 
     <table class="table table-striped">

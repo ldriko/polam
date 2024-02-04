@@ -15,6 +15,7 @@
 
 <!-- Template Main CSS File -->
 <link href="{{ asset('website/css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('website/css/custom.css') }}" rel="stylesheet">
 
 <!-- =======================================================
 * Template Name: FlexStart

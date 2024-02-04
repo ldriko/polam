@@ -1,0 +1,43 @@
+:root {
+    --primary-bg: #ffb606;
+    --primary-bg-hover: #ffc530;
+    --secondary-bg: #2ec4b6;
+    --secondary-bg-hover: #32d3c4;
+    --tertiary-bg: #2a4856;
+}
+
+.breadcrumbs {
+    background: var(--secondary-bg);
+}
+
+.breadcrumbs ol li+li::before {
+    color: white;
+}
+
+.navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover>a, .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover>a {
+    color: var(--secondary-bg);
+}
+
+.section-header h2, .section-header p, .navbar a, .navbar a:focus, .header .logo span, .footer .copyright {
+    color: var(--tertiary-bg);
+}
+
+.navbar .getstarted, .navbar .getstarted:focus, .back-to-top, .btn-primary, .btn.btn-primary:active, .navbar .getstarted:focus:hover {
+    background: var(--primary-bg);
+    border-color: var(--primary-bg);
+}
+
+.navbar .getstarted:hover, .back-to-top:hover, .btn-primary:hover {
+    background: var(--primary-bg-hover);
+    border-color: var(--primary-bg-hover);
+}
+
+.btn-secondary, .btn.btn-secondary:active {
+    background: var(--secondary-bg);
+    border-color: var(--secondary-bg);
+}
+
+.btn-secondary:hover {
+    background: var(--secondary-bg-hover);
+    border-color: var(--secondary-bg-hover);
+}

@@ -2,8 +2,8 @@
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
     <a href="{{ route('index') }}" class="logo d-flex align-items-center">
-      <img src="{{ asset('website/img/logo.png') }}" alt="">
-      <span>Polam</span>
+      <img src="{{ asset('website/img/logo-upn.png') }}" alt="">
+      <span>SIPATCA</span>
     </a>
 
     <nav id="navbar" class="navbar">

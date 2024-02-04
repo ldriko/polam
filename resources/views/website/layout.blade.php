@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>FlexStart Bootstrap Template - Index</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>SIPATCA - Fakultas Ilmu Komputer</title>
+  <meta content="Sistem Informasi Pelayanan Administrasi Terpadu Civitas Akamedik" name="description">
+  <meta content="Sistem Informasi Pelayanan Administrasi Terpadu Civitas Akamedik" name="keywords">
 
   @include('website.partials.style')
 </head>

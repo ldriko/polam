@@ -25,6 +25,21 @@ class Submission extends Model
         'pkl' // Surat pengajuan pkl
     ];
 
+    public const ROMAN_MONTH = [
+        1 => 'I',
+        2 => 'II',
+        3 => 'III',
+        4 => 'IV',
+        5 => 'V',
+        6 => 'VI',
+        7 => 'VII',
+        8 => 'VIII',
+        9 => 'IX',
+        10 => 'X',
+        11 => 'XI',
+        12 => 'XII',
+    ];
+
     function user() {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
@@ -38,7 +53,7 @@ class Submission extends Model
     }
 
     function getFormattedCreatedAtAttribute() {
-        return Carbon::parse($this->created_at)->locale('id')->translatedFormat('d F Y H:i');
+        return Carbon::parse($this->created_at)->locale('id_ID')->translatedFormat('d F Y H:i');
     }
 
     function getStatusAttribute() {
@@ -51,5 +66,10 @@ class Submission extends Model
         }
 
         return 'Menunggu Verifikasi';
+    }
+
+    function getFormattedLetterNumberAttribute() {
+        $approvedAt = Carbon::parse($this->approved_at)->locale('id_ID');
+        return $this->letter_number . '/UN.63.7/' . Submission::ROMAN_MONTH[$approvedAt->translatedFormat('n')] . '/' . $approvedAt->translatedFormat('Y');
     }
 }

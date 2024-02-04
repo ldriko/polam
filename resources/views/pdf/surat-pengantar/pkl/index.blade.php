@@ -100,7 +100,7 @@
                             <tr>
                                 <td>Nomor</td>
                                 <td>:</td>
-                                <td class="bold">xxx/xxx/xxx/xx</td>
+                                <td class="bold">{{ $submission->formattedLetterNumber }}</td>
                             </tr>
                             <tr>
                                 <td>Klasifikasi</td>

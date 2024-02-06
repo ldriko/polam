@@ -49,7 +49,11 @@
             <li><a href="#">Kuisioner Pelayanan</a></li>
           </ul>
         </li>
-        <li><a class="getstarted scrollto" href="{{ route('login') }}">Masuk</a></li>
+        @if(auth()->user())
+            <li><a class="getstarted scrollto" href="{{ route('dashboard') }}">Profil</a></li>
+        @else
+            <li><a class="getstarted scrollto" href="{{ route('login') }}">Masuk</a></li>
+        @endif
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->

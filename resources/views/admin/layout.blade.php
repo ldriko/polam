@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Title | Polam</title>
+  <title>SIPATCA - Fakultas Ilmu Komputer</title>
+  <link href="{{ asset('website/img/favicon.png') }}" rel="icon">
 
   @include('admin.partials.style')
 </head>

@@ -19,6 +19,7 @@ class Submission extends Model
         'verified_by',
         'approved_at',
         'approved_by',
+        'letter_number',
     ];
 
     protected $types = [

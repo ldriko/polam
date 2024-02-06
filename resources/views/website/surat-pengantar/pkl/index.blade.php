@@ -42,9 +42,15 @@
           <td>{{ $key+1 }}.</td>
           <td>{{ $submission->user->name }}</td>
           <td>{{ $submission->formattedCreatedAt }}</td>
-          <td>{{ $submission->status }}</td>
           <td>
-            <a href="{{ route('surat-pengantar.pkl.preview', $submission->id) }}" target="_blank" class="btn btn-primary">Buka</a>
+            <div class="badge badge-{{ $submission->StatusBadge }}">
+              {{ $submission->status }}
+            </div>
+          </td>
+          <td>
+            @if($submission->approved_at)
+                <a href="{{ route('surat-pengantar.pkl.preview', $submission->id) }}" target="_blank" class="btn btn-primary">Buka</a>
+            @endif
           </td>
         </tr>
         @endforeach

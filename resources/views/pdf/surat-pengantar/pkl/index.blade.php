@@ -88,7 +88,7 @@
         }
     </style>
 </head>
-<body style="width: 21cm; height: 29cm; margin: 0px; position: relative; border: 1px solid red;">
+<body style="width: 21cm; height: 29cm; margin: 0px; position: relative;">
     <div class="px-50 py-50">
         @include('pdf.partials.kop')
 

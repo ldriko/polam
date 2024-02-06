@@ -68,6 +68,14 @@ class Submission extends Model
         return 'Menunggu Verifikasi';
     }
 
+    function getStatusBadgeAttribute() {
+        if ($this->approved_at && $this->verified_at) {
+            return 'success';
+        }
+
+        return 'warning';
+    }
+
     function getFormattedLetterNumberAttribute() {
         $approvedAt = Carbon::parse($this->approved_at)->locale('id_ID');
         return $this->letter_number . '/UN.63.7/' . Submission::ROMAN_MONTH[$approvedAt->translatedFormat('n')] . '/' . $approvedAt->translatedFormat('Y');

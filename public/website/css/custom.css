@@ -41,3 +41,20 @@
     background: var(--secondary-bg-hover);
     border-color: var(--secondary-bg-hover);
 }
+
+.badge {
+    vertical-align: middle;
+    padding: 7px 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border-radius: 30px;
+    font-size: 12px;
+}
+
+.badge-warning {
+    background-color: var(--primary-bg);
+}
+
+.badge-success {
+    background-color: var(--secondary-bg);
+}

@@ -124,7 +124,7 @@
                 </div>
               @endif
 
-              @if(Auth::guard('employee')->user()->position->AllowedToApprove)
+              @if($submission->verified_at && Auth::guard('employee')->user()->position->AllowedToApprove)
                 <div class="col-6 text-right">
                   <a href="{{ route('admin.surat-pengantar.pkl.approve', $submission->id) }}" class="btn btn-lg btn-primary form-control {{ ($submission->approved_at != null) ? 'disabled':'' }}">Setujui</a>
                 </div>

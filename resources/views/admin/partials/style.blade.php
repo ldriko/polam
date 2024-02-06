@@ -7,6 +7,7 @@
 <!-- Template CSS -->
 <link rel="stylesheet" href="{{ asset('admin-asset/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('admin-asset/css/components.css') }}">
+<link rel="stylesheet" href="{{ asset('admin-asset/css/custom.css') }}">
 
 <!-- Page Spesific CSS -->
 @yield('styles')

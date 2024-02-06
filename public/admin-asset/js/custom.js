@@ -6,3 +6,8 @@
  */
 
 "use strict";
+
+// function trigger toast notif
+function toastNotif() {
+    $('#toastNotif').toast('show')
+}

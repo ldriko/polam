@@ -5,8 +5,8 @@
   <div class="section-header">
     <h1>Surat Pengantar</h1>
     <div class="section-header-breadcrumb">
-      <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-      <div class="breadcrumb-item"><a href="#">Surat Pengantar</a></div>
+      <div class="breadcrumb-item active"><a href="{{ route('admin.index') }}">Dashboard</a></div>
+      <div class="breadcrumb-item"><a href="javascript:void(0)">Surat Pengantar</a></div>
       <div class="breadcrumb-item">Praktek Kerja Lapangan</div>
     </div>
   </div>

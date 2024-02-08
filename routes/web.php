@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Website\SuratPengantar\PklController;
+use App\Http\Controllers\Website\SuratPengantar\SkripsiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,19 @@ Route::middleware('auth')->group(function () {
 
     // Bagian Surat Pengantar
     Route::group(['prefix' => 'surat-pengantar', 'as' => 'surat-pengantar.'], function () {
-        Route::get('/pkl', [PklController::class, 'index'])->name('pkl.index');
-        Route::post('/pkl', [PklController::class, 'store'])->name('pkl.store');
-        Route::get('/pkl/preview/{submission}', [PklController::class, 'preview'])->name('pkl.preview');
+        // Bagian PKL
+        Route::group(['prefix' => 'pkl', 'as' => 'pkl.'], function () {
+            Route::get('/', [PklController::class, 'index'])->name('index');
+            Route::post('/', [PklController::class, 'store'])->name('store');
+            Route::get('/preview/{submission}', [PklController::class, 'preview'])->name('preview');
+        });
+
+        // Bagian Skripsi
+        Route::group(['prefix' => 'skripsi', 'as' => 'skripsi.'], function () {
+            Route::get('/', [SkripsiController::class, 'index'])->name('index');
+            // Route::get('/', [])->name('store');
+            // Route::get('/', [])->name('preview');
+        });
     });
 });
 

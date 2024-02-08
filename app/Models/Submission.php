@@ -22,8 +22,9 @@ class Submission extends Model
         'letter_number',
     ];
 
-    protected $types = [
-        'pkl' // Surat pengajuan pkl
+    public const TYPES = [
+        'pkl', // Surat pengajuan pkl
+        'skripsi', // Surat pengajuan skripsi
     ];
 
     public const ROMAN_MONTH = [

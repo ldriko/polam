@@ -18,7 +18,7 @@
         <li class="dropdown"><a href="#"><span>Surat Pengantar</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="{{ route('surat-pengantar.pkl.index') }}">Praktek Kerja Lapangan</a></li>
-            <li><a href="#">Penelitian Skripsi</a></li>
+            <li><a href="{{ route('surat-pengantar.skripsi.index') }}">Penelitian Skripsi</a></li>
             <li><a href="#">Penelitian Mata Kuliah</a></li>
           </ul>
         </li>

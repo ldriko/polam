@@ -11,8 +11,8 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class PklController extends Controller
 {
     function index() {
-        $submissions = Submission::where('user_id', Auth::id())->where('type', 'pkl')->with('user')->orderBy('created_at', 'desc')->get();
-        return view('website.surat-pengantar.pkl.index', compact('submissions'));
+        $data = Submission::where('user_id', Auth::id())->where('type', 'pkl')->with('user')->orderBy('created_at', 'desc')->get();
+        return view('website.surat-pengantar.pkl.index', compact('data'));
     }
 
     function store(Request $request) {

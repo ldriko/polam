@@ -7,9 +7,9 @@
     <ol>
       <li><a href="{{ route('index') }}">Beranda</a></li>
       <li>Surat Pengantar</li>
-      <li>Praktek Kerja Lapangan</li>
+      <li>Skripsi</li>
     </ol>
-    <h2>Praktek Kerja Lapangan</h2>
+    <h2>Skripsi</h2>
 
   </div>
 </section><!-- End Breadcrumbs -->
@@ -17,12 +17,12 @@
 <section class="inner-page">
   <div class="container">
     <header class="section-header">
-      <h2>Surat Pengantar PKL</h2>
+      <h2>Surat Pengantar Skripsi</h2>
       <p>Riwayat Pengajuan</p>
     </header>
 
     <div class="d-flex align-items-center gap-2 mb-2">
-      <span>Unduh panduan pengajuan Surat Pengantar PKL</span>
+      <span>Unduh panduan pengajuan Surat Pengantar Skripsi</span>
       <button class="btn btn-secondary">Unduh</button>
     </div>
 
@@ -59,7 +59,7 @@
 
     <div class="mt-5">
       <header class="section-header">
-        <h2>Surat Pengantar PKL</h2>
+        <h2>Surat Pengantar Skripsi</h2>
         <p>Form Pengajuan</p>
       </header>
       <form action="{{ route('surat-pengantar.pkl.store') }}" method="post">
@@ -68,7 +68,7 @@
         @endforeach
         @csrf
         <div class="row mb-4">
-          <h5>Mahasiswa 1</h5>
+          <h5>Mahasiswa</h5>
           <div class="col">
             <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
             <input type="text" name="name[]" class="form-control" value="{{ Auth::user()->name }}" readonly>
@@ -79,39 +79,15 @@
           </div>
         </div>
 
-        <div class="row mb-4">
-          <h5>Mahasiswa 2</h5>
+        <div class="row mb-3">
+          <h5>Informasi Penelitian</h5>
           <div class="col">
-            <label class="form-label">Nama Lengkap</label>
-            <input type="text" name="name[]" class="form-control">
+            <label class="form-label">Keperluan Penelitian <span class="text-danger">*</span></label>
+            <input type="text" name="research_purpose" class="form-control" required>
           </div>
           <div class="col">
-            <label class="form-label">NPM Mahasiswa</label>
-            <input type="text" name="registration_number[]" class="form-control">
-          </div>
-        </div>
-
-        <div class="row mb-4">
-          <h5>Mahasiswa 3</h5>
-          <div class="col">
-            <label class="form-label">Nama Lengkap</label>
-            <input type="text" name="name[]" class="form-control">
-          </div>
-          <div class="col">
-            <label class="form-label">NPM Mahasiswa</label>
-            <input type="text" name="registration_number[]" class="form-control">
-          </div>
-        </div>
-
-        <div class="row mb-4">
-          <h5>Mahasiswa 4</h5>
-          <div class="col">
-            <label class="form-label">Nama Lengkap</label>
-            <input type="text" name="name[]" class="form-control">
-          </div>
-          <div class="col">
-            <label class="form-label">NPM Mahasiswa</label>
-            <input type="text" name="registration_number[]" class="form-control">
+            <label class="form-label">Judul Penelitian <span class="text-danger">*</span></label>
+            <input type="text" name="research_title" class="form-control" required>
           </div>
         </div>
 
@@ -133,7 +109,7 @@
             <input type="text" name="company_phone" class="form-control" required>
           </div>
           <div class="col">
-            <label class="form-label">Tanggal Mulai PKL <span class="text-danger">*</span></label>
+            <label class="form-label">Tanggal Mulai Penelitian <span class="text-danger">*</span></label>
             <input type="date" name="starting_date" class="form-control" required>
           </div>
         </div>

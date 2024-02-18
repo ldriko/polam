@@ -81,6 +81,7 @@
             <h4>Informasi Instansi/Perusahaan</h4>
           </div>
           <div class="card-body">
+
             <div class="row">
               <div class="col">
                 <div class="form-group">
@@ -88,6 +89,7 @@
                   <input type="text" class="form-control" value="{{ $data->company_name }}" disabled>
                 </div>
               </div>
+
               <div class="col">
                 <div class="form-group">
                   <label>Nama Bagian/Divisi</label>
@@ -95,6 +97,7 @@
                 </div>
               </div>
             </div>
+
             <div class="row">
               <div class="col">
                 <div class="form-group">
@@ -102,6 +105,7 @@
                   <input type="text" class="form-control" value="{{ $data->company_phone }}" disabled>
                 </div>
               </div>
+
               <div class="col">
                 <div class="form-group">
                   <label>Tanggal Mulai PKL</label>
@@ -109,6 +113,7 @@
                 </div>
               </div>
             </div>
+
             <div class="row">
               <div class="col">
                 <div class="form-group">
@@ -117,19 +122,87 @@
                 </div>
               </div>
             </div>
-            <div class="row justify-content-end">
-              @if(Auth::guard('employee')->user()->position->AllowedToVerify)
-                <div class="col-6 text-right">
-                  <a href="{{ route('admin.surat-pengantar.pkl.verify', $submission->id) }}" class="btn btn-lg btn-primary form-control {{ ($submission->verified_at != null) ? 'disabled':'' }}">Verifikasi</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h4>Persetujuan & Catatan</h4>
+          </div>
+          <div class="card-body">
+            @if($errors->any())
+              <div class="row">
+                <div class="col">
+                  @foreach($errors->all() as $error)
+                    <div class="alert alert-danger">
+                      {{ $error }}
+                    </div>
+                  @endforeach
+                </div>
+              </div>
+            @endif
+
+            <form action="{{ route('admin.surat-pengantar.pkl.update', $submission->id) }}" method="post">
+              @csrf
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label>Catatan Verifikator</label>
+                    <textarea
+                      name="{{ Auth::guard('employee')->user()->position->AllowedToVerify ? 'note':'' }}"
+                      rows="20"
+                      class="form-control"
+                      {{ Auth::guard('employee')->user()->position->AllowedToVerify && !$submission->rejected_at ? '':'disabled' }}
+                    >{{ $submission->verified_note }}</textarea>
+                    @if($submission->verified_at)
+                      <small id="passwordHelpBlock" class="form-text text-muted">
+                        Oleh: {{ $submission->verifiedByEmployee->name }}
+                      </small>
+                    @endif
+                  </div>
+                </div>
+              </div>
+
+              @if($submission->rejected_at)
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label>Alasan Ditolak</label>
+                      <textarea
+                        rows="20"
+                        class="form-control"
+                        disabled
+                      >{{ $submission->rejected_note }}</textarea>
+                      <small id="passwordHelpBlock" class="form-text text-muted">
+                        Oleh: {{ $submission->rejectedByEmployee->name }}
+                      </small>
+                    </div>
+                  </div>
                 </div>
               @endif
 
-              @if($submission->verified_at && Auth::guard('employee')->user()->position->AllowedToApprove)
-                <div class="col-6 text-right">
-                  <a href="{{ route('admin.surat-pengantar.pkl.approve', $submission->id) }}" class="btn btn-lg btn-primary form-control {{ ($submission->approved_at != null) ? 'disabled':'' }}">Setujui</a>
-                </div>
-              @endif
-            </div>
+              <div class="row justify-content-end">
+                @if($submission->isAvailableToRejected(Auth::guard('employee')->user()->position))
+                  <div class="col-4 text-right">
+                    <button type="submit" name="type" value="rejected" class="btn btn-lg btn-danger form-control">Tolak</button>
+                  </div>
+                @endif
+
+                @if(!$submission->rejected_at)
+                  @if($submission->isAvailableToVerified && Auth::guard('employee')->user()->position->AllowedToVerify)
+                    <div class="col-4 text-right">
+                      <button type="submit" name="type" value="verified" class="btn btn-lg btn-primary form-control {{ ($submission->verified_at != null) ? 'disabled':'' }}">Verifikasi</button>
+                    </div>
+                  @endif
+
+                  @if($submission->isAvailableToApproved && Auth::guard('employee')->user()->position->AllowedToApprove)
+                    <div class="col-4 text-right">
+                      <button type="submit" name="type" value="approved" class="btn btn-lg btn-primary form-control {{ ($submission->approved_at != null) ? 'disabled':'' }}">Setujui</button>
+                    </div>
+                  @endif
+                @endif
+              </div>
+            </form>
           </div>
         </div>
       </div>

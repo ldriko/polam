@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use App\Models\Employee\Employee;
+use Illuminate\Support\Facades\Auth;
 
 class Submission extends Model
 {
@@ -17,8 +18,13 @@ class Submission extends Model
         'data',
         'verified_at',
         'verified_by',
+        'verified_note',
         'approved_at',
         'approved_by',
+        'approved_note',
+        'rejected_at',
+        'rejected_by',
+        'rejected_note',
         'letter_number',
     ];
 
@@ -54,11 +60,19 @@ class Submission extends Model
         return $this->belongsTo(Employee::class, 'approved_by', 'id');
     }
 
+    function rejectedByEmployee() {
+        return $this->belongsTo(Employee::class, 'rejected_by', 'id');
+    }
+
     function getFormattedCreatedAtAttribute() {
         return Carbon::parse($this->created_at)->locale('id_ID')->translatedFormat('d F Y H:i');
     }
 
     function getStatusAttribute() {
+        if ($this->rejected_at != null) {
+            return 'Ditolak';
+        }
+
         if ($this->approved_at != null) {
             return 'Telah Disetujui';
         }
@@ -71,6 +85,10 @@ class Submission extends Model
     }
 
     function getStatusBadgeAttribute() {
+        if ($this->rejected_at) {
+            return 'danger';
+        }
+
         if ($this->approved_at && $this->verified_at) {
             return 'success';
         }
@@ -78,8 +96,61 @@ class Submission extends Model
         return 'warning';
     }
 
+    function getIsAvailableToVerifiedAttribute() {
+        // bisa diverifikasi ketika:
+        // 1. belum ditolak
+        // 2. belum diverifikasi
+        if (!$this->rejected_at && !$this->verified_at) {
+            return true;
+        }
+        return false;
+    }
+
+    function getIsAvailableToApprovedAttribute() {
+        // bisa diapprove ketika:
+        // 1. belum ditolak
+        // 2. sudah diverifikasi oleh staff
+        // 3. belum diapprove
+        if (!$this->rejected_at && $this->verified_at && !$this->approved_at) {
+            return true;
+        }
+        return false;
+    }
+
+    function IsAvailableToRejected($position) {
+        // bagian verifikator
+        if ($this->isAvailableToVerified && $position->AllowedToVerify) {
+            return true;
+        }
+
+        // bagian approval
+        if ($this->isAvailableToApproved && $position->AllowedToApprove) {
+            return true;
+        }
+
+        // tidak boleh ditolak
+        return false;
+    }
+
     function getFormattedLetterNumberAttribute() {
         $approvedAt = Carbon::parse($this->approved_at)->locale('id_ID');
         return $this->letter_number . '/UN.63.7/' . Submission::ROMAN_MONTH[$approvedAt->translatedFormat('n')] . '/' . $approvedAt->translatedFormat('Y');
+    }
+
+    function nextLetterNumber() {
+        // untuk ambil current month and year
+        $now = Carbon::now();
+
+        // prepare nomor surat, default 1
+        $letterNumber = 1;
+
+        // get nomor surat terakhir di bulan dan tahun ini
+        $lastSubmissionThisMonth = Submission::whereYear('approved_at', $now->year)->orderBy('letter_number', 'desc')->first();
+
+        if ($lastSubmissionThisMonth) {
+            $letterNumber = $lastSubmissionThisMonth->letter_number + 1;
+        }
+
+        return $letterNumber;
     }
 }

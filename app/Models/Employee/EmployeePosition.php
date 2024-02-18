@@ -11,6 +11,7 @@ class EmployeePosition extends Model
 
     protected $fillable = [
         'level',
+        'code',
         'name',
         'short_name',
         'description',
@@ -25,6 +26,7 @@ class EmployeePosition extends Model
     ];
 
     function getAllowedToVerifyAttribute() {
+        // karena cuman staff dan admin yg bisa verif, jadinya gini aja udah aman
         if (in_array($this->level, [0, 4])) {
             return true;
         }

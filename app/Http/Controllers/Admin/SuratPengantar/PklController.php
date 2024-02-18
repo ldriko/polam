@@ -22,7 +22,7 @@ class PklController extends Controller
     function update(Request $request, Submission $submission) {
         $request->validate([
             'type' => ['required', 'in:verified,approved,rejected'],
-            'note' => ['required_if:type,rejected', 'string'],
+            'note' => ['required_if:type,rejected'],
         ]);
 
         // handle proses penolakan
@@ -45,7 +45,7 @@ class PklController extends Controller
 
         // handle proses approval
         else {
-            $letterNumber = Submission::nextLetterNumber();
+            $letterNumber = $submission->nextLetterNumber();
 
             $submission->update([
                 'approved_at' => Carbon::now(),
@@ -58,44 +58,6 @@ class PklController extends Controller
         return redirect()->route('admin.surat-pengantar.pkl.index')->with([
             'status' => 'success',
             'message' => 'Ajuan berhasil diproses',
-        ]);
-    }
-
-    function verify(Request $request, Submission $submission) {
-        $submission->update([
-            'verified_by' => Auth::guard('employee')->id(),
-            'verified_at' => Carbon::now(),
-        ]);
-
-        return redirect()->route('admin.surat-pengantar.pkl.index')->with([
-            'status' => 'success',
-            'message' => 'Ajuan berhasil diverifikasi',
-        ]);
-    }
-
-    function approve(Request $request, Submission $submission) {
-        // untuk ambil current month and year
-        $now = Carbon::now();
-
-        // prepare nomor surat, default 1
-        $letterNumber = 1;
-
-        // get nomor surat terakhir di bulan dan tahun ini
-        $lastSubmissionThisMonth = Submission::whereMonth('approved_at', $now->month)->whereYear('approved_at', $now->year)->orderBy('letter_number', 'desc')->first();
-
-        if ($lastSubmissionThisMonth) {
-            $letterNumber = $lastSubmissionThisMonth->letter_number + 1;
-        }
-
-        $submission->update([
-            'approved_by' => Auth::guard('employee')->id(),
-            'approved_at' => Carbon::now(),
-            'letter_number' => $letterNumber,
-        ]);
-
-        return redirect()->route('admin.surat-pengantar.pkl.index')->with([
-            'status' => 'success',
-            'message' => 'Ajuan berhasil disetujui',
         ]);
     }
 }

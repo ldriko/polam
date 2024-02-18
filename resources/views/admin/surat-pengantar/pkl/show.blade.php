@@ -152,11 +152,30 @@
                       name="{{ Auth::guard('employee')->user()->position->AllowedToVerify ? 'note':'' }}"
                       rows="20"
                       class="form-control"
-                      {{ Auth::guard('employee')->user()->position->AllowedToVerify && !$submission->rejected_at ? '':'disabled' }}
+                      {{ $submission->isAvailableToVerified && Auth::guard('employee')->user()->position->AllowedToVerify && !$submission->rejected_at ? '':'disabled' }}
                     >{{ $submission->verified_note }}</textarea>
                     @if($submission->verified_at)
                       <small id="passwordHelpBlock" class="form-text text-muted">
                         Oleh: {{ $submission->verifiedByEmployee->name }}
+                      </small>
+                    @endif
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label>Catatan Approval</label>
+                    <textarea
+                      name="{{ Auth::guard('employee')->user()->position->AllowedToApprove ? 'note':'' }}"
+                      rows="20"
+                      class="form-control"
+                      {{ $submission->isAvailableToApproved && Auth::guard('employee')->user()->position->AllowedToApprove && !$submission->rejected_at ? '':'disabled' }}
+                    >{{ $submission->approved_note }}</textarea>
+                    @if($submission->approved_at)
+                      <small id="passwordHelpBlock" class="form-text text-muted">
+                        Oleh: {{ $submission->approvedByEmployee->name }}
                       </small>
                     @endif
                   </div>

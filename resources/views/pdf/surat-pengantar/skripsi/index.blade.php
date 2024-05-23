@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Surat Pengantar PKL</title>
+    <title>Surat Pengantar Skripsi</title>
 
     <style>
         .d-block {
@@ -79,6 +79,9 @@
         .mt-50 {
             margin-top: 50px;
         }
+        .ml-30 {
+            margin-left: 30px;
+        }
         td:empty::after{
             content: "\00a0";
         }
@@ -115,7 +118,7 @@
                             <tr>
                                 <td>Perihal</td>
                                 <td>:</td>
-                                <td class="bold underline">Praktek Kerja Lapangan</td>
+                                <td class="bold underline">Penelitian Tugas Akhir</td>
                             </tr>
                         </table>
                     </td>
@@ -150,19 +153,36 @@
         </section>
 
         <section class="px-50 mt-50">
-            <p class="text-justify text-indent lh-1-5">Dalam rangka menunjang kegiatan Akademik Mahasiswa Fakultas Ilmu Komputer Universitas Pembangunan Nasional "Veteran" Jawa Timur, yang melaksanakan Praktek Kerja Lapangan.</p>
-            <p class="text-justify text-indent lh-1-5">Sehubungan dengan kegiatan tersebut, maka dengan ini diajukan mahasiswa Fakultas Ilmu Komputer <span class="bold underline capitalize">Program Studi {{ $submission->user->department->name }}</span> yang bernama:</p>
-            <table class="w-100">
-                @foreach ($data['name'] as $key => $name)
-                    @if ($name != null && $data['registration_number'][$key] != null)
-                        <tr class="bold text-center">
-                            <td>{{ $name }}</td>
-                            <td>NPM. {{ $data['registration_number'][$key] }}</td>
-                        </tr>
-                    @endif
-                @endforeach
+            <p class="text-justify text-indent lh-1-5">Dalam rangka menunjang kegiatan Akademik Mahasiswa Fakultas Ilmu Komputer Universitas Pembangunan Nasional "Veteran" Jawa Timur, yang melaksanakan tugas akhir.</p>
+            <p class="text-justify text-indent lh-1-5">Sehubungan dengan kegiatan tersebut, maka dengan ini diajukan mahasiswa Fakultas Ilmu Komputer;</p>
+            <table class="w-100 lh-1-5 ml-30">
+                <tr>
+                    <td width="180px">Nama Lengkap</td>
+                    <td class="vertical-align-top">:</td>
+                    <td>{{ $data['name'][0] }}</td>
+                </tr>
+                <tr>
+                    <td width="180px">Nomor NPM</td>
+                    <td class="vertical-align-top">:</td>
+                    <td>{{ $data['registration_number'][0] }}</td>
+                </tr>
+                <tr>
+                    <td width="180px">Program Studi</td>
+                    <td class="vertical-align-top">:</td>
+                    <td>{{ $submission->user->department->name }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="180px">Keperluan</td>
+                    <td class="vertical-align-top">:</td>
+                    <td>{{ $data['research_purpose'] }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="180px">Judul Penelitian</td>
+                    <td class="vertical-align-top">:</td>
+                    <td>{{ $data['research_title'] }}</td>
+                </tr>
             </table>
-            <p class="text-justify text-indent lh-1-5">Mohon diberi ijin untuk keperluan pengumpulan data untuk referensi tugas Praktek Kerja Lapangan. Demikian atas kerja samanya, disampaikan terima kasih.</p>
+            <p class="text-justify text-indent lh-1-5">Demikian atas kerja samanya, disampaikan terima kasih.</p>
         </section>
 
         <section class="px-50 mt-50">

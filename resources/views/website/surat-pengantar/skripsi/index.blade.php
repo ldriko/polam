@@ -49,7 +49,7 @@
           </td>
           <td>
             @if($datum->approved_at)
-                <a href="{{ route('surat-pengantar.pkl.preview', $datum->id) }}" target="_blank" class="btn btn-primary">Buka</a>
+                <a href="{{ route('surat-pengantar.skripsi.preview', $datum->id) }}" target="_blank" class="btn btn-primary">Buka</a>
             @endif
           </td>
         </tr>
@@ -62,7 +62,7 @@
         <h2>Surat Pengantar Skripsi</h2>
         <p>Form Pengajuan</p>
       </header>
-      <form action="{{ route('surat-pengantar.pkl.store') }}" method="post">
+      <form action="{{ route('surat-pengantar.skripsi.store') }}" method="post">
         @foreach($errors->all() as $message)
           {{ $message }}
         @endforeach

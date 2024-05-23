@@ -18,25 +18,43 @@ class EmployeePosition extends Model
     ];
 
     protected $masterLevels = [
+        'admin' => 0,
+        'dekan' => 1,
+        'wadek' => 2,
+        'koorprodi' => 3,
+        'staff' => 4,
+    ];
+
+    protected $masterCodes = [
         0 => 'admin',
         1 => 'dekan',
-        2 => 'wakil dekan',
-        3 => 'koorprodi',
-        4 => 'staff tu',
+        2 => 'wadek-1',
+        3 => 'wadek-2',
+        4 => 'wadek-3',
+        5 => 'koorprodi',
+        6 => 'staff',
     ];
 
     function getAllowedToVerifyAttribute() {
         // karena cuman staff dan admin yg bisa verif, jadinya gini aja udah aman
-        if (in_array($this->level, [0, 4])) {
+        if (in_array($this->level, [$this->masterLevels['admin'], $this->masterLevels['staff']])) {
             return true;
         }
+
         return false;
     }
 
-    function getAllowedToApproveAttribute() {
-        if (in_array($this->level, [0, 1, 2])) {
-            return true;
+    function allowedToApprove($type) {
+        switch ($type) {
+            case 'pkl': // pkl hanya boleh: admin, dekan, wadek-3
+                return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[4]]);
+                break;
+            case 'skripsi': // skripsi hanya boleh: admin, dekan, wadek-1
+                return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[2]]);
+                break;
+            default:
+                return false;
+                break;
         }
-        return false;
     }
 }

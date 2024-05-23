@@ -45,8 +45,8 @@ Route::middleware('auth')->group(function () {
         // Bagian Skripsi
         Route::group(['prefix' => 'skripsi', 'as' => 'skripsi.'], function () {
             Route::get('/', [SkripsiController::class, 'index'])->name('index');
-            // Route::get('/', [])->name('store');
-            // Route::get('/', [])->name('preview');
+            Route::post('/', [SkripsiController::class, 'store'])->name('store');
+            Route::get('/preview/{submission}', [SkripsiController::class, 'preview'])->name('preview');
         });
     });
 });

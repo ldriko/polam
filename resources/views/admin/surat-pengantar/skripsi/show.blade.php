@@ -10,12 +10,12 @@
     <div class="section-header-breadcrumb">
       <div class="breadcrumb-item active"><a href="{{ route('admin.index') }}">Dashboard</a></div>
       <div class="breadcrumb-item"><a href="javascript:void(0)">Surat Pengantar</a></div>
-      <div class="breadcrumb-item">Praktek Kerja Lapangan</div>
+      <div class="breadcrumb-item">Skripsi</div>
     </div>
   </div>
 
   <div class="section-body">
-    <h2 class="section-title">Praktek Kerja Lapangan</h2>
+    <h2 class="section-title">Skripsi</h2>
     <p class="section-lead">Detail Pengajuan</p>
 
     <div class="row">
@@ -52,27 +52,23 @@
 
         <div class="card">
           <div class="card-header">
-            <h4>Kelompok PKL</h4>
+            <h4>Informasi Penelitian</h4>
           </div>
           <div class="card-body">
-            @foreach($data->name as $key => $name)
-              @if($data->name[$key] && $data->registration_number[$key])
-                <div class="row">
-                  <div class="col">
-                    <div class="form-group">
-                      <label>Nama Pemohon</label>
-                      <input type="text" class="form-control" value="{{ $data->name[$key] }}" disabled>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="form-group">
-                      <label>NPM Pemohon</label>
-                      <input type="text" class="form-control" value="{{ $data->registration_number[$key] }}" disabled>
-                    </div>
-                  </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label>Judul Penelitian</label>
+                  <textarea rows="3" class="form-control flexible-textarea" disabled>{{ $data->research_title }}</textarea>
                 </div>
-              @endif
-            @endforeach
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label>Keperluan Penelitian</label>
+                  <input type="text" class="form-control" value="{{ $data->research_purpose }}" disabled>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -108,7 +104,7 @@
 
               <div class="col">
                 <div class="form-group">
-                  <label>Tanggal Mulai PKL</label>
+                  <label>Tanggal Mulai Penelitian</label>
                   <input type="text" class="form-control" value="{{ Carbon\Carbon::parse($data->starting_date)->locale('id') }}" disabled>
                 </div>
               </div>
@@ -142,7 +138,7 @@
               </div>
             @endif
 
-            <form action="{{ route('admin.surat-pengantar.pkl.update', $submission->id) }}" method="post">
+            <form action="{{ route('admin.surat-pengantar.skripsi.update', $submission->id) }}" method="post">
               @csrf
               <div class="row">
                 <div class="col">
@@ -168,10 +164,10 @@
                   <div class="form-group">
                     <label>Catatan Approval</label>
                     <textarea
-                      name="{{ Auth::guard('employee')->user()->position->AllowedToApprove('pkl') ? 'note':'' }}"
+                      name="{{ Auth::guard('employee')->user()->position->AllowedToApprove('skripsi') ? 'note':'' }}"
                       rows="20"
                       class="form-control"
-                      {{ $submission->isAvailableToApproved && Auth::guard('employee')->user()->position->AllowedToApprove('pkl') && !$submission->rejected_at ? '':'disabled' }}
+                      {{ $submission->isAvailableToApproved && Auth::guard('employee')->user()->position->AllowedToApprove('skripsi') && !$submission->rejected_at ? '':'disabled' }}
                     >{{ $submission->approved_note }}</textarea>
                     @if($submission->approved_at)
                       <small id="passwordHelpBlock" class="form-text text-muted">
@@ -201,7 +197,7 @@
               @endif
 
               <div class="row justify-content-end">
-                @if($submission->isAvailableToRejected(Auth::guard('employee')->user()->position, 'pkl'))
+                @if($submission->isAvailableToRejected(Auth::guard('employee')->user()->position, 'skripsi'))
                   <div class="col-4 text-right">
                     <button type="submit" name="type" value="rejected" class="btn btn-lg btn-danger form-control">Tolak</button>
                   </div>
@@ -214,7 +210,7 @@
                     </div>
                   @endif
 
-                  @if($submission->isAvailableToApproved && Auth::guard('employee')->user()->position->AllowedToApprove('pkl'))
+                  @if($submission->isAvailableToApproved && Auth::guard('employee')->user()->position->AllowedToApprove('skripsi'))
                     <div class="col-4 text-right">
                       <button type="submit" name="type" value="approved" class="btn btn-lg btn-primary form-control {{ ($submission->approved_at != null) ? 'disabled':'' }}">Setujui</button>
                     </div>

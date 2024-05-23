@@ -3,6 +3,7 @@
     --primary-bg-hover: #ffc530;
     --secondary-bg: #2ec4b6;
     --secondary-bg-hover: #32d3c4;
+    --danger-bg: #fc544b;
     --tertiary-bg: #2a4856;
 }
 
@@ -57,4 +58,8 @@
 
 .badge-success {
     background-color: var(--secondary-bg);
+}
+
+.badge-danger {
+    background-color: var(--danger-bg);
 }

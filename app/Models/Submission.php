@@ -117,14 +117,14 @@ class Submission extends Model
         return false;
     }
 
-    function IsAvailableToRejected($position) {
+    function IsAvailableToRejected($position, $type) {
         // bagian verifikator
         if ($this->isAvailableToVerified && $position->AllowedToVerify) {
             return true;
         }
 
         // bagian approval
-        if ($this->isAvailableToApproved && $position->AllowedToApprove) {
+        if ($this->isAvailableToApproved && $position->AllowedToApprove($type)) {
             return true;
         }
 

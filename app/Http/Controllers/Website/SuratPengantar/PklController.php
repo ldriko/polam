@@ -11,7 +11,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class PklController extends Controller
 {
     function index() {
-        $data = Submission::where('user_id', Auth::id())->where('type', 'pkl')->with('user')->orderBy('created_at', 'desc')->get();
+        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[0])->with('user')->orderBy('created_at', 'desc')->get();
         return view('website.surat-pengantar.pkl.index', compact('data'));
     }
 
@@ -24,6 +24,7 @@ class PklController extends Controller
             'company_phone' => ['required', 'numeric'],
             'starting_date' => ['required', 'date'],
             'company_address' => ['required', 'string'],
+            'note' => ['nullable', 'string'],
         ]);
 
         foreach ($request->name as $key => $name) {
@@ -36,7 +37,7 @@ class PklController extends Controller
 
         $create = Submission::create([
             'user_id' => Auth::id(),
-            'type' => 'pkl',
+            'type' => Submission::TYPES[0],
             'data' => json_encode($request->except('_token')),
         ]);
 
@@ -59,7 +60,6 @@ class PklController extends Controller
 
         // Prepare PDF nya
         $file = view('pdf.surat-pengantar.pkl.index', compact('submission'))->render();
-        // return Pdf::loadHTML($file)->setPaper('a4', 'potrait')->setWarnings(false)->stream();
-        return $file;
+        return Pdf::loadHTML($file)->setPaper('a4', 'potrait')->setWarnings(false)->stream();
     }
 }

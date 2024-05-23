@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\SuratPengantar\PklController;
+use App\Http\Controllers\Admin\SuratPengantar\SkripsiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +30,10 @@ Route::group(['middleware' => 'auth.employee'], function () {
         Route::get('pkl', [PklController::class, 'index'])->name('pkl.index');
         Route::get('pkl/{submission}', [PklController::class, 'show'])->name('pkl.show');
         Route::post('pkl/{submission}', [PklController::class, 'update'])->name('pkl.update');
+
+        // Bagian skripsi
+        Route::get('skripsi', [SkripsiController::class, 'index'])->name('skripsi.index');
+        Route::get('skripsi/{submission}', [SkripsiController::class, 'show'])->name('skripsi.show');
+        Route::post('skripsi/{submission}', [SkripsiController::class, 'update'])->name('skripsi.update');
     });
 });

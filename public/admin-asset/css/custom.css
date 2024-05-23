@@ -33,3 +33,7 @@
 .bg-error {
     background-color: #fc544b;
 }
+
+.form-group textarea.form-control.flexible-textarea {
+    height: auto;
+}

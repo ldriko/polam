@@ -31,6 +31,7 @@ class Submission extends Model
     public const TYPES = [
         'pkl', // Surat pengajuan pkl
         'skripsi', // Surat pengajuan skripsi
+        'penelitian-matkul', // surat pengantar penelitian matkul
     ];
 
     public const ROMAN_MONTH = [

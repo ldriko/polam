@@ -68,7 +68,7 @@
         @endforeach
         @csrf
         <div class="row mb-4">
-          <h5>Mahasiswa</h5>
+          <h5 class="fw-bold">Mahasiswa</h5>
           <div class="col">
             <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
             <input type="text" name="name[]" class="form-control" value="{{ Auth::user()->name }}" readonly>
@@ -80,7 +80,7 @@
         </div>
 
         <div class="row mb-3">
-          <h5>Informasi Penelitian</h5>
+          <h5 class="fw-bold">Informasi Penelitian</h5>
           <div class="col">
             <label class="form-label">Keperluan Penelitian <span class="text-danger">*</span></label>
             <input type="text" name="research_purpose" class="form-control" required>
@@ -92,7 +92,7 @@
         </div>
 
         <div class="row mb-3">
-          <h5>Informasi Perusahaan</h5>
+          <h5 class="fw-bold">Informasi Perusahaan</h5>
           <div class="col">
             <label class="form-label">Nama Instansi/Perusahaan <span class="text-danger">*</span></label>
             <input type="text" name="company_name" class="form-control" required>
@@ -122,7 +122,7 @@
         </div>
 
         <div class="row mb-3">
-          <h5>Catatan Lain</h5>
+          <h5 class="fw-bold">Catatan Lain</h5>
           <div class="col">
             <label class="form-label">Catatan Khusus Untuk Staff</label>
             <textarea name="note" rows="5" class="form-control"></textarea>

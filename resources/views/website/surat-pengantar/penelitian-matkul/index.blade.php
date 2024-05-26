@@ -7,9 +7,9 @@
     <ol>
       <li><a href="{{ route('index') }}">Beranda</a></li>
       <li>Surat Pengantar</li>
-      <li>Praktek Kerja Lapangan</li>
+      <li>Penelitian Mata Kuliah</li>
     </ol>
-    <h2>Praktek Kerja Lapangan</h2>
+    <h2>Penelitian Mata Kuliah</h2>
 
   </div>
 </section><!-- End Breadcrumbs -->
@@ -17,12 +17,12 @@
 <section class="inner-page">
   <div class="container">
     <header class="section-header">
-      <h2>Surat Pengantar PKL</h2>
+      <h2>Surat Pengantar Penelitian Mata Kuliah</h2>
       <p>Riwayat Pengajuan</p>
     </header>
 
     <div class="d-flex align-items-center gap-2 mb-2">
-      <span>Unduh panduan pengajuan Surat Pengantar PKL</span>
+      <span>Unduh panduan pengajuan Surat Pengantar Penelitian Mata Kuliah</span>
       <button class="btn btn-secondary">Unduh</button>
     </div>
 
@@ -49,7 +49,7 @@
           </td>
           <td>
             @if($datum->approved_at)
-                <a href="{{ route('surat-pengantar.pkl.preview', $datum->id) }}" target="_blank" class="btn btn-primary">Buka</a>
+                <a href="{{ route('surat-pengantar.penelitian-matkul.preview', $datum->id) }}" target="_blank" class="btn btn-primary">Buka</a>
             @endif
           </td>
         </tr>
@@ -59,10 +59,10 @@
 
     <div class="mt-5">
       <header class="section-header">
-        <h2>Surat Pengantar PKL</h2>
+        <h2>Surat Pengantar Penelitian Mata Kuliah</h2>
         <p>Form Pengajuan</p>
       </header>
-      <form action="{{ route('surat-pengantar.pkl.store') }}" method="post">
+      <form action="{{ route('surat-pengantar.penelitian-matkul.store') }}" method="post" enctype="multipart/form-data">
         @foreach($errors->all() as $message)
           {{ $message }}
         @endforeach
@@ -79,8 +79,9 @@
           </div>
         </div>
 
+        @for($i=2; $i<=5; $i++)
         <div class="row mb-4">
-          <h5 class="fw-bold">Mahasiswa 2</h5>
+          <h5 class="fw-bold">Mahasiswa {{ $i }}</h5>
           <div class="col">
             <label class="form-label">Nama Lengkap</label>
             <input type="text" name="name[]" class="form-control">
@@ -90,28 +91,31 @@
             <input type="text" name="registration_number[]" class="form-control">
           </div>
         </div>
+        @endfor
 
-        <div class="row mb-4">
-          <h5 class="fw-bold">Mahasiswa 3</h5>
+        <div class="row mb-3">
+          <h5 class="fw-bold">Informasi Mata Kuliah</h5>
           <div class="col">
-            <label class="form-label">Nama Lengkap</label>
-            <input type="text" name="name[]" class="form-control">
+            <label class="form-label">Nama Mata Kuliah <span class="text-danger">*</span></label>
+            <input type="text" name="subject_name" class="form-control" required>
           </div>
           <div class="col">
-            <label class="form-label">NPM Mahasiswa</label>
-            <input type="text" name="registration_number[]" class="form-control">
+            <label class="form-label">Upload Surat Ajuan <span class="text-danger">*</span></label>
+            <input type="file" name="application_letter" class="form-control" required>
+            <div class="form-text">Upload surat ajuan izin penelitian mata kuliah yang telah diberi TTD oleh dosen pengampu.</div>
+            <div class="form-text">Format file berupa PDF, maksimal 2MB.</div>
           </div>
         </div>
 
-        <div class="row mb-4">
-          <h5 class="fw-bold">Mahasiswa 4</h5>
+        <div class="row mb-3">
+          <h5 class="fw-bold">Informasi Penelitian</h5>
           <div class="col">
-            <label class="form-label">Nama Lengkap</label>
-            <input type="text" name="name[]" class="form-control">
+            <label class="form-label">Keperluan Penelitian <span class="text-danger">*</span></label>
+            <input type="text" name="research_purpose" class="form-control" required>
           </div>
           <div class="col">
-            <label class="form-label">NPM Mahasiswa</label>
-            <input type="text" name="registration_number[]" class="form-control">
+            <label class="form-label">Judul Penelitian <span class="text-danger">*</span></label>
+            <input type="text" name="research_title" class="form-control" required>
           </div>
         </div>
 
@@ -124,33 +128,6 @@
           <div class="col">
             <label class="form-label">Nama Bagian/Divisi <span class="text-danger">*</span></label>
             <input type="text" name="company_division" class="form-control" required>
-          </div>
-        </div>
-
-        <div class="row mb-3">
-          <div class="col">
-            <label class="form-label">Nomor Telfon Perusahaan <span class="text-danger">*</span></label>
-            <input type="text" name="company_phone" class="form-control" required>
-          </div>
-          <div class="col">
-            <label class="form-label">Tanggal Mulai PKL <span class="text-danger">*</span></label>
-            <input type="date" name="starting_date" class="form-control" required>
-          </div>
-        </div>
-
-        <div class="row mb-4">
-          <div class="col">
-            <label class="form-label">Alamat Perusahaan <span class="text-danger">*</span></label>
-            <input type="text" name="company_address" class="form-control" required>
-          </div>
-        </div>
-
-        <div class="row mb-3">
-          <h5 class="fw-bold">Catatan Lain</h5>
-          <div class="col">
-            <label class="form-label">Catatan Khusus Untuk Staff</label>
-            <textarea name="note" rows="5" class="form-control"></textarea>
-            <div class="form-text">Perihal atau keterangan lain yang perlu ditambahkan dalam ajuan. Boleh dikosongkan</div>
           </div>
         </div>
 

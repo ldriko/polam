@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Website\SuratPengantar\PklController;
 use App\Http\Controllers\Website\SuratPengantar\SkripsiController;
+use App\Http\Controllers\Website\SuratPengantar\PenelitianMatkulController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,13 @@ Route::middleware('auth')->group(function () {
             Route::get('/', [SkripsiController::class, 'index'])->name('index');
             Route::post('/', [SkripsiController::class, 'store'])->name('store');
             Route::get('/preview/{submission}', [SkripsiController::class, 'preview'])->name('preview');
+        });
+
+        // Bagian Penelitian Matkul
+        Route::group(['prefix' => 'penelitian-matkul', 'as' => 'penelitian-matkul.'], function () {
+            Route::get('/', [PenelitianMatkulController::class, 'index'])->name('index');
+            Route::post('/', [PenelitianMatkulController::class, 'store'])->name('store');
+            // Route::get('/preview/{submission}', [PenelitianMatkulController::class, 'preview'])->name('preview');
         });
     });
 });

@@ -41,14 +41,7 @@
             <li><a href="#">Cuti/Transfer/Undur Diri</a></li>
           </ul>
         </li>
-        <li class="dropdown"><a href="#"><span>Yudisium</span> <i class="bi bi-chevron-down"></i></a>
-          <ul>
-            <li><a href="#">Lembar Pengesahan</a></li>
-            <li><a href="#">Registrasi Yudisium</a></li>
-            <li><a href="#">Album Yudisium</a></li>
-            <li><a href="#">Kuisioner Pelayanan</a></li>
-          </ul>
-        </li>
+        <li><a href="https://uyus.igsindonesia.org" target="_blank"><span>Yudisium</span></a></li>
         @if(auth()->user())
             <li><a class="getstarted scrollto" href="{{ route('dashboard') }}">Profil</a></li>
         @else

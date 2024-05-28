@@ -44,7 +44,7 @@
 
         <div class="card">
           <div class="card-header">
-            <h4>Kelompok PKL</h4>
+            <h4>Informasi Kelompok</h4>
           </div>
           <div class="card-body">
             @foreach($data->name as $key => $name)
@@ -181,10 +181,10 @@
                   <div class="form-group">
                     <label>Catatan Approval</label>
                     <textarea
-                      name="{{ Auth::guard('employee')->user()->position->AllowedToApprove('pkl') ? 'note':'' }}"
+                      name="{{ Auth::guard('employee')->user()->position->AllowedToApprove('penelitian-matkul') ? 'note':'' }}"
                       rows="20"
                       class="form-control"
-                      {{ $submission->isAvailableToApproved && Auth::guard('employee')->user()->position->AllowedToApprove('pkl') && !$submission->rejected_at ? '':'disabled' }}
+                      {{ $submission->isAvailableToApproved && Auth::guard('employee')->user()->position->AllowedToApprove('penelitian-matkul') && !$submission->rejected_at ? '':'disabled' }}
                     >{{ $submission->approved_note }}</textarea>
                     @if($submission->approved_at)
                       <small id="passwordHelpBlock" class="form-text text-muted">
@@ -214,7 +214,7 @@
               @endif
 
               <div class="row justify-content-end">
-                @if($submission->isAvailableToRejected(Auth::guard('employee')->user()->position, 'pkl'))
+                @if($submission->isAvailableToRejected(Auth::guard('employee')->user()->position, 'penelitian-matkul'))
                   <div class="col-4 text-right">
                     <button type="submit" name="type" value="rejected" class="btn btn-lg btn-danger form-control">Tolak</button>
                   </div>
@@ -227,7 +227,7 @@
                     </div>
                   @endif
 
-                  @if($submission->isAvailableToApproved && Auth::guard('employee')->user()->position->AllowedToApprove('pkl'))
+                  @if($submission->isAvailableToApproved && Auth::guard('employee')->user()->position->AllowedToApprove('penelitian-matkul'))
                     <div class="col-4 text-right">
                       <button type="submit" name="type" value="approved" class="btn btn-lg btn-primary form-control {{ ($submission->approved_at != null) ? 'disabled':'' }}">Setujui</button>
                     </div>

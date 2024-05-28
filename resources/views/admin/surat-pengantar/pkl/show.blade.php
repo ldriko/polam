@@ -52,7 +52,7 @@
 
         <div class="card">
           <div class="card-header">
-            <h4>Kelompok PKL</h4>
+            <h4>Informasi Kelompok</h4>
           </div>
           <div class="card-body">
             @foreach($data->name as $key => $name)

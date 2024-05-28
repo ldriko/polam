@@ -52,6 +52,9 @@ class EmployeePosition extends Model
             case 'skripsi': // skripsi hanya boleh: admin, dekan, wadek-1
                 return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[2]]);
                 break;
+            case 'penelitian-matkul': // penelitian matkul hanya boleh: admin, dekan, wadek-1
+                return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[2]]);
+                break;
             default:
                 return false;
                 break;

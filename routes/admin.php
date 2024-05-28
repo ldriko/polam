@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\SuratPengantar\PklController;
 use App\Http\Controllers\Admin\SuratPengantar\SkripsiController;
+use App\Http\Controllers\Admin\SuratPengantar\PenelitianMatkulController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +36,10 @@ Route::group(['middleware' => 'auth.employee'], function () {
         Route::get('skripsi', [SkripsiController::class, 'index'])->name('skripsi.index');
         Route::get('skripsi/{submission}', [SkripsiController::class, 'show'])->name('skripsi.show');
         Route::post('skripsi/{submission}', [SkripsiController::class, 'update'])->name('skripsi.update');
+
+        // Bagian Penelitian Matkul
+        Route::get('penelitian-matkul', [PenelitianMatkulController::class, 'index'])->name('penelitian-matkul.index');
+        Route::get('penelitian-matkul/{submission}', [PenelitianMatkulController::class, 'show'])->name('penelitian-matkul.show');
+        Route::post('penelitian-matkul/{submission}', [PenelitianMatkulController::class, 'update'])->name('penelitian-matkul.update');
     });
 });

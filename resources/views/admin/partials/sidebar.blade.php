@@ -8,7 +8,7 @@
     <ul class="dropdown-menu">
       <li><a class="nav-link" href="{{ route('admin.surat-pengantar.pkl.index') }}">Praktek Kerja Lapangan</a></li>
       <li><a class="nav-link" href="{{ route('admin.surat-pengantar.skripsi.index') }}">Penelitian Skripsi</a></li>
-      <li><a class="nav-link" href="#">Penelitian Mata Kuliah</a></li>
+      <li><a class="nav-link" href="{{ route('admin.surat-pengantar.penelitian-matkul.index') }}">Penelitian Mata Kuliah</a></li>
     </ul>
   </li>
 </ul>

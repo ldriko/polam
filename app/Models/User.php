@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Department;
+use Carbon\Carbon;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -47,5 +48,16 @@ class User extends Authenticatable implements MustVerifyEmail
 
     function department() {
         return $this->belongsTo(Department::class, 'department_id', 'id');
+    }
+
+    function getAcademicYear() {
+        $now = Carbon::now();
+        $currentYear = $now->year;
+        $currentMonth = $now->month;
+
+        if ($currentMonth < 8) {
+            $currentYear -= 1;
+        }
+        return $currentYear.' - '.$currentYear+1;
     }
 }

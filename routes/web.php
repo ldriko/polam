@@ -2,9 +2,14 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
+// Controller Surat Pengantar
 use App\Http\Controllers\Website\SuratPengantar\PklController;
 use App\Http\Controllers\Website\SuratPengantar\SkripsiController;
 use App\Http\Controllers\Website\SuratPengantar\PenelitianMatkulController;
+
+// Controller Surat Keterangan
+use App\Http\Controllers\Website\SuratKeterangan\AktifKuliahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +60,16 @@ Route::middleware('auth')->group(function () {
             Route::get('/', [PenelitianMatkulController::class, 'index'])->name('index');
             Route::post('/', [PenelitianMatkulController::class, 'store'])->name('store');
             Route::get('/preview/{submission}', [PenelitianMatkulController::class, 'preview'])->name('preview');
+        });
+    });
+
+    // Bagian Surat Keterangan
+    Route::group(['prefix' => 'surat-keterangan', 'as' => 'surat-keterangan.'], function () {
+        // Bagian Aktif Kuliah
+        Route::group(['prefix' => 'aktif-kuliah', 'as' => 'aktif-kuliah.'], function () {
+            Route::get('/', [AktifKuliahController::class, 'index'])->name('index');
+            Route::post('/', [AktifKuliahController::class, 'store'])->name('store');
+            // Route::get('/preview/{submission}', [AktifKuliahController::class, 'preview'])->name('preview');
         });
     });
 });

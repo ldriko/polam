@@ -54,7 +54,7 @@ Route::middleware('auth')->group(function () {
         Route::group(['prefix' => 'penelitian-matkul', 'as' => 'penelitian-matkul.'], function () {
             Route::get('/', [PenelitianMatkulController::class, 'index'])->name('index');
             Route::post('/', [PenelitianMatkulController::class, 'store'])->name('store');
-            // Route::get('/preview/{submission}', [PenelitianMatkulController::class, 'preview'])->name('preview');
+            Route::get('/preview/{submission}', [PenelitianMatkulController::class, 'preview'])->name('preview');
         });
     });
 });

@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Surat Pengantar PKL</title>
+    <title>Surat Pengantar Penelitian Mata Kuliah</title>
 
     <style>
         .d-block {
@@ -118,7 +118,7 @@
                             <tr>
                                 <td>Perihal</td>
                                 <td>:</td>
-                                <td class="bold underline">Praktek Kerja Lapangan</td>
+                                <td class="bold underline">Penelitian Mata Kuliah</td>
                             </tr>
                         </table>
                     </td>
@@ -153,7 +153,7 @@
         </section>
 
         <section class="px-50 mt-50">
-            <p class="text-justify text-indent lh-1-5">Dalam rangka menunjang kegiatan Akademik Mahasiswa Fakultas Ilmu Komputer Universitas Pembangunan Nasional "Veteran" Jawa Timur, yang melaksanakan Praktek Kerja Lapangan.</p>
+            <p class="text-justify text-indent lh-1-5">Dalam rangka menunjang kegiatan Akademik Mahasiswa Fakultas Ilmu Komputer Universitas Pembangunan Nasional "Veteran" Jawa Timur, yang melaksanakan Penelitian Mata Kuliah.</p>
             <p class="text-justify text-indent lh-1-5">Sehubungan dengan kegiatan tersebut, maka dengan ini diajukan mahasiswa Fakultas Ilmu Komputer <span class="bold underline capitalize">Program Studi {{ $submission->user->department->name }}</span> yang bernama:</p>
             <table class="w-100 ml-30">
                 @foreach ($data['name'] as $key => $name)
@@ -165,7 +165,7 @@
                     @endif
                 @endforeach
             </table>
-            <p class="text-justify text-indent lh-1-5">Mohon diberi ijin untuk keperluan pengumpulan data untuk referensi tugas Praktek Kerja Lapangan. Demikian atas kerja samanya, disampaikan terima kasih.</p>
+            <p class="text-justify text-indent lh-1-5">Mohon diberi ijin untuk keperluan pengumpulan data untuk referensi tugas Penelitian Mata Kuliah. Demikian atas kerja samanya, disampaikan terima kasih.</p>
         </section>
 
         <section class="px-50 mt-50">

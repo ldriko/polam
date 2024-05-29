@@ -46,6 +46,7 @@ class EmployeePosition extends Model
 
     function allowedToApprove($type) {
         switch ($type) {
+            // Bagian Surat Pengantar
             case 'pkl': // pkl hanya boleh: admin, dekan, wadek-3
                 return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[4]]);
                 break;
@@ -55,6 +56,13 @@ class EmployeePosition extends Model
             case 'penelitian-matkul': // penelitian matkul hanya boleh: admin, dekan, wadek-1
                 return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[2]]);
                 break;
+
+            // Bagian Surat Keterangan
+            case 'aktif-kuliah': // aktif kuliah hanya boleh: admin, dekan, wadek-3
+                return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[4]]);
+                break;
+
+            // Default
             default:
                 return false;
                 break;

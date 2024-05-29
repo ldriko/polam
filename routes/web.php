@@ -69,7 +69,7 @@ Route::middleware('auth')->group(function () {
         Route::group(['prefix' => 'aktif-kuliah', 'as' => 'aktif-kuliah.'], function () {
             Route::get('/', [AktifKuliahController::class, 'index'])->name('index');
             Route::post('/', [AktifKuliahController::class, 'store'])->name('store');
-            // Route::get('/preview/{submission}', [AktifKuliahController::class, 'preview'])->name('preview');
+            Route::get('/preview/{submission}', [AktifKuliahController::class, 'preview'])->name('preview');
         });
     });
 });

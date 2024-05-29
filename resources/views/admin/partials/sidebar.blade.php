@@ -4,11 +4,17 @@
 
   <li class="menu-header">Pengajuan</li>
   <li class="nav-item dropdown">
-    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Surat Pengantar</span></a>
+    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="far fa-file-powerpoint"></i> <span>Surat Pengantar</span></a>
     <ul class="dropdown-menu">
       <li><a class="nav-link" href="{{ route('admin.surat-pengantar.pkl.index') }}">Praktek Kerja Lapangan</a></li>
       <li><a class="nav-link" href="{{ route('admin.surat-pengantar.skripsi.index') }}">Penelitian Skripsi</a></li>
       <li><a class="nav-link" href="{{ route('admin.surat-pengantar.penelitian-matkul.index') }}">Penelitian Mata Kuliah</a></li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown">
+    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file-signature"></i> <span>Surat Keterangan</span></a>
+    <ul class="dropdown-menu">
+      <li><a class="nav-link" href="{{ route('admin.surat-keterangan.aktif-kuliah.index') }}">Aktif Kuliah</a></li>
     </ul>
   </li>
 </ul>

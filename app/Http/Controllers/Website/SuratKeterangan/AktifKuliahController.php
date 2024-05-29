@@ -68,6 +68,7 @@ class AktifKuliahController extends Controller
 
         // Prepare PDF nya
         $file = view('pdf.surat-keterangan.aktif-kuliah.index', compact('submission'))->render();
+        return $file;
         return Pdf::loadHTML($file)->setPaper('a4', 'potrait')->setWarnings(false)->stream();
     }
 }

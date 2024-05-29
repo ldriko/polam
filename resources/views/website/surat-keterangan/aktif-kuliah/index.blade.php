@@ -49,7 +49,7 @@
           </td>
           <td>
             @if($datum->approved_at)
-                <a href="{{ route('surat-pengantar.pkl.preview', $datum->id) }}" target="_blank" class="btn btn-primary">Buka</a>
+                <a href="{{ route('surat-keterangan.aktif-kuliah.preview', $datum->id) }}" target="_blank" class="btn btn-primary">Buka</a>
             @endif
           </td>
         </tr>
@@ -62,7 +62,7 @@
         <h2>Surat Keterangan Aktif Kuliah</h2>
         <p>Form Pengajuan</p>
       </header>
-      <form action="{{ route('surat-pengantar.pkl.store') }}" method="post">
+      <form action="{{ route('surat-keterangan.aktif-kuliah.store') }}" method="post" enctype="multipart/form-data">
         @foreach($errors->all() as $message)
           {{ $message }}
         @endforeach
@@ -89,7 +89,7 @@
           </div>
           <div class="col">
             <label class="form-label">Semester <span class="text-danger">*</span></label>
-            <input type="number" min="1" max="14" name="semester" class="form-control">
+            <input type="number" min="1" max="14" name="semester" class="form-control" required>
           </div>
         </div>
 
@@ -119,11 +119,15 @@
         </div>
 
         <div class="row mb-3">
-          <h5 class="fw-bold">Catatan Lain</h5>
+          <h5 class="fw-bold">Informasi Data Pendukung</h5>
           <div class="col">
-            <label class="form-label">Catatan Khusus Untuk Staff</label>
-            <textarea name="note" rows="5" class="form-control"></textarea>
-            <div class="form-text">Perihal atau keterangan lain yang perlu ditambahkan dalam ajuan. Boleh dikosongkan</div>
+            <label class="form-label">Keperluan <span class="text-danger">*</span></label>
+            <input type="text" name="used_for" class="form-control" required>
+          </div>
+          <div class="col">
+            <label class="form-label">Bukti Re-Registrasi <span class="text-danger">*</span></label>
+            <input type="file" name="proof_re_registration" class="form-control" required>
+            <div class="form-text">Format file berupa PDF, maksimal 2MB.</div>
           </div>
         </div>
 

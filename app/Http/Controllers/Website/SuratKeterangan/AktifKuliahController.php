@@ -17,21 +17,29 @@ class AktifKuliahController extends Controller
 
     function store(Request $request) {
         $request->validate([
-            'name' => ['required', 'array', 'min:1'],
-            'registration_number' => ['required', 'array', 'min:1'],
-            'company_name' => ['required', 'string'],
-            'company_division' => ['required', 'string'],
-            'company_phone' => ['required', 'numeric'],
-            'starting_date' => ['required', 'date'],
-            'company_address' => ['required', 'string'],
-            'note' => ['nullable', 'string'],
+            'name' => ['required', 'string'],
+            'registration_number' => ['required', 'string'],
+            'department' => ['required', 'string'],
+            'academic_year' => ['required', 'string'],
+            'semester' => ['required', 'integer', 'between:1,14'],
+            'parent_name' => ['required', 'string'],
+            'parent_company_name' => ['required', 'string'],
+            'parent_employee_number' => ['nullable', 'string'],
+            'parent_employee_position' => ['nullable', 'string'],
+            'used_for' => ['required', 'string'],
+            'proof_re_registration' => ['required', 'file', 'mimes:pdf', 'max:2048'],
         ]);
 
-        foreach ($request->name as $key => $name) {
-            if ($name != null && $request->registration_number[$key] == null) {
-                return back()->withErrors(['registration_number' => 'NPM tidak boleh kosong jika nama sudah di isi'])->withInput();
-            } else if ($name == null && $request->registration_number[$key] != null) {
-                return back()->withErrors(['registration_number' => 'Nama tidak boleh kosong jika NPM sudah di isi'])->withInput();
+        // upload pdf dulu
+        if ($request->file('proof_re_registration')->isValid()) {
+            $path = $request->proof_re_registration->store('surat-keterangan/aktif-kuliah');
+            if ($path) {
+                $request->merge(['proof_re_registration_path' => $path]);
+            } else {
+                return redirect()->route('surat-keterangan.aktif-kuliah.index')->with([
+                    'status' => 'error',
+                    'message' => 'Gagal upload surat ajuan',
+                ]);
             }
         }
 

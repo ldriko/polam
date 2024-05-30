@@ -127,7 +127,7 @@
                     <td class="vertical-align-top" width="20px"></td>
                     <td class="vertical-align-top" width="230px">Pangkat / Golongan</td>
                     <td class="vertical-align-top" width="5px">:</td>
-                    <td class="vertical-align-top">231424512521</td>
+                    <td class="vertical-align-top">{{ $submission->approvedByEmployee->rank ?? '-' }} / {{ $submission->approvedByEmployee->class ?? '-' }}</td>
                 </tr>
                 <tr>
                     <td class="vertical-align-top" width="20px"></td>

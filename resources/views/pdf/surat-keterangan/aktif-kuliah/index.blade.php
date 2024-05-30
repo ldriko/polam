@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Surat Pengantar PKL</title>
+    <title>Surat Keterangan Aktif Kuliah</title>
 
     <style>
         .d-block {
@@ -76,6 +76,12 @@
         .mt-20 {
             margin-top: 20px;
         }
+        .mt-30 {
+            margin-top: 30px;
+        }
+        .mt-40 {
+            margin-top: 40px;
+        }
         .mt-50 {
             margin-top: 50px;
         }
@@ -96,80 +102,127 @@
         @include('pdf.partials.kop')
 
         <section class="px-50 mt-20">
-            <table class="w-100">
+            <div class="text-center">
+                <span class="d-block bold underline" style="font-size: 18px;">SURAT KETERANGAN AKTIF KULIAH</span>
+                <span style="font-size: 18px;">Nomor: {{ $submission->formattedLetterNumber }}</span>
+            </div>
+        </section>
+
+        <section class="px-50 mt-20">
+            <p class="text-justify text-indent lh-1-5">Yang bertanda tangan dibawah ini :</p>
+            <table class="w-100 ml-30">
                 <tr>
-                    <td class="vertical-align-top" style="width: 50%;">
-                        <table>
-                            <tr>
-                                <td>Nomor</td>
-                                <td>:</td>
-                                <td class="bold">{{ $submission->formattedLetterNumber }}</td>
-                            </tr>
-                            <tr>
-                                <td>Klasifikasi</td>
-                                <td>:</td>
-                                <td>B I A S A</td>
-                            </tr>
-                            <tr>
-                                <td>Lampiran</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Perihal</td>
-                                <td>:</td>
-                                <td class="bold underline">Praktek Kerja Lapangan</td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td>
-                        <table style="float: right;">
-                            <tr>
-                                <td></td>
-                                <td>Surabaya, {{ Carbon\Carbon::parse($submission->approved_at)->locale('id_ID')->translatedFormat('d F Y') }}</td>
-                            </tr>
-                            <tr><td></td></tr>
-                            <tr><td></td></tr>
-                            <tr class="bold">
-                                <td></td>
-                                <td>Kepada :</td>
-                            </tr>
-                            <tr class="bold">
-                                <td>Yth.</td>
-                                <td>{{ $data['company_division'] }}</td>
-                            </tr>
-                            <tr class="bold">
-                                <td></td>
-                                <td>{{ $data['company_name'] }}</td>
-                            </tr>
-                            <tr class="bold">
-                                <td></td>
-                                <td>di Tempat</td>
-                            </tr>
-                        </table>
-                    </td>
+                    <td class="vertical-align-top" width="20px">1.</td>
+                    <td class="vertical-align-top" width="230px">Nama</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $submission->approvedByEmployee->name }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="20px"></td>
+                    <td class="vertical-align-top" width="230px">{{ $submission->approvedByEmployee->registration_type }}</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $submission->approvedByEmployee->registration_number }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="20px"></td>
+                    <td class="vertical-align-top" width="230px">Pangkat / Golongan</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">231424512521</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="20px"></td>
+                    <td class="vertical-align-top" width="230px">Jabatan</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top capitalize">{{ $submission->approvedByEmployee->position->name }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="20px"></td>
+                    <td class="vertical-align-top" width="230px">Pada Universitas</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">UPN "Veteran" Jawa Timur</td>
                 </tr>
             </table>
         </section>
 
-        <section class="px-50 mt-50">
-            <p class="text-justify text-indent lh-1-5">Dalam rangka menunjang kegiatan Akademik Mahasiswa Fakultas Ilmu Komputer Universitas Pembangunan Nasional "Veteran" Jawa Timur, yang melaksanakan Praktek Kerja Lapangan.</p>
-            <p class="text-justify text-indent lh-1-5">Sehubungan dengan kegiatan tersebut, maka dengan ini diajukan mahasiswa Fakultas Ilmu Komputer <span class="bold underline capitalize">Program Studi {{ $submission->user->department->name }}</span> yang bernama:</p>
+        <section class="px-50">
+            <p class="text-justify text-indent lh-1-5">Dengan ini menyatakan yang sesungguhnya bahwa :</p>
             <table class="w-100 ml-30">
-                @foreach ($data['name'] as $key => $name)
-                    @if ($name != null && $data['registration_number'][$key] != null)
-                        <tr class="bold">
-                            <td width="50%">{{ $name }}</td>
-                            <td>NPM. {{ $data['registration_number'][$key] }}</td>
-                        </tr>
-                    @endif
-                @endforeach
+                <tr>
+                    <td class="vertical-align-top" width="20px">2.</td>
+                    <td class="vertical-align-top" width="230px">Nama</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $data['name'] }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="20px"></td>
+                    <td class="vertical-align-top" width="230px">NPM</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $data['registration_number'] }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="20px"></td>
+                    <td class="vertical-align-top" width="230px">Program Studi</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $data['department'] }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="20px"></td>
+                    <td class="vertical-align-top" width="230px">Semester</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $data['semester'] }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="20px"></td>
+                    <td class="vertical-align-top" width="230px">Pada Tahun Akademik</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $data['academic_year'] }}</td>
+                </tr>
             </table>
-            <p class="text-justify text-indent lh-1-5">Mohon diberi ijin untuk keperluan pengumpulan data untuk referensi tugas Praktek Kerja Lapangan. Demikian atas kerja samanya, disampaikan terima kasih.</p>
         </section>
 
-        <section class="px-50 mt-50">
+        <section class="px-50">
+            <p class="text-justify text-indent lh-1-5">Wali anak tersebut :</p>
+            <table class="w-100 ml-30">
+                <tr>
+                    <td class="vertical-align-top" width="20px">3.</td>
+                    <td class="vertical-align-top" width="230px">Nama</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $data['parent_name'] }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="20px"></td>
+                    <td class="vertical-align-top" width="230px">NRP / NIP</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $data['parent_employee_number'] ?? '-' }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="20px"></td>
+                    <td class="vertical-align-top" width="230px">Pangkat / Golongan</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $data['parent_employee_position'] ?? '-' }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="20px"></td>
+                    <td class="vertical-align-top" width="230px">Instansi</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $data['parent_company_name'] }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="20px"></td>
+                    <td class="vertical-align-top" width="230px">Keperluan</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $data['used_for'] }}</td>
+                </tr>
+            </table>
+            <p class="text-justify text-indent lh-1-5">Demikian surat keterangan ini dibuat dengan sesungguhnya.</p>
+        </section>
+
+        <section class="px-50 mt-30">
             <table class="w-100">
+                <tr class="text-center">
+                    <td class="w-50"></td>
+                    <td class="bold capitalize">Surabaya, {{ Carbon\Carbon::parse($submission->approved_at)->locale('id_ID')->translatedFormat('d F Y') }}</td>
+                </tr>
                 <tr class="text-center">
                     <td class="w-50"></td>
                     <td class="bold capitalize">{{ $submission->approvedByEmployee->position->name }}</td>

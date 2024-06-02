@@ -25,7 +25,7 @@
         <li class="dropdown"><a href="#"><span>Surat Keterangan</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="{{ route('surat-keterangan.aktif-kuliah.index') }}">Aktif Kuliah</a></li>
-            <li><a href="#">Bebas Sanksi Akademik</a></li>
+            <li><a href="{{ route('surat-keterangan.bebas-sanksi-akademik.index') }}">Bebas Sanksi Akademik</a></li>
           </ul>
         </li>
         <li class="dropdown"><a href="#"><span>Surat Rekomendasi</span> <i class="bi bi-chevron-down"></i></a>

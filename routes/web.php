@@ -10,6 +10,7 @@ use App\Http\Controllers\Website\SuratPengantar\PenelitianMatkulController;
 
 // Controller Surat Keterangan
 use App\Http\Controllers\Website\SuratKeterangan\AktifKuliahController;
+use App\Http\Controllers\Website\SuratKeterangan\BebasSanksiAkademikController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +71,13 @@ Route::middleware('auth')->group(function () {
             Route::get('/', [AktifKuliahController::class, 'index'])->name('index');
             Route::post('/', [AktifKuliahController::class, 'store'])->name('store');
             Route::get('/preview/{submission}', [AktifKuliahController::class, 'preview'])->name('preview');
+        });
+
+        // Bagian Bebas Sanksi Akademik
+        Route::group(['prefix' => 'bebas-sanksi-akademik', 'as' => 'bebas-sanksi-akademik.'], function () {
+            Route::get('/', [BebasSanksiAkademikController::class, 'index'])->name('index');
+            Route::post('/', [BebasSanksiAkademikController::class, 'store'])->name('store');
+            Route::get('/preview/{submission}', [BebasSanksiAkademikController::class, 'preview'])->name('preview');
         });
     });
 });

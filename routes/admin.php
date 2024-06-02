@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\SuratPengantar\PenelitianMatkulController;
 
 // Bagian Surat Keterangan
 use App\Http\Controllers\Admin\SuratKeterangan\AktifKuliahController;
+use App\Http\Controllers\Admin\SuratKeterangan\BebasSanksiAkademikController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,5 +56,10 @@ Route::group(['middleware' => 'auth.employee'], function () {
         Route::get('aktif-kuliah', [AktifKuliahController::class, 'index'])->name('aktif-kuliah.index');
         Route::get('aktif-kuliah/{submission}', [AktifKuliahController::class, 'show'])->name('aktif-kuliah.show');
         Route::post('aktif-kuliah/{submission}', [AktifKuliahController::class, 'update'])->name('aktif-kuliah.update');
+
+        // Bagian Aktif Kuliah
+        Route::get('bebas-sanksi-akademik', [BebasSanksiAkademikController::class, 'index'])->name('bebas-sanksi-akademik.index');
+        Route::get('bebas-sanksi-akademik/{submission}', [BebasSanksiAkademikController::class, 'show'])->name('bebas-sanksi-akademik.show');
+        Route::post('bebas-sanksi-akademik/{submission}', [BebasSanksiAkademikController::class, 'update'])->name('bebas-sanksi-akademik.update');
     });
 });

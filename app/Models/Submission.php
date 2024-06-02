@@ -33,6 +33,7 @@ class Submission extends Model
         'skripsi', // 1. Surat pengajuan skripsi
         'penelitian-matkul', // 2. Surat pengantar penelitian matkul
         'aktif-kuliah', // 3. Surat keterangan aktif kuliah
+        'bebas-sanksi-akademik', // 4. Surat Keterangan Bebas Sanksi Akademik
     ];
 
     public const ROMAN_MONTH = [

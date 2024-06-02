@@ -61,6 +61,9 @@ class EmployeePosition extends Model
             case 'aktif-kuliah': // aktif kuliah hanya boleh: admin, dekan, wadek-3
                 return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[4]]);
                 break;
+            case 'bebas-sanksi-akademik': // bebas sanksi akademik hanya boleh: admin, dekan, wadek-3
+                return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[4]]);
+                break;
 
             // Default
             default:

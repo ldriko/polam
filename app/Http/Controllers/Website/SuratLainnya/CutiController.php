@@ -50,6 +50,7 @@ class CutiController extends Controller
 
         // Prepare PDF nya
         $file = view('pdf.surat-lainnya.cuti.index', compact('submission'))->render();
+        // return $file;
         return Pdf::loadHTML($file)->setPaper('a4', 'potrait')->setWarnings(false)->stream();
     }
 }

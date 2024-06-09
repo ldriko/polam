@@ -12,6 +12,9 @@ use App\Http\Controllers\Website\SuratPengantar\PenelitianMatkulController;
 use App\Http\Controllers\Website\SuratKeterangan\AktifKuliahController;
 use App\Http\Controllers\Website\SuratKeterangan\BebasSanksiAkademikController;
 
+// Controller Surat Lainnya
+use App\Http\Controllers\Website\SuratLainnya\CutiController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -78,6 +81,16 @@ Route::middleware('auth')->group(function () {
             Route::get('/', [BebasSanksiAkademikController::class, 'index'])->name('index');
             Route::post('/', [BebasSanksiAkademikController::class, 'store'])->name('store');
             Route::get('/preview/{submission}', [BebasSanksiAkademikController::class, 'preview'])->name('preview');
+        });
+    });
+
+    // Bagian Surat Lainnya
+    Route::group(['prefix' => 'surat-lainnya', 'as' => 'surat-lainnya.'], function () {
+        // Bagian Cuti
+        Route::group(['prefix' => 'cuti', 'as' => 'cuti.'], function () {
+            Route::get('/', [CutiController::class, 'index'])->name('index');
+            Route::post('/', [CutiController::class, 'store'])->name('store');
+            Route::get('/preview/{submission}', [CutiController::class, 'preview'])->name('preview');
         });
     });
 });

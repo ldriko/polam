@@ -6,10 +6,10 @@
   <div class="container">
     <ol>
       <li><a href="{{ route('index') }}">Beranda</a></li>
-      <li>Surat Keterangan</li>
-      <li>Bebas Sanksi Akademik</li>
+      <li>Surat Lainnya</li>
+      <li>Cuti</li>
     </ol>
-    <h2>Bebas Sanksi Akademik</h2>
+    <h2>Cuti</h2>
 
   </div>
 </section><!-- End Breadcrumbs -->
@@ -17,12 +17,12 @@
 <section class="inner-page">
   <div class="container">
     <header class="section-header">
-      <h2>Surat Keterangan Bebas Sanksi Akademik</h2>
+      <h2>Surat Lainnya Cuti</h2>
       <p>Riwayat Pengajuan</p>
     </header>
 
     <div class="d-flex align-items-center gap-2 mb-2">
-      <span>Unduh panduan pengajuan Surat Keterangan Bebas Sanksi Akademik</span>
+      <span>Unduh panduan pengajuan Cuti</span>
       <button class="btn btn-secondary">Unduh</button>
     </div>
 
@@ -49,7 +49,7 @@
           </td>
           <td>
             @if($datum->approved_at)
-                <a href="{{ route('surat-keterangan.bebas-sanksi-akademik.preview', $datum->id) }}" target="_blank" class="btn btn-primary">Buka</a>
+                <a href="{{ route('surat-lainnya.cuti.preview', $datum->id) }}" target="_blank" class="btn btn-primary">Buka</a>
             @endif
           </td>
         </tr>
@@ -59,10 +59,10 @@
 
     <div class="mt-5">
       <header class="section-header">
-        <h2>Surat Keterangan Bebas Sanksi Akademik</h2>
+        <h2>Surat Lainnya Cuti</h2>
         <p>Form Pengajuan</p>
       </header>
-      <form action="{{ route('surat-keterangan.bebas-sanksi-akademik.store') }}" method="post">
+      <form action="{{ route('surat-lainnya.cuti.store') }}" method="post">
         @foreach($errors->all() as $message)
           {{ $message }}
         @endforeach
@@ -84,18 +84,31 @@
             <input type="text" name="department" class="form-control" value="{{ Auth::user()->department->name }}" readonly>
           </div>
           <div class="col">
-            <label class="form-label">Tempat Lahir <span class="text-danger">*</span></label>
-            <input type="text" name="birth_place" class="form-control" value="{{ Auth::user()->birth_place }}" readonly>
+            <label class="form-label">Semester <span class="text-danger">*</span></label>
+            <select name="semester" class="form-control" required>
+                <option value="">Pilih Semester...</option>
+                <option value="genap">Genap</option>
+                <option value="ganjil">Ganjil</option>
+            </select>
           </div>
           <div class="col">
-            <label class="form-label">Tanggal Lahir <span class="text-danger">*</span></label>
-            <input type="text" name="birth_date" class="form-control" value="{{ Carbon\Carbon::parse(Auth::user()->birth_date)->locale('id_ID')->translatedFormat('d F Y') }}" readonly>
+            <label class="form-label">Tahun Ajaran <span class="text-danger">*</span></label>
+            <select name="academic_year" class="form-control" required>
+                <option value="">Pilih Tahun Ajaran...</option>
+                @php
+                    $now = Carbon\Carbon::now()->subYear(1);
+                @endphp
+                @for ($i = 0; $i < 5; $i++)
+                    <option value="{{ $now->year + $i . "/" . $now->year + $i + 1}}">{{ $now->year + $i . "/" . $now->year + $i + 1}}</option>
+                @endfor
+            </select>
           </div>
         </div>
         <div class="row mb-4">
           <div class="col">
-            <label class="form-label">Alamat Lengkap <span class="text-danger">*</span></label>
-            <input type="text" name="address" class="form-control" value="{{ Auth::user()->address }}" readonly>
+            <label class="form-label">Nama Orang Tua <span class="text-danger">*</span></label>
+            <input type="text" name="parent_name" class="form-control" required>
+            <div class="form-text">Orang tua yang akan bertanda tangan.</div>
           </div>
         </div>
 

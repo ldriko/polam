@@ -34,6 +34,7 @@ class Submission extends Model
         'penelitian-matkul', // 2. Surat pengantar penelitian matkul
         'aktif-kuliah', // 3. Surat keterangan aktif kuliah
         'bebas-sanksi-akademik', // 4. Surat Keterangan Bebas Sanksi Akademik
+        'cuti', // 5. Surat Lainnya cuti
     ];
 
     public const ROMAN_MONTH = [

@@ -38,7 +38,9 @@
         <li class="dropdown"><a href="#"><span>Surat Lainnya</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="#">Berkas Transkrip</a></li>
-            <li><a href="#">Cuti/Transfer/Undur Diri</a></li>
+            <li><a href="{{ route('surat-lainnya.cuti.index') }}">Cuti</a></li>
+            <li><a href="#">Transfer</a></li>
+            <li><a href="#">Undur Diri</a></li>
           </ul>
         </li>
         <li><a href="https://uyus.igsindonesia.org" target="_blank"><span>Yudisium</span></a></li>

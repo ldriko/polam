@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Submission;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Employee\Employee;
 
 class CutiController extends Controller
 {
@@ -48,8 +49,13 @@ class CutiController extends Controller
         // lazy load relasinya biar ringan
         $submission->load('user.department', 'approvedByEmployee');
 
+        // get data tambahan
+        $dekan = Employee::whereHas('position', function ($query) {
+            $query->where('code', 'dekan');
+        })->latest()->first();
+
         // Prepare PDF nya
-        $file = view('pdf.surat-lainnya.cuti.index', compact('submission'))->render();
+        $file = view('pdf.surat-lainnya.cuti.index', compact('submission', 'dekan'))->render();
         // return $file;
         return Pdf::loadHTML($file)->setPaper('a4', 'potrait')->setWarnings(false)->stream();
     }

@@ -218,20 +218,20 @@
                 <tr class="text-center">
                     <td class="bold capitalize">Dekan,</td>
                     <td width="100px"></td>
-                    <td class="bold capitalize">Koorprodi Informatika</td>
+                    <td class="bold capitalize">{{ $submission->approvedByEmployee->position->name }}</td>
                 </tr>
                 <tr class="text-center">
-                    <td class=""><img class="ttd" src="{{ $submission->approvedByEmployee->signatureImage }}" alt="ttd"></td>
+                    <td class=""><img class="ttd" src="{{ $dekan->signatureImage }}" alt="ttd"></td>
                     <td width="100px"></td>
                     <td><img class="ttd" src="{{ $submission->approvedByEmployee->signatureImage }}" alt="ttd"></td>
                 </tr>
                 <tr class="text-center">
-                    <td class="bold underline">{{ $submission->approvedByEmployee->name }}</td>
+                    <td class="bold underline">{{ $dekan->name }}</td>
                     <td width="100px"></td>
                     <td class="bold underline">{{ $submission->approvedByEmployee->name }}</td>
                 </tr>
                 <tr class="text-center">
-                    <td class="bold">{{ $submission->approvedByEmployee->registration_type }}. {{ $submission->approvedByEmployee->registration_number }}</td>
+                    <td class="bold">{{ $dekan->registration_type }}. {{ $dekan->registration_number }}</td>
                     <td width="100px"></td>
                     <td class="bold">{{ $submission->approvedByEmployee->registration_type }}. {{ $submission->approvedByEmployee->registration_number }}</td>
                 </tr>

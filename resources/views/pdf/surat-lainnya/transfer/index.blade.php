@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Surat Lainnya Cuti</title>
+    <title>Surat Lainnya Transfer</title>
 
     <style>
         .d-block {
@@ -125,7 +125,7 @@
                             <tr>
                                 <td>Perihal</td>
                                 <td>:</td>
-                                <td class="bold underline">Permohonan Cuti Akademik</td>
+                                <td class="bold underline">Permohonan Transfer</td>
                             </tr>
                         </table>
                     </td>

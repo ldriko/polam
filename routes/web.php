@@ -14,6 +14,7 @@ use App\Http\Controllers\Website\SuratKeterangan\BebasSanksiAkademikController;
 
 // Controller Surat Lainnya
 use App\Http\Controllers\Website\SuratLainnya\CutiController;
+use App\Http\Controllers\Website\SuratLainnya\TransferController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +92,13 @@ Route::middleware('auth')->group(function () {
             Route::get('/', [CutiController::class, 'index'])->name('index');
             Route::post('/', [CutiController::class, 'store'])->name('store');
             Route::get('/preview/{submission}', [CutiController::class, 'preview'])->name('preview');
+        });
+
+        // Bagian Transfer
+        Route::group(['prefix' => 'transfer', 'as' => 'transfer.'], function () {
+            Route::get('/', [TransferController::class, 'index'])->name('index');
+            Route::post('/', [TransferController::class, 'store'])->name('store');
+            Route::get('/preview/{submission}', [TransferController::class, 'preview'])->name('preview');
         });
     });
 });

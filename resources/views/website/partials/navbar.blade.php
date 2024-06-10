@@ -39,7 +39,7 @@
           <ul>
             <li><a href="#">Berkas Transkrip</a></li>
             <li><a href="{{ route('surat-lainnya.cuti.index') }}">Cuti</a></li>
-            <li><a href="#">Transfer</a></li>
+            <li><a href="{{ route('surat-lainnya.transfer.index') }}">Transfer</a></li>
             <li><a href="#">Undur Diri</a></li>
           </ul>
         </li>

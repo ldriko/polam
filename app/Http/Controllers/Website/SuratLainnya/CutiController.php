@@ -24,6 +24,7 @@ class CutiController extends Controller
             'semester' => ['required', 'string'],
             'academic_year' => ['required', 'string'],
             'parent_name' => ['required', 'string'],
+            'excuse' => ['required', 'string'],
         ]);
 
         $create = Submission::create([

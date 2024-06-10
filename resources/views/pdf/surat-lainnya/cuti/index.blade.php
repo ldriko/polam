@@ -183,7 +183,7 @@
                     <td class="vertical-align-top">{{ $data['department'] }}</td>
                 </tr>
             </table>
-            <p class="text-justify text-indent lh-1-5">Mengajukan permohonan untuk Cuti Akademik pada semester <span class="bold capitalize">{{ $data['semester'] }}</span> Tahun Akademik {{ $data['academic_year'] }}, dengan alasan ……………………………… Demikian atas perhatiannya disampaikan terima kasih.</p>
+            <p class="text-justify text-indent lh-1-5">Mengajukan permohonan untuk Cuti Akademik pada semester <span class="bold capitalize">{{ $data['semester'] }}</span> Tahun Akademik {{ $data['academic_year'] }}, dengan alasan "{{ $data['excuse'] }}" Demikian atas perhatiannya disampaikan terima kasih.</p>
         </section>
 
         <section class="px-50 mt-20">

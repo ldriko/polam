@@ -69,6 +69,15 @@
                 </div>
               </div>
             </div>
+
+            <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label>Alasan Cuti</label>
+                    <input type="text" class="form-control" value="{{ $data->excuse }}" disabled>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
 

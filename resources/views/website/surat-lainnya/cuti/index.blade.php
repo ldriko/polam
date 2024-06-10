@@ -104,11 +104,20 @@
             </select>
           </div>
         </div>
+
         <div class="row mb-4">
           <div class="col">
             <label class="form-label">Nama Orang Tua <span class="text-danger">*</span></label>
             <input type="text" name="parent_name" class="form-control" required>
             <div class="form-text">Orang tua yang akan bertanda tangan.</div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col">
+            <label class="form-label">Alasan Cuti <span class="text-danger">*</span></label>
+            <input type="text" name="excuse" class="form-control" required>
+            <div class="form-text">Alasan ingin mengambil cuti.</div>
           </div>
         </div>
 

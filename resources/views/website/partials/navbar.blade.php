@@ -40,7 +40,7 @@
             <li><a href="#">Berkas Transkrip</a></li>
             <li><a href="{{ route('surat-lainnya.cuti.index') }}">Cuti</a></li>
             <li><a href="{{ route('surat-lainnya.transfer.index') }}">Transfer</a></li>
-            <li><a href="#">Undur Diri</a></li>
+            <li><a href="{{ route('surat-lainnya.pengunduran-diri.index') }}">Pengunduran Diri</a></li>
           </ul>
         </li>
         <li><a href="https://uyus.igsindonesia.org" target="_blank"><span>Yudisium</span></a></li>

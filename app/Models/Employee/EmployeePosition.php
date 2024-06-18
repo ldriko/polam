@@ -72,6 +72,9 @@ class EmployeePosition extends Model
             case 'transfer': // transfer hanya boleh: admin, dekan, wadek-1
                 return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[2]]);
                 break;
+            case 'pengunduran-diri': // pengunduran diri hanya boleh: admin, dekan, wadek-1
+                return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[2]]);
+                break;
 
             // Default
             default:

@@ -36,6 +36,7 @@ class Submission extends Model
         'bebas-sanksi-akademik', // 4. Surat Keterangan Bebas Sanksi Akademik
         'cuti', // 5. Surat Lainnya cuti
         'transfer', // 6. Surat Lainnya Transfer
+        'pengunduran-diri', // 7. Surat Lainnya Pengunduran Diri
     ];
 
     public const ROMAN_MONTH = [

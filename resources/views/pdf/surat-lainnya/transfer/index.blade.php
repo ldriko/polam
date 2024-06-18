@@ -80,11 +80,17 @@
         .mt-20 {
             margin-top: 20px;
         }
+        .mt-30 {
+            margin-top: 30px;
+        }
         .mt-50 {
             margin-top: 50px;
         }
         .ml-30 {
             margin-left: 30px;
+        }
+        .mb-0 {
+            margin-bottom: 0;
         }
         .m-0 {
             margin: 0;
@@ -159,8 +165,8 @@
             </table>
         </section>
 
-        <section class="px-50 mt-30">
-            <p class="text-justify lh-1-5">Yang bertanda tangan dibawah ini :</p>
+        <section class="px-50 mt-20">
+            <p class="text-justify lh-1-5 mb-0">Yang bertanda tangan dibawah ini :</p>
             <table class="w-100 ml-30 lh-1-5">
                 <tr>
                     <td class="vertical-align-top" width="230px">Nama</td>
@@ -183,7 +189,28 @@
                     <td class="vertical-align-top">{{ $data['department'] }}</td>
                 </tr>
             </table>
-            <p class="text-justify text-indent lh-1-5">Mengajukan permohonan untuk Cuti Akademik pada semester <span class="bold capitalize">{{ $data['semester'] }}</span> Tahun Akademik {{ $data['academic_year'] }}, dengan alasan "{{ $data['excuse'] }}" Demikian atas perhatiannya disampaikan terima kasih.</p>
+        </section>
+
+        <section class="px-50">
+            <p class="text-justify lh-1-5 m-0">Mengajukan permohonan untuk transfer kuliah ke :</p>
+            <table class="w-100 ml-30 lh-1-5">
+                <tr>
+                    <td class="vertical-align-top" width="230px">Universitas / Institut</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $data['university'] }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="230px">Fakultas</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $data['faculty'] }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="230px">Program Studi</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $data['new_department'] }}</td>
+                </tr>
+            </table>
+            <p class="text-justify lh-1-5 m-0">Demikian atas perhatiannya diucapkan terima kasih.</p>
         </section>
 
         <section class="px-50 mt-20">

@@ -159,7 +159,7 @@
             </table>
         </section>
 
-        <section class="px-50 mt-30">
+        <section class="px-50 mt-20">
             <p class="text-justify lh-1-5">Yang bertanda tangan dibawah ini :</p>
             <table class="w-100 ml-30 lh-1-5">
                 <tr>

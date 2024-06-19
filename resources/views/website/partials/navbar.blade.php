@@ -37,7 +37,7 @@
         </li>
         <li class="dropdown"><a href="#"><span>Surat Lainnya</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
-            <li><a href="#">Berkas Transkrip</a></li>
+            <li><a href="{{ route('surat-lainnya.transkrip.index') }}">Transkrip</a></li>
             <li><a href="{{ route('surat-lainnya.cuti.index') }}">Cuti</a></li>
             <li><a href="{{ route('surat-lainnya.transfer.index') }}">Transfer</a></li>
             <li><a href="{{ route('surat-lainnya.pengunduran-diri.index') }}">Pengunduran Diri</a></li>

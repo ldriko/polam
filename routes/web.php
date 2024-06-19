@@ -13,6 +13,7 @@ use App\Http\Controllers\Website\SuratKeterangan\AktifKuliahController;
 use App\Http\Controllers\Website\SuratKeterangan\BebasSanksiAkademikController;
 
 // Controller Surat Lainnya
+use App\Http\Controllers\Website\SuratLainnya\TranskripController;
 use App\Http\Controllers\Website\SuratLainnya\CutiController;
 use App\Http\Controllers\Website\SuratLainnya\TransferController;
 use App\Http\Controllers\Website\SuratLainnya\PengunduranDiriController;
@@ -88,6 +89,13 @@ Route::middleware('auth')->group(function () {
 
     // Bagian Surat Lainnya
     Route::group(['prefix' => 'surat-lainnya', 'as' => 'surat-lainnya.'], function () {
+        // Bagian Transkrip
+        Route::group(['prefix' => 'transkrip', 'as' => 'transkrip.'], function () {
+            Route::get('/', [TranskripController::class, 'index'])->name('index');
+            Route::post('/', [TranskripController::class, 'store'])->name('store');
+            Route::get('/preview/{submission}', [TranskripController::class, 'preview'])->name('preview');
+        });
+
         // Bagian Cuti
         Route::group(['prefix' => 'cuti', 'as' => 'cuti.'], function () {
             Route::get('/', [CutiController::class, 'index'])->name('index');

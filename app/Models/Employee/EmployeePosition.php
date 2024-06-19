@@ -66,6 +66,9 @@ class EmployeePosition extends Model
                 break;
 
             // Bagian Surat Lainnya
+            case 'transkrip': // transkrip hanya boleh: admin, dekan, wadek-1
+                return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[2]]);
+                break;
             case 'cuti': // cuti hanya boleh: admin, dekan, wadek-1
                 return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[2]]);
                 break;

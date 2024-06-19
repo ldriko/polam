@@ -37,6 +37,7 @@ class Submission extends Model
         'cuti', // 5. Surat Lainnya cuti
         'transfer', // 6. Surat Lainnya Transfer
         'pengunduran-diri', // 7. Surat Lainnya Pengunduran Diri
+        'transkrip' // 8. Surat Lainnya Transkrip
     ];
 
     public const ROMAN_MONTH = [

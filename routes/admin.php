@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\SuratKeterangan\AktifKuliahController;
 use App\Http\Controllers\Admin\SuratKeterangan\BebasSanksiAkademikController;
 
 // Bagian Surat Lainnya
+use App\Http\Controllers\Admin\SuratLainnya\TranskripController;
 use App\Http\Controllers\Admin\SuratLainnya\CutiController;
 use App\Http\Controllers\Admin\SuratLainnya\TransferController;
 use App\Http\Controllers\Admin\SuratLainnya\PengunduranDiriController;
@@ -70,6 +71,11 @@ Route::group(['middleware' => 'auth.employee'], function () {
 
     // Bagian Surat Lainnya
     Route::group(['prefix' => 'surat-lainnya', 'as' => 'surat-lainnya.'], function () {
+        // Bagian Transkrip
+        Route::get('transkrip', [TranskripController::class, 'index'])->name('transkrip.index');
+        Route::get('transkrip/{submission}', [TranskripController::class, 'show'])->name('transkrip.show');
+        Route::post('transkrip/{submission}', [TranskripController::class, 'update'])->name('transkrip.update');
+
         // Bagian Cuti
         Route::get('cuti', [CutiController::class, 'index'])->name('cuti.index');
         Route::get('cuti/{submission}', [CutiController::class, 'show'])->name('cuti.show');

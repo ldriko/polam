@@ -49,7 +49,10 @@
           </td>
           <td>
             @if($datum->approved_at)
-                <a href="{{ route('surat-lainnya.transkrip.preview', $datum->id) }}" target="_blank" class="btn btn-primary">Buka</a>
+              @php
+                $data = json_decode($datum->data);
+              @endphp
+              <a href="{{ asset($data->transkrip_file_path ?? '') }}" target="_blank" class="btn btn-primary {{ $data->transkrip_file_path ?? null ? '':'disabled' }}">Buka</a>
             @endif
           </td>
         </tr>

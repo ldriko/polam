@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\SuratKeterangan\BebasSanksiAkademikController;
 // Bagian Surat Lainnya
 use App\Http\Controllers\Admin\SuratLainnya\CutiController;
 use App\Http\Controllers\Admin\SuratLainnya\TransferController;
+use App\Http\Controllers\Admin\SuratLainnya\PengunduranDiriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,9 +75,14 @@ Route::group(['middleware' => 'auth.employee'], function () {
         Route::get('cuti/{submission}', [CutiController::class, 'show'])->name('cuti.show');
         Route::post('cuti/{submission}', [CutiController::class, 'update'])->name('cuti.update');
 
-        // Bagian Cuti
+        // Bagian Transfer
         Route::get('transfer', [TransferController::class, 'index'])->name('transfer.index');
         Route::get('transfer/{submission}', [TransferController::class, 'show'])->name('transfer.show');
         Route::post('transfer/{submission}', [TransferController::class, 'update'])->name('transfer.update');
+
+        // Bagian Pengunduran Diri
+        Route::get('pengunduran-diri', [PengunduranDiriController::class, 'index'])->name('pengunduran-diri.index');
+        Route::get('pengunduran-diri/{submission}', [PengunduranDiriController::class, 'show'])->name('pengunduran-diri.show');
+        Route::post('pengunduran-diri/{submission}', [PengunduranDiriController::class, 'update'])->name('pengunduran-diri.update');
     });
 });

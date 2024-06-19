@@ -25,6 +25,7 @@
     <ul class="dropdown-menu">
       <li><a class="nav-link" href="{{ route('admin.surat-lainnya.cuti.index') }}">Cuti</a></li>
       <li><a class="nav-link" href="{{ route('admin.surat-lainnya.transfer.index') }}">Transfer</a></li>
+      <li><a class="nav-link" href="{{ route('admin.surat-lainnya.pengunduran-diri.index') }}">Pengunduran Diri</a></li>
     </ul>
   </li>
 </ul>

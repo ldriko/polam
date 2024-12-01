@@ -27,17 +27,26 @@ class TranskripController extends Controller
         $now = Carbon::now();
 
         // prepare semester genap
-        $startSemester = Carbon::now()->startOfMonth()->setMonth(1); // 1 Januari
-        $endSemester = Carbon::now()->startOfMonth()->setMonth(6)->endOfMonth(); // 30 Juni
+        $startSemester = Carbon::now()->startOfMonth()->setMonth(2); // 1 Februari Tahun Ini
+        $endSemester = Carbon::now()->startOfMonth()->setMonth(7)->endOfMonth(); // 31 Juli Tahun Ini
 
+        
         // jika bulan sekarang > juni
         if ($now->month > 6 || true) {
             // prepare semester ganjil
-            $startSemester = Carbon::now()->startOfMonth()->setMonth(7); // 1 Juli
-            $endSemester = Carbon::now()->startOfMonth()->setMonth(12)->endOfMonth(); // 31 Desember
+            $startSemester = Carbon::now()->startOfMonth()->setMonth(8); // 1 Agustus Tahun Ini
+            $endSemester = Carbon::now()->startOfMonth()->setMonth(1)->endOfMonth()->addYears(1); // 31 Januari Tahun Depan
         }
 
-        $isAlreadyAsk = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[8])->whereDate('approved_at', '>=', $startSemester)->whereDate('approved_at', '<=', $endSemester)->first();
+        $isAlreadyAsk = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[8])
+        ->where(function ($query) use ($startSemester, $endSemester) {
+            $query->whereNull('approved_at')->whereNull('rejected_at')
+            ->whereDate('created_at', '>=', $startSemester)->whereDate('created_at', '<=', $endSemester);
+        })
+        ->orWhere(function ($query) use ($startSemester, $endSemester) {
+            $query->whereDate('approved_at', '>=', $startSemester)->whereDate('approved_at', '<=', $endSemester);
+        })
+        ->first();
 
         if ($isAlreadyAsk) {
             return redirect()->route('surat-lainnya.transkrip.index')->with([

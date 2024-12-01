@@ -63,3 +63,15 @@
 .badge-danger {
     background-color: var(--danger-bg);
 }
+
+.toast {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    min-width: 300px;
+    z-index: 1000;
+}
+
+.bg-error {
+    background-color: #fc544b;
+}

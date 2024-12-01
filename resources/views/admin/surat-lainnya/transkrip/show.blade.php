@@ -59,7 +59,7 @@
                 <div class="col">
                   <div class="form-group">
                     <label>Upload Berkas Transkrip</label>
-                    <input type="file" class="form-control" name="transkrip_file" {{ Auth::guard('employee')->user()->position->AllowedToVerify ? 'required':'disabled' }}>
+                    <input type="file" class="form-control" name="transkrip_file" {{ Auth::guard('employee')->user()->position->AllowedToVerify ? '':'disabled' }}>
                   </div>
                 </div>
                 <div class="col">

@@ -13,6 +13,9 @@ use App\Http\Controllers\Admin\SuratPengantar\PenelitianMatkulController;
 use App\Http\Controllers\Admin\SuratKeterangan\AktifKuliahController;
 use App\Http\Controllers\Admin\SuratKeterangan\BebasSanksiAkademikController;
 
+// Bagian Surat Rekomendasi
+use App\Http\Controllers\Admin\SuratRekomendasi\BeasiswaController;
+
 // Bagian Surat Lainnya
 use App\Http\Controllers\Admin\SuratLainnya\TranskripController;
 use App\Http\Controllers\Admin\SuratLainnya\CutiController;
@@ -56,7 +59,7 @@ Route::group(['middleware' => 'auth.employee'], function () {
         Route::post('penelitian-matkul/{submission}', [PenelitianMatkulController::class, 'update'])->name('penelitian-matkul.update');
     });
 
-    // Bagian surat keterangan
+    // Bagian Surat Keterangan
     Route::group(['prefix' => 'surat-keterangan', 'as' => 'surat-keterangan.'], function () {
         // Bagian Aktif Kuliah
         Route::get('aktif-kuliah', [AktifKuliahController::class, 'index'])->name('aktif-kuliah.index');
@@ -67,6 +70,14 @@ Route::group(['middleware' => 'auth.employee'], function () {
         Route::get('bebas-sanksi-akademik', [BebasSanksiAkademikController::class, 'index'])->name('bebas-sanksi-akademik.index');
         Route::get('bebas-sanksi-akademik/{submission}', [BebasSanksiAkademikController::class, 'show'])->name('bebas-sanksi-akademik.show');
         Route::post('bebas-sanksi-akademik/{submission}', [BebasSanksiAkademikController::class, 'update'])->name('bebas-sanksi-akademik.update');
+    });
+
+    // Bagian Surat Rekomendasi
+    Route::group(['prefix' => 'surat-rekomendasi', 'as' => 'surat-rekomendasi.'], function () {
+        // Bagian Beasiswa
+        Route::get('beasiswa', [BeasiswaController::class, 'index'])->name('beasiswa.index');
+        Route::get('beasiswa/{submission}', [BeasiswaController::class, 'show'])->name('beasiswa.show');
+        Route::post('beasiswa/{submission}', [BeasiswaController::class, 'update'])->name('beasiswa.update');
     });
 
     // Bagian Surat Lainnya

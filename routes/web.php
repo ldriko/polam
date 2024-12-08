@@ -12,6 +12,9 @@ use App\Http\Controllers\Website\SuratPengantar\PenelitianMatkulController;
 use App\Http\Controllers\Website\SuratKeterangan\AktifKuliahController;
 use App\Http\Controllers\Website\SuratKeterangan\BebasSanksiAkademikController;
 
+// Controller Surat Rekomendasi
+use App\Http\Controllers\Website\SuratRekomendasi\BeasiswaController;
+
 // Controller Surat Lainnya
 use App\Http\Controllers\Website\SuratLainnya\TranskripController;
 use App\Http\Controllers\Website\SuratLainnya\CutiController;
@@ -84,6 +87,16 @@ Route::middleware('auth')->group(function () {
             Route::get('/', [BebasSanksiAkademikController::class, 'index'])->name('index');
             Route::post('/', [BebasSanksiAkademikController::class, 'store'])->name('store');
             Route::get('/preview/{submission}', [BebasSanksiAkademikController::class, 'preview'])->name('preview');
+        });
+    });
+
+    // Bagian Surat Rekomendasi
+    Route::group(['prefix' => 'surat-rekomendasi', 'as' => 'surat-rekomendasi.'], function () {
+        // Bagian Beasiswa
+        Route::group(['prefix' => 'beasiswa', 'as' => 'beasiswa.'], function () {
+            Route::get('/', [BeasiswaController::class, 'index'])->name('index');
+            Route::post('/', [BeasiswaController::class, 'store'])->name('store');
+            Route::get('/preview/{submission}', [BeasiswaController::class, 'preview'])->name('preview');
         });
     });
 

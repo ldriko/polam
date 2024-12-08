@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Surat Keterangan Aktif Kuliah</title>
+    <title>Surat Rekomendasi Beasiswa</title>
 
     <style>
         .d-block {
@@ -25,6 +25,10 @@
         }
         .text-indent {
             text-indent: 30px;
+        }
+        .text-info {
+            font-size: 12px;
+            color: #888;
         }
         .lh-1-5 {
             line-height: 1.5;
@@ -76,24 +80,21 @@
         .mt-20 {
             margin-top: 20px;
         }
-        .mt-30 {
-            margin-top: 30px;
-        }
-        .mt-40 {
-            margin-top: 40px;
-        }
         .mt-50 {
             margin-top: 50px;
         }
         .ml-30 {
             margin-left: 30px;
         }
+        .m-0 {
+            margin: 0;
+        }
         td:empty::after{
             content: "\00a0";
         }
         .ttd {
-            width: 200px;
-            height: auto;
+            width: auto;
+            height: 2cm;
         }
     </style>
 </head>
@@ -103,121 +104,76 @@
 
         <section class="px-50 mt-20">
             <div class="text-center">
-                <span class="d-block bold underline" style="font-size: 18px;">SURAT KETERANGAN AKTIF KULIAH</span>
+                <span class="d-block bold underline" style="font-size: 18px;">SURAT REKOMENDASI</span>
                 <span style="font-size: 18px;">Nomor: {{ $submission->formattedLetterNumber }}</span>
             </div>
         </section>
 
         <section class="px-50 mt-20">
-            <p class="text-justify text-indent lh-1-5">Yang bertanda tangan di bawah ini :</p>
+            <p class="text-justify lh-1-5">Yang bertanda tangan di bawah ini :</p>
             <table class="w-100 ml-30">
                 <tr>
-                    <td class="vertical-align-top" width="20px">1.</td>
                     <td class="vertical-align-top" width="230px">Nama</td>
                     <td class="vertical-align-top" width="5px">:</td>
                     <td class="vertical-align-top">{{ $submission->approvedByEmployee->name }}</td>
                 </tr>
                 <tr>
-                    <td class="vertical-align-top" width="20px"></td>
                     <td class="vertical-align-top" width="230px">{{ $submission->approvedByEmployee->registration_type }}</td>
                     <td class="vertical-align-top" width="5px">:</td>
                     <td class="vertical-align-top">{{ $submission->approvedByEmployee->registration_number }}</td>
                 </tr>
                 <tr>
-                    <td class="vertical-align-top" width="20px"></td>
-                    <td class="vertical-align-top" width="230px">Pangkat / Golongan</td>
-                    <td class="vertical-align-top" width="5px">:</td>
-                    <td class="vertical-align-top">{{ $submission->approvedByEmployee->rank ?? '-' }} / {{ $submission->approvedByEmployee->class ?? '-' }}</td>
-                </tr>
-                <tr>
-                    <td class="vertical-align-top" width="20px"></td>
                     <td class="vertical-align-top" width="230px">Jabatan</td>
                     <td class="vertical-align-top" width="5px">:</td>
                     <td class="vertical-align-top capitalize">{{ $submission->approvedByEmployee->position->name }}</td>
                 </tr>
                 <tr>
-                    <td class="vertical-align-top" width="20px"></td>
-                    <td class="vertical-align-top" width="230px">Pada Universitas</td>
+                    <td class="vertical-align-top" width="230px">Pangkat / Golongan</td>
+                    <td class="vertical-align-top" width="5px">:</td>
+                    <td class="vertical-align-top">{{ $submission->approvedByEmployee->rank ?? '-' }} / {{ $submission->approvedByEmployee->class ?? '-' }}</td>
+                </tr>
+                <tr>
+                    <td class="vertical-align-top" width="230px">Instansi</td>
                     <td class="vertical-align-top" width="5px">:</td>
                     <td class="vertical-align-top">UPN "Veteran" Jawa Timur</td>
                 </tr>
             </table>
         </section>
 
-        <section class="px-50">
-            <p class="text-justify text-indent lh-1-5">Dengan ini menyatakan yang sesungguhnya bahwa :</p>
+        <section class="px-50 mt-20">
+            <p class="text-justify lh-1-5">Memberikan rekomendasi kepada :</p>
             <table class="w-100 ml-30">
                 <tr>
-                    <td class="vertical-align-top" width="20px">2.</td>
                     <td class="vertical-align-top" width="230px">Nama</td>
                     <td class="vertical-align-top" width="5px">:</td>
                     <td class="vertical-align-top">{{ $data['name'] }}</td>
                 </tr>
                 <tr>
-                    <td class="vertical-align-top" width="20px"></td>
                     <td class="vertical-align-top" width="230px">NPM</td>
                     <td class="vertical-align-top" width="5px">:</td>
                     <td class="vertical-align-top">{{ $data['registration_number'] }}</td>
                 </tr>
                 <tr>
-                    <td class="vertical-align-top" width="20px"></td>
                     <td class="vertical-align-top" width="230px">Program Studi</td>
                     <td class="vertical-align-top" width="5px">:</td>
                     <td class="vertical-align-top">{{ $data['department'] }}</td>
                 </tr>
                 <tr>
-                    <td class="vertical-align-top" width="20px"></td>
                     <td class="vertical-align-top" width="230px">Semester</td>
                     <td class="vertical-align-top" width="5px">:</td>
-                    <td class="vertical-align-top">{{ $data['semester'] }}</td>
+                    <td class="vertical-align-top capitalize">{{ $data['semester'] }}</td>
                 </tr>
                 <tr>
-                    <td class="vertical-align-top" width="20px"></td>
-                    <td class="vertical-align-top" width="230px">Pada Tahun Akademik</td>
+                    <td class="vertical-align-top" width="230px">IPK</td>
                     <td class="vertical-align-top" width="5px">:</td>
-                    <td class="vertical-align-top">{{ $data['academic_year'] }}</td>
+                    <td class="vertical-align-top">{{ $data['ipk'] }}</td>
                 </tr>
             </table>
+            <p class="text-justify lh-1-5">Untuk mengajukan Program Beasiswa dari <span class="bold">{{ $data['scholarship_provider'] }}</span> tahun <span class="bold">{{ $data['year'] }}.</span></p>
+            <p class="text-justify lh-1-5">Demikianlah surat rekomendasi ini dibuat, untuk dipergunakan sebagaimana mestinya.</p>
         </section>
 
-        <section class="px-50">
-            <p class="text-justify text-indent lh-1-5">Wali anak tersebut :</p>
-            <table class="w-100 ml-30">
-                <tr>
-                    <td class="vertical-align-top" width="20px">3.</td>
-                    <td class="vertical-align-top" width="230px">Nama</td>
-                    <td class="vertical-align-top" width="5px">:</td>
-                    <td class="vertical-align-top">{{ $data['parent_name'] }}</td>
-                </tr>
-                <tr>
-                    <td class="vertical-align-top" width="20px"></td>
-                    <td class="vertical-align-top" width="230px">NRP / NIP</td>
-                    <td class="vertical-align-top" width="5px">:</td>
-                    <td class="vertical-align-top">{{ $data['parent_employee_number'] ?? '-' }}</td>
-                </tr>
-                <tr>
-                    <td class="vertical-align-top" width="20px"></td>
-                    <td class="vertical-align-top" width="230px">Pangkat / Golongan</td>
-                    <td class="vertical-align-top" width="5px">:</td>
-                    <td class="vertical-align-top">{{ $data['parent_employee_position'] ?? '-' }}</td>
-                </tr>
-                <tr>
-                    <td class="vertical-align-top" width="20px"></td>
-                    <td class="vertical-align-top" width="230px">Instansi</td>
-                    <td class="vertical-align-top" width="5px">:</td>
-                    <td class="vertical-align-top">{{ $data['parent_company_name'] }}</td>
-                </tr>
-                <tr>
-                    <td class="vertical-align-top" width="20px"></td>
-                    <td class="vertical-align-top" width="230px">Keperluan</td>
-                    <td class="vertical-align-top" width="5px">:</td>
-                    <td class="vertical-align-top">{{ $data['used_for'] }}</td>
-                </tr>
-            </table>
-            <p class="text-justify text-indent lh-1-5">Demikian surat keterangan ini dibuat dengan sesungguhnya.</p>
-        </section>
-
-        <section class="px-50 mt-30">
+        <section class="px-50 mt-50">
             <table class="w-100">
                 <tr class="text-center">
                     <td class="w-50"></td>

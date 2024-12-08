@@ -109,7 +109,7 @@
         </section>
 
         <section class="px-50 mt-20">
-            <p class="text-justify lh-1-5">Yang bertanda tangan dibawah ini :</p>
+            <p class="text-justify lh-1-5">Yang bertanda tangan di bawah ini :</p>
             <table class="w-100 ml-30">
                 <tr>
                     <td class="vertical-align-top" width="230px">Nama</td>

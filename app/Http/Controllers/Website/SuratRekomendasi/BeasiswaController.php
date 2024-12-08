@@ -50,13 +50,9 @@ class BeasiswaController extends Controller
         // lazy load relasinya biar ringan
         $submission->load('user.department', 'approvedByEmployee');
 
-        // get data tambahan
-        $dekan = Employee::whereHas('position', function ($query) {
-            $query->where('code', 'dekan');
-        })->latest()->first();
-
         // Prepare PDF nya
-        $file = view('pdf.surat-rekomendasi.beasiswa.index', compact('submission', 'dekan'))->render();
+        $file = view('pdf.surat-rekomendasi.beasiswa.index', compact('submission'))->render();
+
         // return $file;
         return Pdf::loadHTML($file)->setPaper('a4', 'potrait')->setWarnings(false)->stream();
     }

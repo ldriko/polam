@@ -114,7 +114,6 @@ Route::middleware('auth')->group(function () {
         Route::group(['prefix' => 'transkrip', 'as' => 'transkrip.'], function () {
             Route::get('/', [TranskripController::class, 'index'])->name('index');
             Route::post('/', [TranskripController::class, 'store'])->name('store');
-            Route::get('/preview/{submission}', [TranskripController::class, 'preview'])->name('preview');
         });
 
         // Bagian Cuti

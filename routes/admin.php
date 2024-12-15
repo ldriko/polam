@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\SuratKeterangan\BebasSanksiAkademikController;
 
 // Bagian Surat Rekomendasi
 use App\Http\Controllers\Admin\SuratRekomendasi\BeasiswaController;
+use App\Http\Controllers\Admin\SuratRekomendasi\MbkmController;
 
 // Bagian Surat Lainnya
 use App\Http\Controllers\Admin\SuratLainnya\TranskripController;
@@ -78,6 +79,11 @@ Route::group(['middleware' => 'auth.employee'], function () {
         Route::get('beasiswa', [BeasiswaController::class, 'index'])->name('beasiswa.index');
         Route::get('beasiswa/{submission}', [BeasiswaController::class, 'show'])->name('beasiswa.show');
         Route::post('beasiswa/{submission}', [BeasiswaController::class, 'update'])->name('beasiswa.update');
+
+        // Bagian MBKM
+        Route::get('mbkm', [MbkmController::class, 'index'])->name('mbkm.index');
+        Route::get('mbkm/{submission}', [MbkmController::class, 'show'])->name('mbkm.show');
+        Route::post('mbkm/{submission}', [MbkmController::class, 'update'])->name('mbkm.update');
     });
 
     // Bagian Surat Lainnya

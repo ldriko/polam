@@ -24,6 +24,7 @@
     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-award"></i> <span>Surat Rekomendasi</span></a>
     <ul class="dropdown-menu">
       <li><a class="nav-link" href="{{ route('admin.surat-rekomendasi.beasiswa.index') }}">Beasiswa</a></li>
+      <li><a class="nav-link" href="{{ route('admin.surat-rekomendasi.mbkm.index') }}">MBKM</a></li>
     </ul>
   </li>
 

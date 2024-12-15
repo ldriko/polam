@@ -73,19 +73,4 @@ class TranskripController extends Controller
             'message' => 'Ajuan gagal disimpan',
         ]);
     }
-
-    function preview(Request $request, Submission $submission) {
-        // lazy load relasinya biar ringan
-        $submission->load('user.department', 'approvedByEmployee');
-
-        // get data tambahan
-        $dekan = Employee::whereHas('position', function ($query) {
-            $query->where('code', 'dekan');
-        })->latest()->first();
-
-        // Prepare PDF nya
-        $file = view('pdf.surat-lainnya.transkrip.index', compact('submission', 'dekan'))->render();
-        // return $file;
-        return Pdf::loadHTML($file)->setPaper('a4', 'potrait')->setWarnings(false)->stream();
-    }
 }

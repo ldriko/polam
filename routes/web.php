@@ -14,6 +14,7 @@ use App\Http\Controllers\Website\SuratKeterangan\BebasSanksiAkademikController;
 
 // Controller Surat Rekomendasi
 use App\Http\Controllers\Website\SuratRekomendasi\BeasiswaController;
+use App\Http\Controllers\Website\SuratRekomendasi\MbkmController;
 
 // Controller Surat Lainnya
 use App\Http\Controllers\Website\SuratLainnya\TranskripController;
@@ -97,6 +98,13 @@ Route::middleware('auth')->group(function () {
             Route::get('/', [BeasiswaController::class, 'index'])->name('index');
             Route::post('/', [BeasiswaController::class, 'store'])->name('store');
             Route::get('/preview/{submission}', [BeasiswaController::class, 'preview'])->name('preview');
+        });
+
+        // Bagian MBKM
+        Route::group(['prefix' => 'mbkm', 'as' => 'mbkm.'], function () {
+            Route::get('/', [MbkmController::class, 'index'])->name('index');
+            Route::post('/', [MbkmController::class, 'store'])->name('store');
+            Route::get('/preview/{submission}', [MbkmController::class, 'preview'])->name('preview');
         });
     });
 

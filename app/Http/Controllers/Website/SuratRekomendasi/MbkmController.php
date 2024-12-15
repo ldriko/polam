@@ -8,11 +8,11 @@ use App\Models\Submission;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-class BeasiswaController extends Controller
+class MbkmController extends Controller
 {
     function index() {
-        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[9])->with('user')->orderBy('created_at', 'desc')->get();
-        return view('website.surat-rekomendasi.beasiswa.index', compact('data'));
+        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[10])->with('user')->orderBy('created_at', 'desc')->get();
+        return view('website.surat-rekomendasi.mbkm.index', compact('data'));
     }
 
     function store(Request $request) {
@@ -22,24 +22,24 @@ class BeasiswaController extends Controller
             'department' => ['required', 'string'],
             'semester' => ['required', 'string'],
             'ipk' => ['required', 'numeric'],
-            'scholarship_provider' => ['required', 'string'],
+            'program_name' => ['required', 'string'],
             'year' => ['required', 'integer', 'min:1000'],
         ]);
 
         $create = Submission::create([
             'user_id' => Auth::id(),
-            'type' => Submission::TYPES[9],
+            'type' => Submission::TYPES[10],
             'data' => json_encode($request->except('_token')),
         ]);
 
         if ($create) {
-            return redirect()->route('surat-rekomendasi.beasiswa.index')->with([
+            return redirect()->route('surat-rekomendasi.mbkm.index')->with([
                 'status' => 'success',
                 'message' => 'Ajuan berhasil disimpan',
             ]);
         }
 
-        return redirect()->route('surat-rekomendasi.beasiswa.index')->with([
+        return redirect()->route('surat-rekomendasi.mbkm.index')->with([
             'status' => 'error',
             'message' => 'Ajuan gagal disimpan',
         ]);
@@ -50,7 +50,7 @@ class BeasiswaController extends Controller
         $submission->load('user.department', 'approvedByEmployee');
 
         // Prepare PDF nya
-        $file = view('pdf.surat-rekomendasi.beasiswa.index', compact('submission'))->render();
+        $file = view('pdf.surat-rekomendasi.mbkm.index', compact('submission'))->render();
 
         // return $file;
         return Pdf::loadHTML($file)->setPaper('a4', 'potrait')->setWarnings(false)->stream();

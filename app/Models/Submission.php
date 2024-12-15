@@ -39,6 +39,7 @@ class Submission extends Model
         'pengunduran-diri', // 7. Surat Lainnya Pengunduran Diri
         'transkrip', // 8. Surat Lainnya Transkrip
         'beasiswa', // 9. Surat Rekomendasi Beasiswa
+        'mbkm', // 10. Surat Rekomendasi MBKM
     ];
 
     public const ROMAN_MONTH = [

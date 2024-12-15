@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Submission;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 class MbkmController extends Controller
 {
@@ -20,7 +21,7 @@ class MbkmController extends Controller
             'name' => ['required', 'string'],
             'registration_number' => ['required', 'string'],
             'department' => ['required', 'string'],
-            'semester' => ['required', 'string'],
+            'semester' => ['required', 'integer', 'between:1,14'],
             'ipk' => ['required', 'numeric'],
             'program_name' => ['required', 'string'],
             'year' => ['required', 'integer', 'min:1000'],
@@ -46,11 +47,25 @@ class MbkmController extends Controller
     }
 
     function preview(Request $request, Submission $submission) {
+        // prepare tahun ajaran
+        $createdAt = Carbon::parse($submission->created_at);
+        $yearStart = $createdAt->year;
+        $yearEnd = $createdAt->year;
+
+        if ($createdAt->month <= 7) { // genap, februari sampai juli atau ganjil tahun lalu
+            $yearStart -= 1;
+        } else {
+            $yearEnd += 1;
+        }
+
+        // gabung tahun ajarannya
+        $academicYear = $yearStart . '-' . $yearEnd;
+
         // lazy load relasinya biar ringan
         $submission->load('user.department', 'approvedByEmployee');
 
         // Prepare PDF nya
-        $file = view('pdf.surat-rekomendasi.mbkm.index', compact('submission'))->render();
+        $file = view('pdf.surat-rekomendasi.mbkm.index', compact('submission', 'academicYear'))->render();
 
         // return $file;
         return Pdf::loadHTML($file)->setPaper('a4', 'potrait')->setWarnings(false)->stream();

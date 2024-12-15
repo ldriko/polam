@@ -20,7 +20,7 @@ class BeasiswaController extends Controller
             'name' => ['required', 'string'],
             'registration_number' => ['required', 'string'],
             'department' => ['required', 'string'],
-            'semester' => ['required', 'string'],
+            'semester' => ['required', 'integer', 'between:1,14'],
             'ipk' => ['required', 'numeric'],
             'scholarship_provider' => ['required', 'string'],
             'year' => ['required', 'integer', 'min:1000'],

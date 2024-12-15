@@ -85,11 +85,7 @@
           </div>
           <div class="col">
             <label class="form-label">Semester <span class="text-danger">*</span></label>
-            <select name="semester" class="form-control" required>
-                <option value="">Pilih Semester...</option>
-                <option value="genap">Genap</option>
-                <option value="ganjil">Ganjil</option>
-            </select>
+            <input type="number" min="1" max="14" name="semester" class="form-control" required>
           </div>
           <div class="col">
             <label class="form-label">IPK <span class="text-danger">*</span></label>

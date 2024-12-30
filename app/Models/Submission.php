@@ -40,6 +40,7 @@ class Submission extends Model
         'transkrip', // 8. Surat Lainnya Transkrip
         'beasiswa', // 9. Surat Rekomendasi Beasiswa
         'mbkm', // 10. Surat Rekomendasi MBKM
+        'non-mbkm', // 11. Surat Rekomendasi Non-MBKM
     ];
 
     public const ROMAN_MONTH = [

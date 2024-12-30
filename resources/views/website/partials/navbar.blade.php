@@ -32,7 +32,7 @@
           <ul>
             <li><a href="{{ route('surat-rekomendasi.beasiswa.index') }}">Beasiswa</a></li>
             <li><a href="{{ route('surat-rekomendasi.mbkm.index') }}">MBKM</a></li>
-            <li><a href="#">Non-MBKM (Umum)</a></li>
+            <li><a href="{{ route('surat-rekomendasi.non-mbkm.index') }}">Non-MBKM (Umum)</a></li>
           </ul>
         </li>
         <li class="dropdown"><a href="#"><span>Surat Lainnya</span> <i class="bi bi-chevron-down"></i></a>

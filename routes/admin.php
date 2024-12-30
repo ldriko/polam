@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\SuratKeterangan\BebasSanksiAkademikController;
 // Bagian Surat Rekomendasi
 use App\Http\Controllers\Admin\SuratRekomendasi\BeasiswaController;
 use App\Http\Controllers\Admin\SuratRekomendasi\MbkmController;
+use App\Http\Controllers\Admin\SuratRekomendasi\NonMbkmController;
 
 // Bagian Surat Lainnya
 use App\Http\Controllers\Admin\SuratLainnya\TranskripController;
@@ -84,6 +85,11 @@ Route::group(['middleware' => 'auth.employee'], function () {
         Route::get('mbkm', [MbkmController::class, 'index'])->name('mbkm.index');
         Route::get('mbkm/{submission}', [MbkmController::class, 'show'])->name('mbkm.show');
         Route::post('mbkm/{submission}', [MbkmController::class, 'update'])->name('mbkm.update');
+
+        // Bagian Non-MBKM
+        Route::get('non-mbkm', [NonMbkmController::class, 'index'])->name('non-mbkm.index');
+        Route::get('non-mbkm/{submission}', [NonMbkmController::class, 'show'])->name('non-mbkm.show');
+        Route::post('non-mbkm/{submission}', [NonMbkmController::class, 'update'])->name('non-mbkm.update');
     });
 
     // Bagian Surat Lainnya

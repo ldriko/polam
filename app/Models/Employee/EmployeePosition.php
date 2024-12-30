@@ -72,6 +72,9 @@ class EmployeePosition extends Model
             case 'mbkm': // mbkm hanya boleh: admin, dekan, wadek-1
                 return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[2]]);
                 break; 
+            case 'non-mbkm': // non-mbkm hanya boleh: admin, dekan, wadek-3
+                return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[4]]);
+                break; 
 
             // Bagian Surat Lainnya
             case 'transkrip': // transkrip hanya boleh: admin, dekan, wadek-1

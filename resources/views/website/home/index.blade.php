@@ -6,12 +6,12 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 d-flex flex-column justify-content-center">
-        <h1 data-aos="fade-up">We offer modern solutions for growing your business</h1>
-        <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap</h2>
+        <h1 data-aos="fade-up">Selamat Datang</h1>
+        <h2 data-aos="fade-up" data-aos-delay="400">Sistem Informasi Pelayanan Administrasi Terpadu Civitas Akamedik (SIPATCA)</h2>
         <div data-aos="fade-up" data-aos-delay="600">
           <div class="text-center text-lg-start">
             <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-              <span>Get Started</span>
+              <span>Mulai</span>
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -32,14 +32,14 @@
 
       <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
         <div class="content">
-          <h3>Who We Are</h3>
-          <h2>Expedita voluptas omnis cupiditate totam eveniet nobis sint iste. Dolores est repellat corrupti reprehenderit.</h2>
+          <h3>Tentang Kami</h3>
+          <h2>Sistem Informasi Pelayanan Administrasi Terpadu Civitas Akamedik (SIPATCA)</h2>
           <p>
-            Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est corrupti.
+            Adalah sistem informasi yang dapat digunakan oleh mahasiswa aktif Fakultas Ilmu Komputer untuk memudahkan proses pengajuan surat-surat yang dibutuhkan selama proses perkuliahan
           </p>
           <div class="text-center text-lg-start">
-            <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-              <span>Read More</span>
+            <a href="#jurusan" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+              <span>Lanjurkan</span>
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -55,14 +55,14 @@
 
 </section><!-- End About Section -->
 
-<!-- ======= Values Section ======= -->
-<section id="values" class="values">
+<!-- ======= Bagian Jurusan ======= -->
+<section id="jurusan" class="values">
 
   <div class="container" data-aos="fade-up">
 
     <header class="section-header">
-      <h2>Our Values</h2>
-      <p>Odit est perspiciatis laborum et dicta</p>
+      <h2>Jurusan</h2>
+      <p>Jurusan Yang Ada Di Fasilkom</p>
     </header>
 
     <div class="row">
@@ -70,7 +70,7 @@
       <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
         <div class="box">
           <img src="{{ asset('website/img/values-1.png') }}" class="img-fluid" alt="">
-          <h3>Ad cupiditate sed est odio</h3>
+          <h3>Informatika</h3>
           <p>Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit. Et veritatis id.</p>
         </div>
       </div>
@@ -78,7 +78,7 @@
       <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
         <div class="box">
           <img src="{{ asset('website/img/values-2.png') }}" class="img-fluid" alt="">
-          <h3>Voluptatem voluptatum alias</h3>
+          <h3>Sistem Informasi</h3>
           <p>Repudiandae amet nihil natus in distinctio suscipit id. Doloremque ducimus ea sit non.</p>
         </div>
       </div>
@@ -86,7 +86,7 @@
       <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
         <div class="box">
           <img src="{{ asset('website/img/values-3.png') }}" class="img-fluid" alt="">
-          <h3>Fugit cupiditate alias nobis.</h3>
+          <h3>Sains Data</h3>
           <p>Quam rem vitae est autem molestias explicabo debitis sint. Vero aliquid quidem commodi.</p>
         </div>
       </div>
@@ -95,7 +95,7 @@
 
   </div>
 
-</section><!-- End Values Section -->
+</section><!-- End Bagian Jurusan -->
 
 <!-- ======= Counts Section ======= -->
 <section id="counts" class="counts">
@@ -108,7 +108,7 @@
           <i class="bi bi-emoji-smile"></i>
           <div>
             <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Happy Clients</p>
+            <p>Pengguna Mahasiswa</p>
           </div>
         </div>
       </div>
@@ -118,7 +118,7 @@
           <i class="bi bi-journal-richtext" style="color: #ee6c20;"></i>
           <div>
             <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Projects</p>
+            <p>Total Pengajuan</p>
           </div>
         </div>
       </div>
@@ -128,7 +128,7 @@
           <i class="bi bi-headset" style="color: #15be56;"></i>
           <div>
             <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Hours Of Support</p>
+            <p>Pengajuan Diproses</p>
           </div>
         </div>
       </div>
@@ -138,7 +138,7 @@
           <i class="bi bi-people" style="color: #bb0852;"></i>
           <div>
             <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Hard Workers</p>
+            <p>Pengajuan Selesai</p>
           </div>
         </div>
       </div>
@@ -213,79 +213,6 @@
       </div>
 
     </div> <!-- / row -->
-
-    <!-- Feature Tabs -->
-    <div class="row feture-tabs" data-aos="fade-up">
-      <div class="col-lg-6">
-        <h3>Neque officiis dolore maiores et exercitationem quae est seda lidera pat claero</h3>
-
-        <!-- Tabs -->
-        <ul class="nav nav-pills mb-3">
-          <li>
-            <a class="nav-link active" data-bs-toggle="pill" href="#tab1">Saepe fuga</a>
-          </li>
-          <li>
-            <a class="nav-link" data-bs-toggle="pill" href="#tab2">Voluptates</a>
-          </li>
-          <li>
-            <a class="nav-link" data-bs-toggle="pill" href="#tab3">Corrupti</a>
-          </li>
-        </ul><!-- End Tabs -->
-
-        <!-- Tab Content -->
-        <div class="tab-content">
-
-          <div class="tab-pane fade show active" id="tab1">
-            <p>Consequuntur inventore voluptates consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima nihil quae aspernatur quo suscipit voluptatem.</p>
-            <div class="d-flex align-items-center mb-2">
-              <i class="bi bi-check2"></i>
-              <h4>Repudiandae rerum velit modi et officia quasi facilis</h4>
-            </div>
-            <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum non eveniet magni quaerat nemo et.</p>
-            <div class="d-flex align-items-center mb-2">
-              <i class="bi bi-check2"></i>
-              <h4>Incidunt non veritatis illum ea ut nisi</h4>
-            </div>
-            <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur. Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo tempora. Quia et perferendis.</p>
-          </div><!-- End Tab 1 Content -->
-
-          <div class="tab-pane fade show" id="tab2">
-            <p>Consequuntur inventore voluptates consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima nihil quae aspernatur quo suscipit voluptatem.</p>
-            <div class="d-flex align-items-center mb-2">
-              <i class="bi bi-check2"></i>
-              <h4>Repudiandae rerum velit modi et officia quasi facilis</h4>
-            </div>
-            <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum non eveniet magni quaerat nemo et.</p>
-            <div class="d-flex align-items-center mb-2">
-              <i class="bi bi-check2"></i>
-              <h4>Incidunt non veritatis illum ea ut nisi</h4>
-            </div>
-            <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur. Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo tempora. Quia et perferendis.</p>
-          </div><!-- End Tab 2 Content -->
-
-          <div class="tab-pane fade show" id="tab3">
-            <p>Consequuntur inventore voluptates consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima nihil quae aspernatur quo suscipit voluptatem.</p>
-            <div class="d-flex align-items-center mb-2">
-              <i class="bi bi-check2"></i>
-              <h4>Repudiandae rerum velit modi et officia quasi facilis</h4>
-            </div>
-            <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum non eveniet magni quaerat nemo et.</p>
-            <div class="d-flex align-items-center mb-2">
-              <i class="bi bi-check2"></i>
-              <h4>Incidunt non veritatis illum ea ut nisi</h4>
-            </div>
-            <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur. Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo tempora. Quia et perferendis.</p>
-          </div><!-- End Tab 3 Content -->
-
-        </div>
-
-      </div>
-
-      <div class="col-lg-6">
-        <img src="{{ asset('website/img/features-2.png') }}" class="img-fluid" alt="">
-      </div>
-
-    </div><!-- End Feature Tabs -->
 
     <!-- Feature Icons -->
     <div class="row feature-icons" data-aos="fade-up">
@@ -365,8 +292,8 @@
   <div class="container" data-aos="fade-up">
 
     <header class="section-header">
-      <h2>Services</h2>
-      <p>Veritatis et dolores facere numquam et praesentium</p>
+      <h2>Layanan</h2>
+      <p>Layanan Yang Kami Sediakan</p>
     </header>
 
     <div class="row gy-4">
@@ -431,89 +358,6 @@
 
 </section><!-- End Services Section -->
 
-<!-- ======= Pricing Section ======= -->
-<section id="pricing" class="pricing">
-
-  <div class="container" data-aos="fade-up">
-
-    <header class="section-header">
-      <h2>Pricing</h2>
-      <p>Check our Pricing</p>
-    </header>
-
-    <div class="row gy-4" data-aos="fade-left">
-
-      <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-        <div class="box">
-          <h3 style="color: #07d5c0;">Free Plan</h3>
-          <div class="price"><sup>$</sup>0<span> / mo</span></div>
-          <img src="{{ asset('website/img/pricing-free.png') }}" class="img-fluid" alt="">
-          <ul>
-            <li>Aida dere</li>
-            <li>Nec feugiat nisl</li>
-            <li>Nulla at volutpat dola</li>
-            <li class="na">Pharetra massa</li>
-            <li class="na">Massa ultricies mi</li>
-          </ul>
-          <a href="#" class="btn-buy">Buy Now</a>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-        <div class="box">
-          <span class="featured">Featured</span>
-          <h3 style="color: #65c600;">Starter Plan</h3>
-          <div class="price"><sup>$</sup>19<span> / mo</span></div>
-          <img src="{{ asset('website/img/pricing-starter.png') }}" class="img-fluid" alt="">
-          <ul>
-            <li>Aida dere</li>
-            <li>Nec feugiat nisl</li>
-            <li>Nulla at volutpat dola</li>
-            <li>Pharetra massa</li>
-            <li class="na">Massa ultricies mi</li>
-          </ul>
-          <a href="#" class="btn-buy">Buy Now</a>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-        <div class="box">
-          <h3 style="color: #ff901c;">Business Plan</h3>
-          <div class="price"><sup>$</sup>29<span> / mo</span></div>
-          <img src="{{ asset('website/img/pricing-business.png') }}" class="img-fluid" alt="">
-          <ul>
-            <li>Aida dere</li>
-            <li>Nec feugiat nisl</li>
-            <li>Nulla at volutpat dola</li>
-            <li>Pharetra massa</li>
-            <li>Massa ultricies mi</li>
-          </ul>
-          <a href="#" class="btn-buy">Buy Now</a>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-        <div class="box">
-          <h3 style="color: #ff0071;">Ultimate Plan</h3>
-          <div class="price"><sup>$</sup>49<span> / mo</span></div>
-          <img src="{{ asset('website/img/pricing-ultimate.png') }}" class="img-fluid" alt="">
-          <ul>
-            <li>Aida dere</li>
-            <li>Nec feugiat nisl</li>
-            <li>Nulla at volutpat dola</li>
-            <li>Pharetra massa</li>
-            <li>Massa ultricies mi</li>
-          </ul>
-          <a href="#" class="btn-buy">Buy Now</a>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section><!-- End Pricing Section -->
-
 <!-- ======= F.A.Q Section ======= -->
 <section id="faq" class="faq">
 
@@ -521,7 +365,7 @@
 
     <header class="section-header">
       <h2>F.A.Q</h2>
-      <p>Frequently Asked Questions</p>
+      <p>Pertanyaan Yang Sering Ditanyakan</p>
     </header>
 
     <div class="row">
@@ -629,8 +473,8 @@
   <div class="container" data-aos="fade-up">
 
     <header class="section-header">
-      <h2>Portfolio</h2>
-      <p>Check our latest work</p>
+      <h2>Galeri</h2>
+      <p>Galeri Foto Fasilkom</p>
     </header>
 
     <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -778,115 +622,14 @@
 
 </section><!-- End Portfolio Section -->
 
-<!-- ======= Testimonials Section ======= -->
-<section id="testimonials" class="testimonials">
-
-  <div class="container" data-aos="fade-up">
-
-    <header class="section-header">
-      <h2>Testimonials</h2>
-      <p>What they are saying about us</p>
-    </header>
-
-    <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
-      <div class="swiper-wrapper">
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-            </p>
-            <div class="profile mt-auto">
-              <img src="{{ asset('website/img/testimonials/testimonials-1.jpg') }}" class="testimonial-img" alt="">
-              <h3>Saul Goodman</h3>
-              <h4>Ceo &amp; Founder</h4>
-            </div>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-            </p>
-            <div class="profile mt-auto">
-              <img src="{{ asset('website/img/testimonials/testimonials-2.jpg') }}" class="testimonial-img" alt="">
-              <h3>Sara Wilsson</h3>
-              <h4>Designer</h4>
-            </div>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-            </p>
-            <div class="profile mt-auto">
-              <img src="{{ asset('website/img/testimonials/testimonials-3.jpg') }}" class="testimonial-img" alt="">
-              <h3>Jena Karlis</h3>
-              <h4>Store Owner</h4>
-            </div>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-            </p>
-            <div class="profile mt-auto">
-              <img src="{{ asset('website/img/testimonials/testimonials-4.jpg') }}" class="testimonial-img" alt="">
-              <h3>Matt Brandon</h3>
-              <h4>Freelancer</h4>
-            </div>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-            </p>
-            <div class="profile mt-auto">
-              <img src="{{ asset('website/img/testimonials/testimonials-5.jpg') }}" class="testimonial-img" alt="">
-              <h3>John Larson</h3>
-              <h4>Entrepreneur</h4>
-            </div>
-          </div>
-        </div><!-- End testimonial item -->
-
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-
-  </div>
-
-</section><!-- End Testimonials Section -->
-
 <!-- ======= Team Section ======= -->
 <section id="team" class="team">
 
   <div class="container" data-aos="fade-up">
 
     <header class="section-header">
-      <h2>Team</h2>
-      <p>Our hard working team</p>
+      <h2>Dekanat</h2>
+      <p>Dekanat Fakultas Ilmu Komputer</p>
     </header>
 
     <div class="row gy-4">
@@ -904,7 +647,7 @@
           </div>
           <div class="member-info">
             <h4>Walter White</h4>
-            <span>Chief Executive Officer</span>
+            <span>Dekan</span>
             <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
           </div>
         </div>
@@ -923,7 +666,7 @@
           </div>
           <div class="member-info">
             <h4>Sarah Jhonson</h4>
-            <span>Product Manager</span>
+            <span>Wakil Dekan 1</span>
             <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
           </div>
         </div>
@@ -942,7 +685,7 @@
           </div>
           <div class="member-info">
             <h4>William Anderson</h4>
-            <span>CTO</span>
+            <span>Wakil Dekan 2</span>
             <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
           </div>
         </div>
@@ -961,7 +704,7 @@
           </div>
           <div class="member-info">
             <h4>Amanda Jepson</h4>
-            <span>Accountant</span>
+            <span>Wakil Dekan 3</span>
             <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid doloremque ut possimus ipsum officia.</p>
           </div>
         </div>
@@ -973,155 +716,50 @@
 
 </section><!-- End Team Section -->
 
-<!-- ======= Clients Section ======= -->
-<section id="clients" class="clients">
-
-  <div class="container" data-aos="fade-up">
-
-    <header class="section-header">
-      <h2>Our Clients</h2>
-      <p>Temporibus omnis officia</p>
-    </header>
-
-    <div class="clients-slider swiper">
-      <div class="swiper-wrapper align-items-center">
-        <div class="swiper-slide"><img src="{{ asset('website/img/clients/client-1.png') }}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{{ asset('website/img/clients/client-2.png') }}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{{ asset('website/img/clients/client-3.png') }}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{{ asset('website/img/clients/client-4.png') }}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{{ asset('website/img/clients/client-5.png') }}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{{ asset('website/img/clients/client-6.png') }}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{{ asset('website/img/clients/client-7.png') }}" class="img-fluid" alt=""></div>
-        <div class="swiper-slide"><img src="{{ asset('website/img/clients/client-8.png') }}" class="img-fluid" alt=""></div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-
-</section><!-- End Clients Section -->
-
-<!-- ======= Recent Blog Posts Section ======= -->
-<section id="recent-blog-posts" class="recent-blog-posts">
-
-  <div class="container" data-aos="fade-up">
-
-    <header class="section-header">
-      <h2>Blog</h2>
-      <p>Recent posts form our Blog</p>
-    </header>
-
-    <div class="row">
-
-      <div class="col-lg-4">
-        <div class="post-box">
-          <div class="post-img"><img src="{{ asset('website/img/blog/blog-1.jpg') }}" class="img-fluid" alt=""></div>
-          <span class="post-date">Tue, September 15</span>
-          <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit</h3>
-          <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="post-box">
-          <div class="post-img"><img src="{{ asset('website/img/blog/blog-2.jpg') }}" class="img-fluid" alt=""></div>
-          <span class="post-date">Fri, August 28</span>
-          <h3 class="post-title">Et repellendus molestiae qui est sed omnis voluptates magnam</h3>
-          <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="post-box">
-          <div class="post-img"><img src="{{ asset('website/img/blog/blog-3.jpg') }}" class="img-fluid" alt=""></div>
-          <span class="post-date">Mon, July 11</span>
-          <h3 class="post-title">Quia assumenda est et veritatis aut quae</h3>
-          <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section><!-- End Recent Blog Posts Section -->
-
 <!-- ======= Contact Section ======= -->
 <section id="contact" class="contact">
 
   <div class="container" data-aos="fade-up">
 
     <header class="section-header">
-      <h2>Contact</h2>
-      <p>Contact Us</p>
+      <h2>Kontak</h2>
+      <p>Kontak Kami</p>
     </header>
 
     <div class="row gy-4">
 
-      <div class="col-lg-6">
+      <div class="col">
 
         <div class="row gy-4">
-          <div class="col-md-6">
+          <div class="col">
             <div class="info-box">
               <i class="bi bi-geo-alt"></i>
-              <h3>Address</h3>
-              <p>A108 Adam Street,<br>New York, NY 535022</p>
+              <h3>Alamat</h3>
+              <p>Gedung Fasilkom 2<br>Jl. Rungkut Madya No.1, Kec. Gunung Anyar, Surabaya, Jawa Timur 60294</p>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col">
             <div class="info-box">
               <i class="bi bi-telephone"></i>
-              <h3>Call Us</h3>
-              <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+              <h3>Telp</h3>
+              <p><a href="tel:+62 (031) 870 6369">+62 (031) 870 6369</a></p>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col">
             <div class="info-box">
               <i class="bi bi-envelope"></i>
-              <h3>Email Us</h3>
-              <p>info@example.com<br>contact@example.com</p>
+              <h3>Email</h3>
+              <p><a href="mailto:fasilkom@upnjatim.ac.id">fasilkom@upnjatim.ac.id</a></p>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col">
             <div class="info-box">
               <i class="bi bi-clock"></i>
-              <h3>Open Hours</h3>
-              <p>Monday - Friday<br>9:00AM - 05:00PM</p>
+              <h3>Jam Operasional</h3>
+              <p>Senin - Jumat<br>07:30 - 16:00</p>
             </div>
           </div>
         </div>
-
-      </div>
-
-      <div class="col-lg-6">
-        <form action="forms/contact.php" method="post" class="php-email-form">
-          <div class="row gy-4">
-
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-            </div>
-
-            <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-            </div>
-
-            <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-            </div>
-
-            <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-            </div>
-
-            <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-
-              <button type="submit">Send Message</button>
-            </div>
-
-          </div>
-        </form>
 
       </div>
 

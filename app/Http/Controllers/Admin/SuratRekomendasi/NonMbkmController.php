@@ -11,7 +11,7 @@ use Carbon\Carbon;
 class NonMbkmController extends Controller
 {
     function index(Request $request) {
-        $submissions = Submission::where('type', Submission::TYPES[11])->orderBy('created_at', 'desc')->get();
+        $submissions = Submission::where('type', Submission::TYPES[11])->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.surat-rekomendasi.non-mbkm.index', compact('submissions'));
     }
 

@@ -11,7 +11,7 @@ use Carbon\Carbon;
 class BeasiswaController extends Controller
 {
     function index(Request $request) {
-        $submissions = Submission::where('type', Submission::TYPES[9])->orderBy('created_at', 'desc')->get();
+        $submissions = Submission::where('type', Submission::TYPES[9])->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.surat-rekomendasi.beasiswa.index', compact('submissions'));
     }
 

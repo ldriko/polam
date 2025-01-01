@@ -11,7 +11,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class AktifKuliahController extends Controller
 {
     function index() {
-        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[3])->with('user')->orderBy('created_at', 'desc')->get();
+        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[3])->with('user')->orderBy('created_at', 'desc')->paginate(10);
         return view('website.surat-keterangan.aktif-kuliah.index', compact('data'));
     }
 

@@ -12,7 +12,7 @@ use App\Models\Employee\Employee;
 class PengunduranDiriController extends Controller
 {
     function index() {
-        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[7])->with('user')->orderBy('created_at', 'desc')->get();
+        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[7])->with('user')->orderBy('created_at', 'desc')->paginate(10);
         return view('website.surat-lainnya.pengunduran-diri.index', compact('data'));
     }
 

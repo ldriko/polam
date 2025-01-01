@@ -11,7 +11,7 @@ use App\Models\Submission;
 class SkripsiController extends Controller
 {
     function index() {
-        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[1])->with('user')->orderBy('created_at', 'desc')->get();
+        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[1])->with('user')->orderBy('created_at', 'desc')->paginate(10);
         return view('website.surat-pengantar.skripsi.index', compact('data'));
     }
 

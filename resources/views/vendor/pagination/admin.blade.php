@@ -2,7 +2,7 @@
     <ul class="pagination mb-0">
       <!-- halaman sebelumnya -->
       <li class="page-item {{ $paginator->onFirstPage() ? 'disabled' : '' }}">
-        <a class="page-link" href="{{ $paginator->previousPageUrl() ?? 'javascript:void()' }}" tabindex="-1">
+        <a class="page-link" href="{{ $paginator->previousPageUrl() ?? 'javascript:void(0)' }}" tabindex="-1">
           <i class="fas fa-chevron-left"></i>
         </a>
       </li>

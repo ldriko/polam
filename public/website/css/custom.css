@@ -5,6 +5,7 @@
     --secondary-bg-hover: #32d3c4;
     --danger-bg: #fc544b;
     --tertiary-bg: #2a4856;
+    --soft-grey-bg: #f9fafe;
 }
 
 .breadcrumbs {
@@ -74,4 +75,26 @@
 
 .bg-error {
     background-color: #fc544b;
+}
+
+.blog .blog-pagination li {
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: var(--bs-border-radius);
+    background: var(--soft-grey-bg);
+}
+
+.blog .blog-pagination li.disabled {
+    pointer-events: none;
+    cursor: auto;
+    opacity: 0.6;
+}
+
+.blog .blog-pagination li i::before {
+    font-size: 13px !important;
+    font-weight: 900 !important;
+}
+
+.blog .blog-pagination li.active, .blog .blog-pagination li:hover {
+    background: var(--secondary-bg);
 }

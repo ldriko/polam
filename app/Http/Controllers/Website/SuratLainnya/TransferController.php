@@ -12,7 +12,7 @@ use App\Models\Employee\Employee;
 class TransferController extends Controller
 {
     function index() {
-        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[6])->with('user')->orderBy('created_at', 'desc')->get();
+        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[6])->with('user')->orderBy('created_at', 'desc')->paginate(10);
         return view('website.surat-lainnya.transfer.index', compact('data'));
     }
 

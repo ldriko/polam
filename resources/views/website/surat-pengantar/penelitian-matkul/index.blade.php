@@ -57,6 +57,10 @@
       </tbody>
     </table>
 
+    <div class="blog pt-1">
+      {{ $data->onEachSide(1)->links('vendor.pagination.website') }}
+    </div>
+
     <div class="mt-5">
       <header class="section-header">
         <h2>Surat Pengantar Penelitian Mata Kuliah</h2>

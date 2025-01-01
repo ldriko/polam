@@ -50,15 +50,19 @@
           <td>
             @if($datum->approved_at)
               @php
-                $data = json_decode($datum->data);
+                $pdf = json_decode($datum->data);
               @endphp
-              <a href="{{ asset($data->transkrip_file_path ?? '') }}" target="_blank" class="btn btn-primary {{ $data->transkrip_file_path ?? null ? '':'disabled' }}">Buka</a>
+              <a href="{{ asset($pdf->transkrip_file_path ?? '') }}" target="_blank" class="btn btn-primary {{ $pdf->transkrip_file_path ?? null ? '':'disabled' }}">Buka</a>
             @endif
           </td>
         </tr>
         @endforeach
       </tbody>
     </table>
+
+    <div class="blog pt-1">
+      {{ $data->onEachSide(1)->links('vendor.pagination.website') }}
+    </div>
 
     <div class="mt-5">
       <header class="section-header">

@@ -12,7 +12,7 @@ use Carbon\Carbon;
 class MbkmController extends Controller
 {
     function index() {
-        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[10])->with('user')->orderBy('created_at', 'desc')->get();
+        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[10])->with('user')->orderBy('created_at', 'desc')->paginate(10);
         return view('website.surat-rekomendasi.mbkm.index', compact('data'));
     }
 

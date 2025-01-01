@@ -11,7 +11,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class BebasSanksiAkademikController extends Controller
 {
     function index() {
-        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[4])->with('user')->orderBy('created_at', 'desc')->get();
+        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[4])->with('user')->orderBy('created_at', 'desc')->paginate();
         return view('website.surat-keterangan.bebas-sanksi-akademik.index', compact('data'));
     }
 

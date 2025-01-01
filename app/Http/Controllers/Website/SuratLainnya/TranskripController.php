@@ -13,7 +13,7 @@ use Carbon\Carbon;
 class TranskripController extends Controller
 {
     function index() {
-        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[8])->with('user')->orderBy('created_at', 'desc')->get();
+        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[8])->with('user')->orderBy('created_at', 'desc')->paginate(10);
         return view('website.surat-lainnya.transkrip.index', compact('data'));
     }
 

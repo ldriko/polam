@@ -12,7 +12,7 @@ use Carbon\Carbon;
 class NonMbkmController extends Controller
 {
     function index() {
-        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[11])->with('user')->orderBy('created_at', 'desc')->get();
+        $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[11])->with('user')->orderBy('created_at', 'desc')->paginate(10);
         return view('website.surat-rekomendasi.non-mbkm.index', compact('data'));
     }
 

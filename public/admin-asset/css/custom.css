@@ -37,3 +37,7 @@
 .form-group textarea.form-control.flexible-textarea {
     height: auto;
 }
+
+.custom-file-label {
+    top: auto;
+}

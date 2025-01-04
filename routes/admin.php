@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 
+// Panduan
+use App\Http\Controllers\Admin\Guide\GuideController;
+
 // Bagian Surat Pengantar
 use App\Http\Controllers\Admin\SuratPengantar\PklController;
 use App\Http\Controllers\Admin\SuratPengantar\SkripsiController;
@@ -42,6 +45,16 @@ Route::group(['middleware' => 'auth.employee'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+    // Panduan
+    Route::group(['prefix' => 'panduan', 'as' => 'guide.'], function () {
+        Route::get('', [GuideController::class, 'index'])->name('index');
+        Route::get('create', [GuideController::class, 'create'])->name('create');
+        Route::get('edit/{guide}', [GuideController::class, 'edit'])->name('edit');
+        Route::post('store', [GuideController::class, 'store'])->name('store');
+        Route::post('update/{guide}', [GuideController::class, 'update'])->name('update');
+        Route::get('destroy/{guide}', [GuideController::class, 'destroy'])->name('destroy');
+    });
 
     // Bagian Surat Pengantar
     Route::group(['as' => 'surat-pengantar.', 'prefix' => 'surat-pengantar'], function() {

@@ -1,6 +1,9 @@
 <ul class="sidebar-menu">
   <li class="menu-header">Dashboard</li>
-  <li><a class="nav-link" href="{{ route('admin.index') }}"><i class="far fa-square"></i> <span>Dashboard</span></a></li>
+  <li>
+    <a class="nav-link" href="{{ route('admin.index') }}"><i class="far fa-square"></i> <span>Dashboard</span></a>
+    <a class="nav-link" href="{{ route('admin.guide.index') }}"><i class="far fa-square"></i> <span>Panduan</span></a>
+  </li>
 
   <li class="menu-header">Pengajuan</li>
   <li class="nav-item dropdown">

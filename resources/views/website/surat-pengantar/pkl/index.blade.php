@@ -21,10 +21,12 @@
       <p>Riwayat Pengajuan</p>
     </header>
 
-    <div class="d-flex align-items-center gap-2 mb-2">
-      <span>Unduh panduan pengajuan Surat Pengantar PKL</span>
-      <button class="btn btn-secondary">Unduh</button>
-    </div>
+    @if ($guide)
+      <div class="d-flex align-items-center gap-2 mb-2">
+        <span>Unduh panduan pengajuan Surat Pengantar PKL</span>
+        <a href="{{ $guide->fileUrl }}" target="_blank" class="btn btn-secondary">Unduh</a>
+      </div>
+    @endif
 
     <table class="table table-striped">
       <thead class="table-dark text-center">

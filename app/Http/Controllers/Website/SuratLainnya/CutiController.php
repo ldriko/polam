@@ -8,12 +8,14 @@ use App\Models\Submission;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Employee\Employee;
+use App\Models\Guide;
 
 class CutiController extends Controller
 {
     function index() {
+        $guide = Guide::where('type', Submission::TYPES[5])->first();
         $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[5])->with('user')->orderBy('created_at', 'desc')->paginate(10);
-        return view('website.surat-lainnya.cuti.index', compact('data'));
+        return view('website.surat-lainnya.cuti.index', compact('data', 'guide'));
     }
 
     function store(Request $request) {

@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Submission;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Guide;
 
 class BebasSanksiAkademikController extends Controller
 {
     function index() {
+        $guide = Guide::where('type', Submission::TYPES[4])->first();
         $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[4])->with('user')->orderBy('created_at', 'desc')->paginate();
-        return view('website.surat-keterangan.bebas-sanksi-akademik.index', compact('data'));
+        return view('website.surat-keterangan.bebas-sanksi-akademik.index', compact('data', 'guide'));
     }
 
     function store(Request $request) {

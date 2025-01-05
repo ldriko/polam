@@ -9,12 +9,14 @@ use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Employee\Employee;
 use Carbon\Carbon;
+use App\Models\Guide;
 
 class TranskripController extends Controller
 {
     function index() {
+        $guide = Guide::where('type', Submission::TYPES[8])->first();
         $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[8])->with('user')->orderBy('created_at', 'desc')->paginate(10);
-        return view('website.surat-lainnya.transkrip.index', compact('data'));
+        return view('website.surat-lainnya.transkrip.index', compact('data', 'guide'));
     }
 
     function store(Request $request) {

@@ -8,12 +8,14 @@ use App\Models\Submission;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
+use App\Models\Guide;
 
 class NonMbkmController extends Controller
 {
     function index() {
+        $guide = Guide::where('type', Submission::TYPES[11])->first();
         $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[11])->with('user')->orderBy('created_at', 'desc')->paginate(10);
-        return view('website.surat-rekomendasi.non-mbkm.index', compact('data'));
+        return view('website.surat-rekomendasi.non-mbkm.index', compact('data', 'guide'));
     }
 
     function store(Request $request) {

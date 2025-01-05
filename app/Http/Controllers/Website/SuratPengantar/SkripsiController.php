@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Submission;
+use App\Models\Guide;
 
 class SkripsiController extends Controller
 {
     function index() {
+        $guide = Guide::where('type', Submission::TYPES[1])->first();
         $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[1])->with('user')->orderBy('created_at', 'desc')->paginate(10);
-        return view('website.surat-pengantar.skripsi.index', compact('data'));
+        return view('website.surat-pengantar.skripsi.index', compact('data', 'guide'));
     }
 
     function store(Request $request) {

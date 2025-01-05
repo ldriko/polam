@@ -8,12 +8,14 @@ use App\Models\Submission;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Employee\Employee;
+use App\Models\Guide;
 
 class PengunduranDiriController extends Controller
 {
     function index() {
+        $guide = Guide::where('type', Submission::TYPES[7])->first();
         $data = Submission::where('user_id', Auth::id())->where('type', Submission::TYPES[7])->with('user')->orderBy('created_at', 'desc')->paginate(10);
-        return view('website.surat-lainnya.pengunduran-diri.index', compact('data'));
+        return view('website.surat-lainnya.pengunduran-diri.index', compact('data', 'guide'));
     }
 
     function store(Request $request) {

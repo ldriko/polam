@@ -21,7 +21,7 @@
       <p>Riwayat Pengajuan</p>
     </header>
 
-    @if ($guide)
+    @if ($guide && $guide->fileUrl)
       <div class="d-flex align-items-center gap-2 mb-2">
         <span>Unduh panduan pengajuan Surat Pengantar PKL</span>
         <a href="{{ $guide->fileUrl }}" target="_blank" class="btn btn-secondary">Unduh</a>

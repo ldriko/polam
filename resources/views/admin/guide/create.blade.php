@@ -6,7 +6,7 @@
     <h1>Tambah Berkas Panduan</h1>
     <div class="section-header-breadcrumb">
       <div class="breadcrumb-item active"><a href="{{ route('admin.index') }}">Dashboard</a></div>
-      <div class="breadcrumb-item"><a href="javascript:void(0)">Panduan</a></div>
+      <div class="breadcrumb-item"><a href="{{ route('admin.guide.index') }}">Panduan</a></div>
       <div class="breadcrumb-item">Tambah Panduan</div>
     </div>
   </div>

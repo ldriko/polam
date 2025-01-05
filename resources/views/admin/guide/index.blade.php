@@ -38,7 +38,7 @@
                   <td><a href="{{ $guide->fileUrl }}" class="btn btn-info" target="_blank">Buka</a></td>
                   <td>
                     <a href="{{ route('admin.guide.edit', $guide->id) }}" class="btn btn-primary mr-2">Edit</a>
-                    <a href="{{ route('admin.guide.destroy', $guide->id) }}" class="btn btn-danger">Hapus</a>
+                    <a href="{{ route('admin.guide.destroy', $guide->id) }}" class="btn btn-danger" id="deleteConfirmation">Hapus</a>
                   </td>
                 </tr>
                 @endforeach

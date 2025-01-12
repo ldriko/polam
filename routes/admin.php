@@ -27,6 +27,9 @@ use App\Http\Controllers\Admin\SuratLainnya\CutiController;
 use App\Http\Controllers\Admin\SuratLainnya\TransferController;
 use App\Http\Controllers\Admin\SuratLainnya\PengunduranDiriController;
 
+// Bagian Akun Admin
+use App\Http\Controllers\Admin\Account\AccountController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -126,5 +129,15 @@ Route::group(['middleware' => 'auth.employee'], function () {
         Route::get('pengunduran-diri', [PengunduranDiriController::class, 'index'])->name('pengunduran-diri.index');
         Route::get('pengunduran-diri/{submission}', [PengunduranDiriController::class, 'show'])->name('pengunduran-diri.show');
         Route::post('pengunduran-diri/{submission}', [PengunduranDiriController::class, 'update'])->name('pengunduran-diri.update');
+    });
+
+    // Bagian Akun Admin
+    Route::group(['prefix' => 'akun', 'as' => 'account.'], function () {
+        Route::get('', [AccountController::class, 'index'])->name('index');
+        Route::get('create', [AccountController::class, 'create'])->name('create');
+        Route::get('edit/{account}', [AccountController::class, 'edit'])->name('edit');
+        Route::post('store', [AccountController::class, 'store'])->name('store');
+        Route::post('update/{account}', [AccountController::class, 'update'])->name('update');
+        Route::get('destroy/{account}', [AccountController::class, 'destroy'])->name('destroy');
     });
 });

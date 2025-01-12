@@ -19,6 +19,8 @@ class Employee extends Authenticatable
         'email',
         'registration_type',
         'registration_number',
+        'rank',
+        'class',
         'signature',
         'password',
     ];

@@ -45,7 +45,12 @@
   </li>
 
   <li class="menu-header">Pengaturan</li>
+  @if(Auth::guard('employee')->user()->position->level == 0)
+    <li>
+      <a class="nav-link" href="{{ route('admin.account.index') }}"><i class="fas fa-users"></i> <span>Akun Admin</span></a>
+    </li>
+  @endif
   <li>
-    <a class="nav-link" href="{{ route('admin.account.index') }}"><i class="fas fa-users"></i> <span>Akun Admin</span></a>
+    <a class="nav-link" href="{{ route('admin.profile.index') }}"><i class="fas fa-user-cog"></i> <span>Profil</span></a>
   </li>
 </ul>

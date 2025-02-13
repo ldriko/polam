@@ -30,6 +30,9 @@ use App\Http\Controllers\Admin\SuratLainnya\PengunduranDiriController;
 // Bagian Akun Admin
 use App\Http\Controllers\Admin\Account\AccountController;
 
+// Bagian Setting Profile
+use App\Http\Controllers\Admin\Profile\ProfileController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -139,5 +142,11 @@ Route::group(['middleware' => 'auth.employee'], function () {
         Route::post('store', [AccountController::class, 'store'])->name('store');
         Route::post('update/{account}', [AccountController::class, 'update'])->name('update');
         Route::get('destroy/{account}', [AccountController::class, 'destroy'])->name('destroy');
+    });
+
+    // Bagian Setting Profile
+    Route::group(['prefix' => 'profil', 'as' => 'profile.'], function () {
+        Route::get('', [ProfileController::class, 'index'])->name('index');
+        Route::post('', [ProfileController::class, 'store'])->name('store');
     });
 });

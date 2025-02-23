@@ -1,55 +1,99 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+        <title>SIPATCA - Fakultas Ilmu Komputer</title>
+        <meta content="Sistem Informasi Pelayanan Administrasi Terpadu Civitas Akamedik" name="description">
+        <meta content="Sistem Informasi Pelayanan Administrasi Terpadu Civitas Akamedik" name="keywords">
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        @include('website.partials.style')
+        <style>
+            :root {
+                --primary-color: #4154f1;
+            }
+            html, body {
+                height: 100%;
+                margin: 0;
+                background-color: #f8f9fa;
+            }
+            .login-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+            .login-form {
+                width: 100%;
+                max-width: 400px;
+                padding: 20px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            .btn-primary {
+                background-color: var(--primary-color);
+                border-color: var(--primary-color);
+            }
+            .btn-primary:hover {
+                background-color: #2f41d1;
+                border-color: #2f41d1;
+            }
+            .logo span {
+                font-size: 30px;
+                font-weight: 700;
+                letter-spacing: 1px;
+                color: #012970;
+                font-family: "Nunito", sans-serif;
+                margin-top: 3px;
+            }
+            .logo img {
+                max-height: 40px;
+                margin-right: 6px;
+            }
+            a {
+                color: var(--primary-color);
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="login-container">
+            <div class="login-form">
+                <a href="{{ route('index') }}" class="logo d-flex align-items-center justify-content-center mb-2">
+                    <img src="{{ asset('website/img/logo-upn.png') }}" alt="logo upn">
+                    <span>SIPATCA</span>
+                </a>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-between mt-4">
-            <div>
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-2" href="{{ route('register') }}">
-                        Daftar
-                    </a>
-                @endif
-
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                        Lupa Password
-                    </a>
-                @endif
+                <form action="{{ route('login') }}" method="POST">
+                    @csrf
+                    
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email" required value="{{ old('email') }}">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password" required>
+                    </div>
+                    
+                    <div class="d-grid mb-3">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p>Tidak punya akun? <a href="/register">Daftar</a></p>
+                        <p><a href="/forgot-password">Lupa Password?</a></p>
+                    </div>
+                </form>
             </div>
-
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
         </div>
-    </form>
-</x-guest-layout>
+
+        @include('website.partials.script')')
+    </body>
+</html>

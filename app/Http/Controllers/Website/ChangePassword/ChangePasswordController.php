@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\ChangePassword;
+namespace App\Http\Controllers\Website\ChangePassword;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,41 +10,41 @@ use Illuminate\Support\Facades\Hash;
 
 class ChangePasswordController extends Controller
 {
-    function index(Request $request) {
-        return view('admin.change-password.index');
+    function index() {
+        return view('website.change-password.index');
     }
 
     function update(Request $request) {
-        // ambil data pegawai yg login saat ini
-        $employee = Auth::guard('employee')->user();
+        // ambil data mahasiswa yg login saat ini
+        $user = Auth::user();
 
         // validasi input
         $request->validate([
-            'old_password' => ['required', 'current_password:employee'],
+            'old_password' => ['required', 'current_password:web'],
             'new_password' => ['required', Password::min(6)->mixedCase()->letters()->numbers()->symbols(), 'confirmed:new_password'],
         ]);
 
         // ubah password di DB
-        if (!$employee->update(['password' => Hash::make($request->new_password)])) {
-            return redirect()->route('admin.change-password.index')->with([
+        if (!$user->update(['password' => Hash::make($request->new_password)])) {
+            return redirect()->route('profile.change-password.index')->with([
                 'status' => 'error',
                 'message' => 'Gagal mengganti password',
             ]);
         }
 
         // proses logout
-        Auth::guard('employee')->logout();
+        Auth::logout();
 
         // jika gagal logout redirect ke halaman asli + pesan
-        if (Auth::guard('employee')->check()) {
-            return redirect()->route('admin.change-password.index')->with([
+        if (Auth::check()) {
+            return redirect()->route('profile.change-password.index')->with([
                 'status' => 'error',
                 'message' => 'Logout Gagal',
             ]);
         }
 
         // redirect ke halaman login + pesan
-        return redirect()->route('admin.auth.login')->with([
+        return redirect()->route('login')->with([
             'status' => 'success',
             'message' => 'Berhasil mengganti password',
         ]);

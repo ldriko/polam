@@ -48,7 +48,7 @@
           <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{ route('profile.index') }}">Ubah Profil</a></li>
-              <li><a href="{{ route('profile.index') }}">Ganti Password</a></li>
+              <li><a href="{{ route('profile.change-password.index') }}">Ganti Password</a></li>
               <li><a href="{{ route('logout') }}">Keluar</a></li>
             </ul>
           </li>

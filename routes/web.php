@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 // Controller Profile
 use App\Http\Controllers\Website\Profile\ProfileController;
 
+// Controller Ganti Password
+use App\Http\Controllers\Website\ChangePassword\ChangePasswordController;
+
 // Controller Surat Pengantar
 use App\Http\Controllers\Website\SuratPengantar\PklController;
 use App\Http\Controllers\Website\SuratPengantar\SkripsiController;
@@ -58,6 +61,12 @@ Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'profil', 'as' => 'profile.'], function () {
         Route::get('', [ProfileController::class, 'index'])->name('index');
         Route::post('', [ProfileController::class, 'update'])->name('update');
+
+        // Bagian Ganti Password
+        Route::group(['prefix' => 'ganti-password', 'as' => 'change-password.'], function () {
+            Route::get('', [ChangePasswordController::class, 'index'])->name('index');
+            Route::post('', [ChangePasswordController::class, 'update'])->name('update');
+        });
     });
 
     // Bagian Surat Pengantar

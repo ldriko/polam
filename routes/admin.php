@@ -33,6 +33,9 @@ use App\Http\Controllers\Admin\Account\AccountController;
 // Bagian Setting Profile
 use App\Http\Controllers\Admin\Profile\ProfileController;
 
+// Bagian Ganti Password
+use App\Http\Controllers\Admin\ChangePassword\ChangePasswordController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,8 +47,10 @@ use App\Http\Controllers\Admin\Profile\ProfileController;
 |
 */
 
-Route::get('login', [AuthController::class, 'index'])->name('auth.login');
-Route::post('login', [AuthController::class, 'login'])->name('auth.login.process');
+Route::group(['middleware' => 'guest.employee'], function () {
+    Route::get('login', [AuthController::class, 'index'])->name('auth.login');
+    Route::post('login', [AuthController::class, 'login'])->name('auth.login.process');
+});
 
 Route::group(['middleware' => 'auth.employee'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
@@ -147,6 +152,12 @@ Route::group(['middleware' => 'auth.employee'], function () {
     // Bagian Setting Profile
     Route::group(['prefix' => 'profil', 'as' => 'profile.'], function () {
         Route::get('', [ProfileController::class, 'index'])->name('index');
-        Route::post('', [ProfileController::class, 'store'])->name('store');
+        Route::post('', [ProfileController::class, 'update'])->name('update');
+    });
+
+    // Bagian Ganti Password
+    Route::group(['prefix' => 'ganti-password', 'as' => 'change-password.'], function () {
+        Route::get('', [ChangePasswordController::class, 'index'])->name('index');
+        Route::post('', [ChangePasswordController::class, 'update'])->name('update');
     });
 });

@@ -19,7 +19,7 @@ class ProfileController extends Controller
         return view('admin.profile.index', compact('employee', 'positions', 'departments'));
     }
 
-    function store(Request $request) {
+    function update(Request $request) {
         $employee = Auth::guard('employee')->user();
 
         $rules = [

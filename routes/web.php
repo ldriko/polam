@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileController as Profile2;
 use Illuminate\Support\Facades\Route;
+
+// Controller Profile
+use App\Http\Controllers\Website\Profile\ProfileController;
 
 // Controller Surat Pengantar
 use App\Http\Controllers\Website\SuratPengantar\PklController;
@@ -47,9 +50,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile2', [Profile2::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile2', [Profile2::class, 'update'])->name('profile.update');
+    Route::delete('/profile2', [Profile2::class, 'destroy'])->name('profile.destroy');
+
+    // Bagian Profil Mahasiswa
+    Route::group(['prefix' => 'profil', 'as' => 'profile.'], function () {
+        Route::get('', [ProfileController::class, 'index'])->name('index');
+        Route::post('', [ProfileController::class, 'update'])->name('update');
+    });
 
     // Bagian Surat Pengantar
     Route::group(['prefix' => 'surat-pengantar', 'as' => 'surat-pengantar.'], function () {

@@ -45,7 +45,7 @@
         </li>
         <li><a href="https://uyus.igsindonesia.org" target="_blank"><span>Yudisium</span></a></li>
         @if(auth()->user())
-            <li><a class="getstarted scrollto" href="{{ route('dashboard') }}">Profil</a></li>
+            <li><a class="getstarted scrollto" href="{{ route('profile.index') }}">Profil</a></li>
         @else
             <li><a class="getstarted scrollto" href="{{ route('login') }}">Masuk</a></li>
         @endif

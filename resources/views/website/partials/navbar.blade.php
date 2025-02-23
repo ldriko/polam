@@ -45,9 +45,15 @@
         </li>
         <li><a href="https://uyus.igsindonesia.org" target="_blank"><span>Yudisium</span></a></li>
         @if(auth()->user())
-            <li><a class="getstarted scrollto" href="{{ route('profile.index') }}">Profil</a></li>
+          <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{{ route('profile.index') }}">Ubah Profil</a></li>
+              <li><a href="{{ route('profile.index') }}">Ganti Password</a></li>
+              <li><a href="{{ route('logout') }}">Keluar</a></li>
+            </ul>
+          </li>
         @else
-            <li><a class="getstarted scrollto" href="{{ route('login') }}">Masuk</a></li>
+          <li><a class="getstarted scrollto" href="{{ route('login') }}">Masuk</a></li>
         @endif
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>

@@ -54,6 +54,6 @@
     <a class="nav-link" href="{{ route('admin.profile.index') }}"><i class="fas fa-user-cog"></i> <span>Profil</span></a>
   </li>
   <li>
-    <a class="nav-link" href="{{ route('admin.change-password.index') }}"><i class="fas fa-user-cog"></i> <span>Ubah Password</span></a>
+    <a class="nav-link" href="{{ route('admin.change-password.index') }}"><i class="fas fa-user-shield"></i> <span>Ubah Password</span></a>
   </li>
 </ul>

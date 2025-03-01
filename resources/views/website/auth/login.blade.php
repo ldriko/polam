@@ -87,8 +87,8 @@
                     </div>
                     
                     <div class="text-center">
-                        <p>Tidak punya akun? <a href="/register">Daftar</a></p>
-                        <p><a href="/forgot-password">Lupa Password?</a></p>
+                        <p>Tidak punya akun? <a href="{{ route('register') }}">Daftar</a></p>
+                        <p><a href="{{ route('password.request') }}">Lupa Password?</a></p>
                     </div>
                 </form>
             </div>

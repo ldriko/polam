@@ -44,10 +44,6 @@ Route::get('/', function () {
     return view('website.home.index');
 })->name('index');
 
-Route::group(['prefix' => 'surat-pengantar', 'as' => 'surat-pengantar.'], function () {
-    Route::get('/pkl', [PklController::class, 'index'])->name('pkl');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

@@ -83,7 +83,7 @@
                     </div>
                     
                     <div class="d-grid mb-3">
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" class="btn btn-primary">Masuk</button>
                     </div>
                     
                     <div class="text-center">

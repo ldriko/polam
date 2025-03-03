@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class ResetPasswordNotification extends Notification
+class VerifyEmailNotification extends Notification
 {
     use Queueable;
     protected $url = null;
@@ -36,11 +36,10 @@ class ResetPasswordNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Notifikasi Reset Password')
-            ->line('Anda menerima email ini karena kami menerima permintaan pengaturan ulang kata sandi untuk akun Anda.')
-            ->action('Reset Password', $this->url)
-            ->line('Tautan pengaturan ulang kata sandi ini akan kedaluwarsa dalam ' . config('auth.passwords.users.expire') . ' menit.')
-            ->line('Jika Anda tidak meminta pengaturan ulang kata sandi, tidak ada tindakan lebih lanjut yang diperlukan.');
+                    ->subject('Notifikasi Verifikasi Email')
+                    ->line('Silakan klik tombol di bawah ini untuk memverifikasi alamat email Anda.')
+                    ->action('Verifikasi Alamat Email', $this->url)
+                    ->line('Jika Anda tidak membuat akun, tidak ada tindakan lebih lanjut yang diperlukan.');
     }
 
     /**

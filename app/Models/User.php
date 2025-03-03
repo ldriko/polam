@@ -10,6 +10,9 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\Department;
 use Carbon\Carbon;
 use App\Notifications\ResetPasswordNotification;
+use App\Notifications\VerifyEmailNotification;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Config;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -72,5 +75,19 @@ class User extends Authenticatable implements MustVerifyEmail
         ], false));
 
         $this->notify(new ResetPasswordNotification($url));
+    }
+
+    public function sendEmailVerificationNotification()
+    {
+        $url = URL::temporarySignedRoute(
+            'verification.verify',
+            Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
+            [
+                'id' => $this->getKey(),
+                'hash' => sha1($this->getEmailForVerification()),
+            ]
+        );
+
+        $this->notify(new VerifyEmailNotification($url));
     }
 }

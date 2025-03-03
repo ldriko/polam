@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Department;
 use Carbon\Carbon;
+use App\Notifications\ResetPasswordNotification;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -62,5 +63,14 @@ class User extends Authenticatable implements MustVerifyEmail
             $currentYear -= 1;
         }
         return $currentYear.' - '.$currentYear+1;
+    }
+
+    public function sendPasswordResetNotification($token) {
+        $url = url(route('password.reset', [
+            'token' => $token,
+            'email' => $this->email,
+        ], false));
+
+        $this->notify(new ResetPasswordNotification($url));
     }
 }

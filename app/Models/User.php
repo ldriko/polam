@@ -90,4 +90,20 @@ class User extends Authenticatable implements MustVerifyEmail
 
         $this->notify(new VerifyEmailNotification($url));
     }
+
+    function isProfileFilled() {
+        if (
+            $this->department_id == null ||
+            $this->name == null ||
+            $this->email == null ||
+            $this->birth_date == null ||
+            $this->birth_place == null ||
+            $this->address == null ||
+            $this->registration_number == null
+        ) {
+            return false;
+        }
+
+        return true;
+    }
 }

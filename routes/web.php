@@ -44,10 +44,6 @@ Route::get('/', function () {
     return view('website.home.index');
 })->name('index');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile2', [Profile2::class, 'edit'])->name('profile.edit');
     Route::patch('/profile2', [Profile2::class, 'update'])->name('profile.update');

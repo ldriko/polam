@@ -92,7 +92,6 @@
                     <span>SIPATCA</span>
                 </a>
 
-                <!-- Teks pengantar yang dipercantik -->
                 <div class="intro-text">
                     <h4>Lupa Kata Sandi?</h4>
                     <p>Tidak masalah. Silakan masukkan alamat email Anda, dan kami akan mengirimkan tautan untuk mengatur ulang kata sandi agar Anda dapat memilih yang baru.</p>

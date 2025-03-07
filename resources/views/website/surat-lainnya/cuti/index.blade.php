@@ -10,7 +10,6 @@
       <li>Cuti</li>
     </ol>
     <h2>Cuti</h2>
-
   </div>
 </section><!-- End Breadcrumbs -->
 
@@ -69,37 +68,56 @@
         <p>Form Pengajuan</p>
       </header>
       <form action="{{ route('surat-lainnya.cuti.store') }}" method="post">
-        @foreach($errors->all() as $message)
-          {{ $message }}
-        @endforeach
         @csrf
+        @if ($errors->any())
+          <div class="alert alert-danger">
+            <ul class="mb-0">
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
+
         <div class="row mb-3">
           <h5 class="fw-bold">Informasi Mahasiswa</h5>
           <div class="col">
             <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-            <input type="text" name="name" class="form-control" value="{{ Auth::user()->name }}" readonly>
+            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ Auth::user()->name }}" readonly>
+            @error('name')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">NPM Mahasiswa <span class="text-danger">*</span></label>
-            <input type="text" name="registration_number" class="form-control" value="{{ Auth::user()->registration_number }}" readonly>
+            <input type="text" name="registration_number" class="form-control @error('registration_number') is-invalid @enderror" value="{{ Auth::user()->registration_number }}" readonly>
+            @error('registration_number')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
         <div class="row mb-4">
           <div class="col">
             <label class="form-label">Program Studi <span class="text-danger">*</span></label>
-            <input type="text" name="department" class="form-control" value="{{ Auth::user()->department->name }}" readonly>
+            <input type="text" name="department" class="form-control @error('department') is-invalid @enderror" value="{{ Auth::user()->department->name }}" readonly>
+            @error('department')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">Semester <span class="text-danger">*</span></label>
-            <select name="semester" class="form-control" required>
+            <select name="semester" class="form-control @error('semester') is-invalid @enderror" required>
                 <option value="">Pilih Semester...</option>
                 <option value="genap">Genap</option>
                 <option value="ganjil">Ganjil</option>
             </select>
+            @error('semester')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">Tahun Ajaran <span class="text-danger">*</span></label>
-            <select name="academic_year" class="form-control" required>
+            <select name="academic_year" class="form-control @error('academic_year') is-invalid @enderror" required>
                 <option value="">Pilih Tahun Ajaran...</option>
                 @php
                     $now = Carbon\Carbon::now()->subYear(1);
@@ -108,29 +126,37 @@
                     <option value="{{ $now->year + $i . "/" . $now->year + $i + 1}}">{{ $now->year + $i . "/" . $now->year + $i + 1}}</option>
                 @endfor
             </select>
+            @error('academic_year')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
 
         <div class="row mb-4">
           <div class="col">
             <label class="form-label">Nama Orang Tua <span class="text-danger">*</span></label>
-            <input type="text" name="parent_name" class="form-control" required>
+            <input type="text" name="parent_name" class="form-control @error('parent_name') is-invalid @enderror" required>
             <div class="form-text">Orang tua yang akan bertanda tangan.</div>
+            @error('parent_name')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
 
         <div class="row mb-4">
           <div class="col">
             <label class="form-label">Alasan Cuti <span class="text-danger">*</span></label>
-            <input type="text" name="excuse" class="form-control" required>
+            <input type="text" name="excuse" class="form-control @error('excuse') is-invalid @enderror" required>
             <div class="form-text">Alasan ingin mengambil cuti.</div>
+            @error('excuse')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
 
         <div class="d-grid d-md-flex justify-content-md-end">
           <button type="submit" class="btn btn-primary btn-lg">Ajukan</button>
         </div>
-
       </form>
     </div>
   </div>

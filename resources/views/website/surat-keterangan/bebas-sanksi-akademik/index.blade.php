@@ -10,7 +10,6 @@
       <li>Bebas Sanksi Akademik</li>
     </ol>
     <h2>Bebas Sanksi Akademik</h2>
-
   </div>
 </section><!-- End Breadcrumbs -->
 
@@ -69,46 +68,70 @@
         <p>Form Pengajuan</p>
       </header>
       <form action="{{ route('surat-keterangan.bebas-sanksi-akademik.store') }}" method="post">
-        @foreach($errors->all() as $message)
-          {{ $message }}
-        @endforeach
         @csrf
+        @if ($errors->any())
+          <div class="alert alert-danger">
+            <ul class="mb-0">
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
+
         <div class="row mb-3">
           <h5 class="fw-bold">Informasi Mahasiswa</h5>
           <div class="col">
             <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-            <input type="text" name="name" class="form-control" value="{{ Auth::user()->name }}" readonly>
+            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ Auth::user()->name }}" readonly>
+            @error('name')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">NPM Mahasiswa <span class="text-danger">*</span></label>
-            <input type="text" name="registration_number" class="form-control" value="{{ Auth::user()->registration_number }}" readonly>
+            <input type="text" name="registration_number" class="form-control @error('registration_number') is-invalid @enderror" value="{{ Auth::user()->registration_number }}" readonly>
+            @error('registration_number')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
         <div class="row mb-4">
           <div class="col">
             <label class="form-label">Program Studi <span class="text-danger">*</span></label>
-            <input type="text" name="department" class="form-control" value="{{ Auth::user()->department->name }}" readonly>
+            <input type="text" name="department" class="form-control @error('department') is-invalid @enderror" value="{{ Auth::user()->department->name }}" readonly>
+            @error('department')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">Tempat Lahir <span class="text-danger">*</span></label>
-            <input type="text" name="birth_place" class="form-control" value="{{ Auth::user()->birth_place }}" readonly>
+            <input type="text" name="birth_place" class="form-control @error('birth_place') is-invalid @enderror" value="{{ Auth::user()->birth_place }}" readonly>
+            @error('birth_place')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">Tanggal Lahir <span class="text-danger">*</span></label>
-            <input type="text" name="birth_date" class="form-control" value="{{ Carbon\Carbon::parse(Auth::user()->birth_date)->locale('id_ID')->translatedFormat('d F Y') }}" readonly>
+            <input type="text" name="birth_date" class="form-control @error('birth_date') is-invalid @enderror" value="{{ Carbon\Carbon::parse(Auth::user()->birth_date)->locale('id_ID')->translatedFormat('d F Y') }}" readonly>
+            @error('birth_date')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
         <div class="row mb-4">
           <div class="col">
             <label class="form-label">Alamat Lengkap <span class="text-danger">*</span></label>
-            <input type="text" name="address" class="form-control" value="{{ Auth::user()->address }}" readonly>
+            <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ Auth::user()->address }}" readonly>
+            @error('address')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
 
         <div class="d-grid d-md-flex justify-content-md-end">
           <button type="submit" class="btn btn-primary btn-lg">Ajukan</button>
         </div>
-
       </form>
     </div>
   </div>

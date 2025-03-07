@@ -10,7 +10,6 @@
       <li>Aktif Kuliah</li>
     </ol>
     <h2>Aktif Kuliah</h2>
-
   </div>
 </section><!-- End Breadcrumbs -->
 
@@ -69,33 +68,55 @@
         <p>Form Pengajuan</p>
       </header>
       <form action="{{ route('surat-keterangan.aktif-kuliah.store') }}" method="post" enctype="multipart/form-data">
-        @foreach($errors->all() as $message)
-          {{ $message }}
-        @endforeach
         @csrf
+        @if ($errors->any())
+          <div class="alert alert-danger">
+            <ul class="mb-0">
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
+
         <div class="row mb-3">
           <h5 class="fw-bold">Informasi Mahasiswa</h5>
           <div class="col">
             <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-            <input type="text" name="name" class="form-control" value="{{ Auth::user()->name }}" readonly>
+            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ Auth::user()->name }}" readonly>
+            @error('name')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">NPM Mahasiswa <span class="text-danger">*</span></label>
-            <input type="text" name="registration_number" class="form-control" value="{{ Auth::user()->registration_number }}" readonly>
+            <input type="text" name="registration_number" class="form-control @error('registration_number') is-invalid @enderror" value="{{ Auth::user()->registration_number }}" readonly>
+            @error('registration_number')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
         <div class="row mb-4">
           <div class="col">
             <label class="form-label">Program Studi <span class="text-danger">*</span></label>
-            <input type="text" name="department" class="form-control" value="{{ Auth::user()->department->name }}" readonly>
+            <input type="text" name="department" class="form-control @error('department') is-invalid @enderror" value="{{ Auth::user()->department->name }}" readonly>
+            @error('department')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">Tahun Akademik <span class="text-danger">*</span></label>
-            <input type="text" name="academic_year" class="form-control" value="{{ Auth::user()->getAcademicYear() }}" readonly>
+            <input type="text" name="academic_year" class="form-control @error('academic_year') is-invalid @enderror" value="{{ Auth::user()->getAcademicYear() }}" readonly>
+            @error('academic_year')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">Semester <span class="text-danger">*</span></label>
-            <input type="number" min="1" max="14" name="semester" class="form-control" required>
+            <input type="number" min="1" max="14" name="semester" class="form-control @error('semester') is-invalid @enderror" required>
+            @error('semester')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
 
@@ -103,24 +124,36 @@
           <h5 class="fw-bold">Informasi Orang Tua/Wali</h5>
           <div class="col">
             <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-            <input type="text" name="parent_name" class="form-control" required>
+            <input type="text" name="parent_name" class="form-control @error('parent_name') is-invalid @enderror" required>
+            @error('parent_name')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">Nama Instansi/Pekerjaan <span class="text-danger">*</span></label>
-            <input type="text" name="parent_company_name" class="form-control" required>
+            <input type="text" name="parent_company_name" class="form-control @error('parent_company_name') is-invalid @enderror" required>
+            @error('parent_company_name')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
 
         <div class="row mb-4">
           <div class="col">
             <label class="form-label">Nomor Pegawai</label>
-            <input type="text" name="parent_employee_number" class="form-control">
+            <input type="text" name="parent_employee_number" class="form-control @error('parent_employee_number') is-invalid @enderror">
             <div class="form-text">Boleh dikosongkan.</div>
+            @error('parent_employee_number')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">Pangkat/Golongan</label>
-            <input type="text" name="parent_employee_position" class="form-control">
+            <input type="text" name="parent_employee_position" class="form-control @error('parent_employee_position') is-invalid @enderror">
             <div class="form-text">Boleh dikosongkan.</div>
+            @error('parent_employee_position')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
 
@@ -128,19 +161,24 @@
           <h5 class="fw-bold">Informasi Data Pendukung</h5>
           <div class="col">
             <label class="form-label">Keperluan <span class="text-danger">*</span></label>
-            <input type="text" name="used_for" class="form-control" required>
+            <input type="text" name="used_for" class="form-control @error('used_for') is-invalid @enderror" required>
+            @error('used_for')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">Bukti Re-Registrasi <span class="text-danger">*</span></label>
-            <input type="file" name="proof_re_registration" class="form-control" required>
+            <input type="file" name="proof_re_registration" class="form-control @error('proof_re_registration') is-invalid @enderror" required>
             <div class="form-text">Format file berupa PDF, maksimal 2MB.</div>
+            @error('proof_re_registration')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
 
         <div class="d-grid d-md-flex justify-content-md-end">
           <button type="submit" class="btn btn-primary btn-lg">Ajukan</button>
         </div>
-
       </form>
     </div>
   </div>

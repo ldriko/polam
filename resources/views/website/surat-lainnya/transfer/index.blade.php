@@ -10,7 +10,6 @@
       <li>Transfer</li>
     </ol>
     <h2>Transfer</h2>
-
   </div>
 </section><!-- End Breadcrumbs -->
 
@@ -69,30 +68,49 @@
         <p>Form Pengajuan</p>
       </header>
       <form action="{{ route('surat-lainnya.transfer.store') }}" method="post">
-        @foreach($errors->all() as $message)
-          {{ $message }}
-        @endforeach
         @csrf
+        @if ($errors->any())
+          <div class="alert alert-danger">
+            <ul class="mb-0">
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
+
         <div class="row mb-3">
           <h5 class="fw-bold">Informasi Mahasiswa</h5>
           <div class="col">
             <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-            <input type="text" name="name" class="form-control" value="{{ Auth::user()->name }}" readonly>
+            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ Auth::user()->name }}" readonly>
+            @error('name')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">Nama Orang Tua <span class="text-danger">*</span></label>
-            <input type="text" name="parent_name" class="form-control" required>
+            <input type="text" name="parent_name" class="form-control @error('parent_name') is-invalid @enderror" required>
             <div class="form-text">Orang tua yang akan bertanda tangan.</div>
+            @error('parent_name')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
         <div class="row mb-4">
           <div class="col">
             <label class="form-label">NPM Mahasiswa <span class="text-danger">*</span></label>
-            <input type="text" name="registration_number" class="form-control" value="{{ Auth::user()->registration_number }}" readonly>
+            <input type="text" name="registration_number" class="form-control @error('registration_number') is-invalid @enderror" value="{{ Auth::user()->registration_number }}" readonly>
+            @error('registration_number')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">Program Studi <span class="text-danger">*</span></label>
-            <input type="text" name="department" class="form-control" value="{{ Auth::user()->department->name }}" readonly>
+            <input type="text" name="department" class="form-control @error('department') is-invalid @enderror" value="{{ Auth::user()->department->name }}" readonly>
+            @error('department')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
 
@@ -100,25 +118,33 @@
           <h5 class="fw-bold">Informasi Kampus Tujuan</h5>
           <div class="col">
             <label class="form-label">Universitas / Institut <span class="text-danger">*</span></label>
-            <input type="text" name="university" class="form-control" required>
+            <input type="text" name="university" class="form-control @error('university') is-invalid @enderror" required>
+            @error('university')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
 
         <div class="row mb-4">
           <div class="col">
             <label class="form-label">Fakultas <span class="text-danger">*</span></label>
-            <input type="text" name="faculty" class="form-control" required>
+            <input type="text" name="faculty" class="form-control @error('faculty') is-invalid @enderror" required>
+            @error('faculty')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="col">
             <label class="form-label">Program Studi <span class="text-danger">*</span></label>
-            <input type="text" name="new_department" class="form-control" required>
+            <input type="text" name="new_department" class="form-control @error('new_department') is-invalid @enderror" required>
+            @error('new_department')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
         </div>
 
         <div class="d-grid d-md-flex justify-content-md-end">
           <button type="submit" class="btn btn-primary btn-lg">Ajukan</button>
         </div>
-
       </form>
     </div>
   </div>

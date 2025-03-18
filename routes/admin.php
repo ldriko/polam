@@ -7,6 +7,9 @@ use App\Http\Controllers\Admin\Auth\AuthController;
 // Panduan
 use App\Http\Controllers\Admin\Guide\GuideController;
 
+// Prodi
+use App\Http\Controllers\Admin\Department\DepartmentController;
+
 // Bagian Surat Pengantar
 use App\Http\Controllers\Admin\SuratPengantar\PklController;
 use App\Http\Controllers\Admin\SuratPengantar\SkripsiController;
@@ -65,6 +68,12 @@ Route::group(['middleware' => 'auth.employee'], function () {
         Route::post('store', [GuideController::class, 'store'])->name('store');
         Route::post('update/{guide}', [GuideController::class, 'update'])->name('update');
         Route::get('destroy/{guide}', [GuideController::class, 'destroy'])->name('destroy');
+    });
+
+    // Prodi
+    Route::group(['prefix' => 'prodi', 'as' => 'department.'], function () {
+        Route::resource('', DepartmentController::class, ['parameters' => ['' => 'department']])->except('destroy', 'show');
+        Route::get('destroy/{department}', [DepartmentController::class, 'destroy'])->name('destroy');
     });
 
     // Bagian Surat Pengantar

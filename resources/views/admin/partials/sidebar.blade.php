@@ -6,6 +6,11 @@
   <li>
     <a class="nav-link" href="{{ route('admin.guide.index') }}"><i class="fas fa-sticky-note"></i> <span>Panduan</span></a>
   </li>
+  @if(Auth::guard('employee')->user()->position->level == 0)
+    <li>
+      <a class="nav-link" href="{{ route('admin.department.index') }}"><i class="fas fa-building"></i> <span>Prodi</span></a>
+    </li>
+  @endif
 
   <li class="menu-header">Pengajuan</li>
   <li class="nav-item dropdown">

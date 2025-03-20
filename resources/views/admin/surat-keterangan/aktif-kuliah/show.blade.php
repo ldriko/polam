@@ -118,7 +118,7 @@
               <div class="col">
                 <div class="form-group">
                   <label>Bukti Re-Registrasi</label>
-                  <a href="{{ asset($data->proof_re_registration_path) }}" class="btn btn-lg btn-primary form-control" target="_blank">Lihat PDF</a>
+                  <a href="{{ asset('storage/' . $data->proof_re_registration_path) }}" class="btn btn-lg btn-primary form-control" target="_blank">Lihat PDF</a>
                 </div>
               </div>
             </div>

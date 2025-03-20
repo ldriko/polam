@@ -85,7 +85,7 @@
               <div class="col">
                 <div class="form-group">
                   <label>Surat Ajuan</label>
-                  <a href="{{ asset($data->application_letter_path) }}" class="btn btn-lg btn-primary form-control" target="_blank">Lihat PDF</a>
+                  <a href="{{ asset('storage/' . $data->application_letter_path) }}" class="btn btn-lg btn-primary form-control" target="_blank">Lihat PDF</a>
                 </div>
               </div>
             </div>

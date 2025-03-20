@@ -65,7 +65,7 @@
                 <div class="col">
                   <div class="form-group">
                     <label>Berkas Transkrip</label>
-                    <a href="{{ asset($data->transkrip_file_path ?? '') }}" class="btn btn-lg btn-primary form-control {{ $data->transkrip_file_path ?? null ? '':'disabled' }}" target="_blank">Lihat PDF</a>
+                    <a href="{{ asset('storage/' . $data->transkrip_file_path ?? '') }}" class="btn btn-lg btn-primary form-control {{ $data->transkrip_file_path ?? null ? '':'disabled' }}" target="_blank">Lihat PDF</a>
                   </div>
                 </div>
               </div>

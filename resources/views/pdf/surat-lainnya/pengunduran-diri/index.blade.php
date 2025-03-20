@@ -212,7 +212,7 @@
                 <tr class="text-center">
                     <td class="bold"></td>
                     <td width="100px"></td>
-                    <td class="bold">NPM. {{ $data['registration_number'] }}</td>
+                    <td class="">NPM. {{ $data['registration_number'] }}</td>
                 </tr>
             </table>
         </section>
@@ -236,9 +236,9 @@
                     <td class="bold underline">{{ $submission->approvedByEmployee->name }}</td>
                 </tr>
                 <tr class="text-center">
-                    <td class="bold">{{ $dekan->registration_type }}. {{ $dekan->registration_number }}</td>
+                    <td class="">{{ $dekan->registration_type }}. {{ $dekan->registration_number }}</td>
                     <td width="100px"></td>
-                    <td class="bold">{{ $submission->approvedByEmployee->registration_type }}. {{ $submission->approvedByEmployee->registration_number }}</td>
+                    <td class="">{{ $submission->approvedByEmployee->registration_type }}. {{ $submission->approvedByEmployee->registration_number }}</td>
                 </tr>
             </table>
         </section>

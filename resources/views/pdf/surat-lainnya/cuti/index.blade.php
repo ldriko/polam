@@ -183,7 +183,7 @@
                     <td class="vertical-align-top">{{ $data['department'] }}</td>
                 </tr>
             </table>
-            <p class="text-justify text-indent lh-1-5">Mengajukan permohonan untuk Cuti Akademik pada semester <span class="bold capitalize">{{ $data['semester'] }}</span> Tahun Akademik {{ $data['academic_year'] }}, dengan alasan "{{ $data['excuse'] }}" Demikian atas perhatiannya disampaikan terima kasih.</p>
+            <p class="text-justify text-indent lh-1-5">Mengajukan permohonan untuk Cuti Akademik pada semester <span class="bold capitalize">{{ $data['semester'] }}</span> Tahun Akademik {{ $data['academic_year'] }}, dengan alasan "{{ $data['excuse'] ?? '-' }}" Demikian atas perhatiannya disampaikan terima kasih.</p>
         </section>
 
         <section class="px-50 mt-20">
@@ -207,7 +207,7 @@
                 <tr class="text-center">
                     <td class="bold"></td>
                     <td width="100px"></td>
-                    <td class="bold">NPM. {{ $data['registration_number'] }}</td>
+                    <td class="">NPM. {{ $data['registration_number'] }}</td>
                 </tr>
             </table>
         </section>
@@ -231,9 +231,9 @@
                     <td class="bold underline">{{ $submission->approvedByEmployee->name }}</td>
                 </tr>
                 <tr class="text-center">
-                    <td class="bold">{{ $dekan->registration_type }}. {{ $dekan->registration_number }}</td>
+                    <td class="">{{ $dekan->registration_type }}. {{ $dekan->registration_number }}</td>
                     <td width="100px"></td>
-                    <td class="bold">{{ $submission->approvedByEmployee->registration_type }}. {{ $submission->approvedByEmployee->registration_number }}</td>
+                    <td class="">{{ $submission->approvedByEmployee->registration_type }}. {{ $submission->approvedByEmployee->registration_number }}</td>
                 </tr>
             </table>
         </section>

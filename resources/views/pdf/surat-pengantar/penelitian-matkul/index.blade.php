@@ -188,7 +188,7 @@
                 </tr>
                 <tr class="text-center">
                     <td class="w-50"></td>
-                    <td class="bold">{{ $submission->approvedByEmployee->registration_type }}. {{ $submission->approvedByEmployee->registration_number }}</td>
+                    <td class="">{{ $submission->approvedByEmployee->registration_type }}. {{ $submission->approvedByEmployee->registration_number }}</td>
                 </tr>
             </table>
         </section>

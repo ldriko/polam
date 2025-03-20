@@ -177,11 +177,11 @@
             <p class="text-justify lh-1-5 text-indent">Demikian surat rekomendasi ini untuk dipergunakan sebagaimana mestinya.</p>
         </section>
 
-        <section class="px-50 mt-50">
+        <section class="px-50 mt-30">
             <table class="w-100">
                 <tr class="text-center">
                     <td class="w-50"></td>
-                    <td class="bold capitalize">Surabaya, {{ Carbon\Carbon::parse($submission->approved_at)->locale('id_ID')->translatedFormat('d F Y') }}</td>
+                    <td class="capitalize" style="padding-bottom: 10px;">Surabaya, {{ Carbon\Carbon::parse($submission->approved_at)->locale('id_ID')->translatedFormat('d F Y') }}</td>
                 </tr>
                 <tr class="text-center">
                     <td class="w-50"></td>
@@ -201,7 +201,7 @@
                 </tr>
                 <tr class="text-center">
                     <td class="w-50"></td>
-                    <td class="bold">{{ $submission->approvedByEmployee->registration_type }}. {{ $submission->approvedByEmployee->registration_number }}</td>
+                    <td class="">{{ $submission->approvedByEmployee->registration_type }}. {{ $submission->approvedByEmployee->registration_number }}</td>
                 </tr>
             </table>
         </section>

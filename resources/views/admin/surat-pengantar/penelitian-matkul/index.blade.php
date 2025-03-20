@@ -26,7 +26,8 @@
                   <th>Nama Mahasiswa</th>
                   <th>Tanggal Pengajuan</th>
                   <th>Status Pengajuan</th>
-                  <th>Action</th>
+                  <th class="text-center">Surat Ajuan</th>
+                  <th class="text-center">Action</th>
                 </tr>
                 @foreach($submissions as $key => $submission)
                 <tr>
@@ -34,7 +35,8 @@
                   <td>{{ $submission->user->name }}</td>
                   <td>{{ $submission->formattedCreatedAt }}</td>
                   <td><div class="badge badge-{{ $submission->StatusBadge }}">{{ $submission->status }}</div></td>
-                  <td><a href="{{ route('admin.surat-pengantar.penelitian-matkul.show', $submission->id) }}" class="btn btn-primary">Detail</a></td>
+                  <td class="text-center"><a href="{{ asset('storage/' . json_decode($submission->data)->application_letter_path) }}" class="btn btn-warning" target="_blank">Preview</a></td>
+                  <td class="text-center"><a href="{{ route('admin.surat-pengantar.penelitian-matkul.show', $submission->id) }}" class="btn btn-primary">Detail</a></td>
                 </tr>
                 @endforeach
               </table>

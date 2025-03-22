@@ -106,7 +106,12 @@
           </div>
           <div class="col">
             <label class="form-label">Semester <span class="text-danger">*</span></label>
-            <input type="number" min="1" max="14" name="semester" class="form-control @error('semester') is-invalid @enderror" required>
+            <select name="semester" class="form-control @error('semester') is-invalid @enderror" required>
+              <option value="" disabled selected>Pilih Semester</option>
+              @for ($i = 1; $i <= 14; $i++)
+                <option value="{{ $i }}">{{ $i }}</option>
+              @endfor
+            </select>
             @error('semester')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror

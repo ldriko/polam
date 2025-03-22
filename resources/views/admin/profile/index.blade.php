@@ -156,7 +156,11 @@
                 <div class="col">
                   <div class="form-group">
                     <label>Jenis Nomor Induk</label>
-                    <input type="text" name="registration_type" class="form-control" placeholder="Contoh: NIP, NRP, dll" required value="{{ $employee->registration_type }}">
+                    <select name="registration_type" class="form-control">
+                      <option value="" disabled {{ !$employee->registration_type ? 'selected' : '' }}>Pilih Jenis Nomor Induk</option>
+                      <option value="NIP" {{ $employee->registration_type == 'NIP' ? 'selected' : '' }}>NIP</option>
+                      <option value="NRP" {{ $employee->registration_type == 'NRP' ? 'selected' : '' }}>NRP</option>
+                    </select>
                   </div>
                 </div>
                 <div class="col">

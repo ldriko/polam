@@ -102,9 +102,21 @@
             width: auto;
             height: 2cm;
         }
+        .watermark {
+            background-image: url('{{ asset('website/img/logo-upn.png') }}');
+            background-repeat: no-repeat;
+            background-size: 99%;
+            background-position: top center;
+            position: absolute;
+            opacity: 0.2;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
     </style>
 </head>
 <body style="width: 21cm; height: 29cm; margin: 0px; position: relative;">
+    <div class="watermark"></div>
     <div class="px-50 py-50">
         @include('pdf.partials.kop')
 
@@ -153,7 +165,7 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>UPN “Veteran” Jawa Timur</td>
+                                <td>UPN "Veteran" Jawa Timur</td>
                             </tr>
                             <tr>
                                 <td></td>

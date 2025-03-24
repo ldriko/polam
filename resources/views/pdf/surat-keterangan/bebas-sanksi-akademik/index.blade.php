@@ -88,6 +88,17 @@
         .ml-30 {
             margin-left: 30px;
         }
+        .watermark {
+            background-image: url('{{ asset('website/img/logo-upn.png') }}');
+            background-repeat: no-repeat;
+            background-size: 99%;
+            background-position: top center;
+            position: absolute;
+            opacity: 0.2;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
         td:empty::after{
             content: "\00a0";
         }
@@ -98,6 +109,7 @@
     </style>
 </head>
 <body style="width: 21cm; height: 29cm; margin: 0px; position: relative;">
+    <div class="watermark"></div>
     <div class="px-50 py-50">
         @include('pdf.partials.kop')
 
@@ -161,7 +173,7 @@
         </section>
 
         <section class="px-50">
-            <p class="text-justify lh-1-5">adalah mahasiswa dari Fakultas Ilmu Komputer Universitas Pembangunan Nasional “Veteran” Jawa Timur yang tidak memiliki catatan akademik atau keterlibatan dalam kegiatan kriminal.</p>
+            <p class="text-justify lh-1-5">adalah mahasiswa dari Fakultas Ilmu Komputer Universitas Pembangunan Nasional "Veteran" Jawa Timur yang tidak memiliki catatan akademik atau keterlibatan dalam kegiatan kriminal.</p>
             <p class="text-justify lh-1-5">Demikian surat keterangan ini dibuat untuk dipergunakan sebagaimana mestinya.</p>
         </section>
 
@@ -182,10 +194,6 @@
                 <tr class="text-center">
                     <td class="w-50"></td>
                     <td><img class="ttd" src="{{ $submission->approvedByEmployee->signatureImage }}" alt="ttd"></td>
-                </tr>
-                <tr class="text-center">
-                    <td class="w-50"></td>
-                    <td class="bold underline">{{ $submission->approvedByEmployee->name }}</td>
                 </tr>
                 <tr class="text-center">
                     <td class="w-50"></td>

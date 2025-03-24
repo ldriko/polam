@@ -99,9 +99,21 @@
             width: auto;
             height: 2cm;
         }
+        .watermark {
+            background-image: url('{{ asset('website/img/logo-upn.png') }}');
+            background-repeat: no-repeat;
+            background-size: 99%;
+            background-position: top center;
+            position: absolute;
+            opacity: 0.2;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
     </style>
 </head>
 <body style="width: 21cm; height: 29cm; margin: 0px; position: relative;">
+    <div class="watermark"></div>
     <div class="px-50 py-50">
         @include('pdf.partials.kop')
 
@@ -173,7 +185,7 @@
                 </tr>
             </table>
             <p class="text-justify lh-1-5 text-indent">Untuk menjadi peserta Program MBKM <span class="bold">{{ $data['program_name'] }}</span> tahun <span class="bold">{{ $data['year'] }}</span> yang diselenggarakan oleh Kemendikbud Ristek.</p>
-            <p class="text-justify lh-1-5 text-indent">Dengan ini kami menyatakan bahwa yang bersangkutan benar-benar terdaftar sebagai mahasiswa aktif pada program studi <span class="bold">{{ $data['department'] }}</span>, Fakultas Ilmu Komputer tahun akademik <span class="bold">{{ $academicYear }}</span> dan kami telah menyetujui untuk melakukan konversi 20 SKS ke dalam sistem akademik yang berlaku di Universitas Pembangunan Nasional “Veteran” Jawa Timur, sesuai peraturan dari Kemendikbud Ristek untuk dapat berpartisipasi dalam program <span class="bold">{{ $data['program_name'] }}</span> tahun <span class="bold">{{ $data['year'] }}</span>.</p>
+            <p class="text-justify lh-1-5 text-indent">Dengan ini kami menyatakan bahwa yang bersangkutan benar-benar terdaftar sebagai mahasiswa aktif pada program studi <span class="bold">{{ $data['department'] }}</span>, Fakultas Ilmu Komputer tahun akademik <span class="bold">{{ $academicYear }}</span> dan kami telah menyetujui untuk melakukan konversi 20 SKS ke dalam sistem akademik yang berlaku di Universitas Pembangunan Nasional "Veteran" Jawa Timur, sesuai peraturan dari Kemendikbud Ristek untuk dapat berpartisipasi dalam program <span class="bold">{{ $data['program_name'] }}</span> tahun <span class="bold">{{ $data['year'] }}</span>.</p>
             <p class="text-justify lh-1-5 text-indent">Demikian surat rekomendasi ini untuk dipergunakan sebagaimana mestinya.</p>
         </section>
 

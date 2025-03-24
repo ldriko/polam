@@ -245,7 +245,10 @@
                 </tr>
                 <tr class="text-center">
                     <td class="w-50"></td>
-                    <td><img class="ttd" src="{{ $submission->approvedByEmployee->signatureImage }}" alt="ttd"></td>
+                    <td style="position: relative;">
+                        <img src="{{ asset('website/img/stempel.png') }}" alt="stempel" style="position: absolute; top: 0; left: 0; transform: translate(-25%, -25%); width: 200px; height: auto; z-index: 1;">
+                        <img class="ttd" src="{{ $submission->approvedByEmployee->signatureImage }}" alt="ttd" style="position: relative; z-index: 0;">
+                    </td>
                 </tr>
                 <tr class="text-center">
                     <td class="w-50"></td>

@@ -58,7 +58,7 @@ class PengunduranDiriController extends Controller
 
         // Prepare PDF nya
         $file = view('pdf.surat-lainnya.pengunduran-diri.index', compact('submission', 'dekan'))->render();
-        // return $file;
+
         return Pdf::loadHTML($file)->setPaper('a4', 'potrait')->setWarnings(false)->stream();
     }
 }

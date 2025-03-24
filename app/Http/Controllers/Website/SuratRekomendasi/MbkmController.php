@@ -24,7 +24,7 @@ class MbkmController extends Controller
             'registration_number' => ['required', 'string'],
             'department' => ['required', 'string'],
             'semester' => ['required', 'integer', 'between:1,14'],
-            'ipk' => ['required', 'numeric'],
+            'ipk' => ['required', 'numeric', 'min:0', 'max:4', 'decimal:0,2'],
             'program_name' => ['required', 'string'],
             'year' => ['required', 'integer', 'min:1000'],
         ]);

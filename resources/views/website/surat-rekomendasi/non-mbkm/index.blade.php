@@ -119,6 +119,7 @@
           <div class="col">
             <label class="form-label">IPK <span class="text-danger">*</span></label>
             <input type="text" name="ipk" class="form-control @error('ipk') is-invalid @enderror" required>
+            <div class="form-text">Contoh penulisan: 3.50</div>
             @error('ipk')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror

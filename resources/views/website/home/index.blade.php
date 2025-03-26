@@ -8,14 +8,6 @@
       <div class="col-lg-6 d-flex flex-column justify-content-center">
         <h1 data-aos="fade-up">Selamat Datang</h1>
         <h2 data-aos="fade-up" data-aos-delay="400">Sistem Informasi Pelayanan Administrasi Terpadu Civitas Akamedik (SIPATCA)</h2>
-        <div data-aos="fade-up" data-aos-delay="600">
-          <div class="text-center text-lg-start">
-            <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-              <span>Mulai</span>
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
       </div>
       <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
         <img src="{{ asset('website/img/hero-img.png') }}" class="img-fluid" alt="">
@@ -37,17 +29,11 @@
           <p>
             Adalah sistem informasi yang dapat digunakan oleh mahasiswa aktif Fakultas Ilmu Komputer untuk memudahkan proses pengajuan surat-surat yang dibutuhkan selama proses perkuliahan
           </p>
-          <div class="text-center text-lg-start">
-            <a href="#jurusan" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-              <span>Lanjurkan</span>
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
         </div>
       </div>
 
       <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-        <img src="{{ asset('website/img/about.jpg') }}" class="img-fluid" alt="">
+        <img src="{{ asset('website/img/fasilkom.png') }}" class="img-fluid" alt="">
       </div>
 
     </div>
@@ -218,7 +204,7 @@
 </section><!-- End Services Section -->
 
 <!-- ======= F.A.Q Section ======= -->
-<section id="faq" class="faq">
+{{-- <section id="faq" class="faq">
 
   <div class="container" data-aos="fade-up">
 
@@ -324,10 +310,11 @@
 
   </div>
 
-</section><!-- End F.A.Q Section -->
+</section> --}}
+<!-- End F.A.Q Section -->
 
 <!-- ======= Portfolio Section ======= -->
-<section id="portfolio" class="portfolio">
+{{-- <section id="portfolio" class="portfolio">
 
   <div class="container" data-aos="fade-up">
 
@@ -479,10 +466,11 @@
 
   </div>
 
-</section><!-- End Portfolio Section -->
+</section> --}}
+<!-- End Portfolio Section -->
 
 <!-- ======= Team Section ======= -->
-<section id="team" class="team">
+{{-- <section id="team" class="team">
 
   <div class="container" data-aos="fade-up">
 
@@ -573,7 +561,8 @@
 
   </div>
 
-</section><!-- End Team Section -->
+</section> --}}
+<!-- End Team Section -->
 
 <!-- ======= Contact Section ======= -->
 <section id="contact" class="contact">

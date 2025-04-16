@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'guest.employee' => \App\Http\Middleware\GuestEmployee::class,
         'user.validate.profile' => \App\Http\Middleware\ValidateUserProfile::class,
         'web.view.share' => \App\Http\Middleware\WebsiteViewShare::class,
+        'guest.or.verified.user' => \App\Http\Middleware\GuestOrVerifiedUser::class,
     ];
 }

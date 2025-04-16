@@ -92,7 +92,7 @@
                 </a>
 
                 <div class="intro-text">
-                    <p>Terima kasih telah mendaftar! Sebelum memulai, dapatkah Anda memverifikasi alamat email Anda dengan mengklik tautan yang baru saja kami kirimkan melalui email? Jika Anda tidak menerima email tersebut, kami akan dengan senang hati mengirimkan ulang.</p>
+                    <p>Terima kasih telah melakukan registrasi, silahkan periksa email anda untuk verifikasi</p>
                 </div>
 
                 <form action="{{ route('verification.send') }}" method="POST">

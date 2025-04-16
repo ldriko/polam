@@ -41,7 +41,7 @@ use App\Http\Controllers\Website\SuratLainnya\PengunduranDiriController;
 
 Route::get('/', function () {
     return view('website.home.index');
-})->name('index');
+})->name('index')->middleware('guest.or.verified.user');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // Bagian Profil Mahasiswa

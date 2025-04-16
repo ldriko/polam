@@ -79,14 +79,10 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function sendEmailVerificationNotification()
     {
-        $url = URL::temporarySignedRoute(
-            'verification.verify',
-            Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
-            [
-                'id' => $this->getKey(),
-                'hash' => sha1($this->getEmailForVerification()),
-            ]
-        );
+        $url = route('verification.verify', [
+            'id' => $this->getKey(),
+            'hash' => sha1($this->getEmailForVerification()),
+        ]);
 
         $this->notify(new VerifyEmailNotification($url));
     }

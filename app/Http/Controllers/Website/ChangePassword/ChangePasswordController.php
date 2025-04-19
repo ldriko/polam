@@ -21,7 +21,13 @@ class ChangePasswordController extends Controller
         // validasi input
         $request->validate([
             'old_password' => ['required', 'current_password:web'],
-            'new_password' => ['required', Password::min(6)->mixedCase()->letters()->numbers()->symbols(), 'confirmed:new_password'],
+            'new_password' => ['required', Password::min(6), 'confirmed:new_password'],
+        ], [
+            'old_password.required' => 'Password lama wajib diisi',
+            'old_password.current_password' => 'Password lama tidak sesuai',
+            'new_password.required' => 'Password baru wajib diisi', 
+            'new_password.min' => 'Password baru minimal 6 karakter',
+            'new_password.confirmed' => 'Konfirmasi password baru tidak sesuai'
         ]);
 
         // ubah password di DB

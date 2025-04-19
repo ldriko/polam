@@ -29,3 +29,5 @@
     toast.show();
 </script>
 @endif
+
+@yield('scripts')

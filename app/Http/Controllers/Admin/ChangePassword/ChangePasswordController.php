@@ -21,7 +21,7 @@ class ChangePasswordController extends Controller
         // validasi input
         $request->validate([
             'old_password' => ['required', 'current_password:employee'],
-            'new_password' => ['required', Password::min(6)->mixedCase()->letters()->numbers()->symbols(), 'confirmed:new_password'],
+            'new_password' => ['required', Password::min(6), 'confirmed:new_password'],
         ]);
 
         // ubah password di DB

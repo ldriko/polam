@@ -35,7 +35,7 @@ class AccountController extends Controller
             'registration_number' => ['required', 'string', 'max:50'],
             'rank' => ['required', 'string', 'max:50'],
             'class' => ['required', 'string', 'max:50'],
-            'password' => ['required', Password::min(6)->mixedCase()->letters()->numbers()->symbols()],
+            'password' => ['required', Password::min(6)],
             'signature' => ['nullable', 'image', 'max:2048'],
         ]);
 
@@ -81,7 +81,7 @@ class AccountController extends Controller
             'registration_number' => ['required', 'string', 'max:50'],
             'rank' => ['required', 'string', 'max:50'],
             'class' => ['required', 'string', 'max:50'],
-            'password' => ['nullable', Password::min(6)->mixedCase()->letters()->numbers()->symbols()],
+            'password' => ['nullable', Password::min(6)],
             'signature' => ['nullable', 'image', 'max:2048'],
         ]);
 

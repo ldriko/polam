@@ -9,20 +9,20 @@
       <li>Surat Rekomendasi</li>
       <li>Beasiswa</li>
     </ol>
-    <h2>Surat Rekomendasi Beasiswa</h2>
+    <h2>Beasiswa</h2>
   </div>
 </section><!-- End Breadcrumbs -->
 
 <section class="inner-page">
   <div class="container">
     <header class="section-header">
-      <h2>Surat Rekomendasi Beasiswa</h2>
+      <h2>Beasiswa</h2>
       <p>Riwayat Pengajuan</p>
     </header>
 
     @if ($guide && $guide->fileUrl)
       <div class="d-flex align-items-center gap-2 mb-2">
-        <span>Unduh panduan pengajuan Surat Rekomendasi Beasiswa</span>
+        <span>Unduh panduan pengajuan Beasiswa</span>
         <a href="{{ $guide->fileUrl }}" target="_blank" class="btn btn-secondary">Unduh</a>
       </div>
     @endif
@@ -64,7 +64,7 @@
 
     <div class="mt-5">
       <header class="section-header">
-        <h2>Surat Rekomendasi Beasiswa</h2>
+        <h2>Beasiswa</h2>
         <p>Form Pengajuan</p>
       </header>
       <form action="{{ route('surat-rekomendasi.beasiswa.store') }}" method="post">
@@ -109,7 +109,7 @@
             <select name="semester" class="form-control @error('semester') is-invalid @enderror" required>
               <option value="" disabled selected>Pilih Semester</option>
               @for ($i = 1; $i <= 14; $i++)
-                <option value="{{ $i }}">{{ $i }}</option>
+                <option value="{{ $i }}" {{ old('semester') == $i ? 'selected' : '' }}>{{ $i }}</option>
               @endfor
             </select>
             @error('semester')
@@ -118,7 +118,7 @@
           </div>
           <div class="col">
             <label class="form-label">IPK <span class="text-danger">*</span></label>
-            <input type="text" name="ipk" class="form-control @error('ipk') is-invalid @enderror" required>
+            <input type="text" name="ipk" class="form-control @error('ipk') is-invalid @enderror" value="{{ old('ipk') }}" required>
             <div class="form-text">Contoh penulisan: 3.50</div>
             @error('ipk')
               <div class="invalid-feedback">{{ $message }}</div>
@@ -130,15 +130,16 @@
           <h5 class="fw-bold">Informasi Beasiswa</h5>
           <div class="col">
             <label class="form-label">Nama Penyelenggara Beasiswa <span class="text-danger">*</span></label>
-            <input type="text" name="scholarship_provider" class="form-control @error('scholarship_provider') is-invalid @enderror" required>
+            <input type="text" name="scholarship_provider" class="form-control @error('scholarship_provider') is-invalid @enderror" value="{{ old('scholarship_provider') }}" required>
             <div class="form-text">Nama program beasiswa atau nama instansi pemberi beasiswa.</div>
             @error('scholarship_provider')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
-          <div class="col-2">
-            <label class="form-label">Tahun <span class="text-danger">*</span></label>
-            <input type="number" name="year" class="form-control @error('year') is-invalid @enderror" required>
+          <div class="col-3">
+            <label class="form-label">Tahun Pelaksanaan<span class="text-danger">*</span></label>
+            <input type="text" name="year" class="form-control @error('year') is-invalid @enderror" value="{{ old('year') }}" required>
+            <div class="form-text">Tahun pelaksanaan beasiswa, contoh: {{ date('Y') }}.</div>
             @error('year')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror

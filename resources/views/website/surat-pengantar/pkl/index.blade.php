@@ -83,14 +83,14 @@
           <h5 class="fw-bold">Mahasiswa 1</h5>
           <div class="col">
             <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-            <input type="text" name="name[]" class="form-control @error('name.0') is-invalid @enderror" value="{{ Auth::user()->name }}" readonly>
+            <input type="text" name="name[]" class="form-control @error('name.0') is-invalid @enderror" value="{{ old('name.0', Auth::user()->name) }}" readonly>
             @error('name.0')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
           <div class="col">
             <label class="form-label">NPM Mahasiswa <span class="text-danger">*</span></label>
-            <input type="text" name="registration_number[]" class="form-control @error('registration_number.0') is-invalid @enderror" value="{{ Auth::user()->registration_number }}" readonly>
+            <input type="text" name="registration_number[]" class="form-control @error('registration_number.0') is-invalid @enderror" value="{{ old('registration_number.0', Auth::user()->registration_number) }}" readonly>
             @error('registration_number.0')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -101,14 +101,14 @@
           <h5 class="fw-bold">Mahasiswa 2</h5>
           <div class="col">
             <label class="form-label">Nama Lengkap</label>
-            <input type="text" name="name[]" class="form-control @error('name.1') is-invalid @enderror">
+            <input type="text" name="name[]" class="form-control @error('name.1') is-invalid @enderror" value="{{ old('name.1') }}">
             @error('name.1')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
           <div class="col">
             <label class="form-label">NPM Mahasiswa</label>
-            <input type="text" name="registration_number[]" class="form-control @error('registration_number.1') is-invalid @enderror">
+            <input type="text" name="registration_number[]" class="form-control @error('registration_number.1') is-invalid @enderror" value="{{ old('registration_number.1') }}">
             @error('registration_number.1')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -119,14 +119,14 @@
           <h5 class="fw-bold">Mahasiswa 3</h5>
           <div class="col">
             <label class="form-label">Nama Lengkap</label>
-            <input type="text" name="name[]" class="form-control @error('name.2') is-invalid @enderror">
+            <input type="text" name="name[]" class="form-control @error('name.2') is-invalid @enderror" value="{{ old('name.2') }}">
             @error('name.2')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
           <div class="col">
             <label class="form-label">NPM Mahasiswa</label>
-            <input type="text" name="registration_number[]" class="form-control @error('registration_number.2') is-invalid @enderror">
+            <input type="text" name="registration_number[]" class="form-control @error('registration_number.2') is-invalid @enderror" value="{{ old('registration_number.2') }}">
             @error('registration_number.2')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -137,14 +137,14 @@
           <h5 class="fw-bold">Mahasiswa 4</h5>
           <div class="col">
             <label class="form-label">Nama Lengkap</label>
-            <input type="text" name="name[]" class="form-control @error('name.3') is-invalid @enderror">
+            <input type="text" name="name[]" class="form-control @error('name.3') is-invalid @enderror" value="{{ old('name.3') }}">
             @error('name.3')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
           <div class="col">
             <label class="form-label">NPM Mahasiswa</label>
-            <input type="text" name="registration_number[]" class="form-control @error('registration_number.3') is-invalid @enderror">
+            <input type="text" name="registration_number[]" class="form-control @error('registration_number.3') is-invalid @enderror" value="{{ old('registration_number.3') }}">
             @error('registration_number.3')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -155,14 +155,16 @@
           <h5 class="fw-bold">Informasi Perusahaan</h5>
           <div class="col">
             <label class="form-label">Nama Instansi/Perusahaan <span class="text-danger">*</span></label>
-            <input type="text" name="company_name" class="form-control @error('company_name') is-invalid @enderror" required>
+            <input type="text" name="company_name" class="form-control @error('company_name') is-invalid @enderror" value="{{ old('company_name') }}" required>
+            <div class="form-text">Contoh: PT. Daily Planet, CV. Alexander Family, dll.</div>
             @error('company_name')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
           <div class="col">
             <label class="form-label">Nama Bagian/Divisi <span class="text-danger">*</span></label>
-            <input type="text" name="company_division" class="form-control @error('company_division') is-invalid @enderror" required>
+            <input type="text" name="company_division" class="form-control @error('company_division') is-invalid @enderror" value="{{ old('company_division') }}" required>
+            <div class="form-text">Contoh: Bagian Penjualan, Divisi Marketing, Bagian Keuangan, Divisi  Umum, dll.</div>
             @error('company_division')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -172,14 +174,15 @@
         <div class="row mb-3">
           <div class="col">
             <label class="form-label">Nomor Telepon Perusahaan <span class="text-danger">*</span></label>
-            <input type="text" name="company_phone" class="form-control @error('company_phone') is-invalid @enderror" required>
+            <input type="text" name="company_phone" class="form-control @error('company_phone') is-invalid @enderror" value="{{ old('company_phone') }}" required>
+            <div class="form-text">Contoh: 021990990, 031880880, 081234567890 (hanya angka).</div>
             @error('company_phone')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
           <div class="col">
             <label class="form-label">Tanggal Mulai PKL <span class="text-danger">*</span></label>
-            <input type="date" name="starting_date" class="form-control @error('starting_date') is-invalid @enderror" required>
+            <input type="date" name="starting_date" class="form-control @error('starting_date') is-invalid @enderror" value="{{ old('starting_date') }}" required>
             @error('starting_date')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -189,7 +192,8 @@
         <div class="row mb-4">
           <div class="col">
             <label class="form-label">Alamat Perusahaan <span class="text-danger">*</span></label>
-            <input type="text" name="company_address" class="form-control @error('company_address') is-invalid @enderror" required>
+            <input type="text" name="company_address" class="form-control @error('company_address') is-invalid @enderror" value="{{ old('company_address') }}" required>
+            <div class="form-text">WAJIB copas alamat lengkap dari google maps.</div>
             @error('company_address')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -200,7 +204,7 @@
           <h5 class="fw-bold">Catatan Lain</h5>
           <div class="col">
             <label class="form-label">Catatan Khusus Untuk Staff</label>
-            <textarea name="note" rows="5" class="form-control @error('note') is-invalid @enderror"></textarea>
+            <textarea name="note" rows="5" class="form-control @error('note') is-invalid @enderror">{{ old('note') }}</textarea>
             <div class="form-text">Perihal atau keterangan lain yang perlu ditambahkan dalam ajuan. Boleh dikosongkan</div>
             @error('note')
               <div class="invalid-feedback">{{ $message }}</div>

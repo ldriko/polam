@@ -137,7 +137,7 @@
             @enderror
           </div>
           <div class="col-3">
-            <label class="form-label">Tahun Pelaksanaan<span class="text-danger">*</span></label>
+            <label class="form-label">Tahun Pelaksanaan <span class="text-danger">*</span></label>
             <input type="text" name="year" class="form-control @error('year') is-invalid @enderror" value="{{ old('year') }}" required>
             <div class="form-text">Tahun pelaksanaan beasiswa, contoh: {{ date('Y') }}.</div>
             @error('year')

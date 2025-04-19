@@ -83,14 +83,14 @@
           <h5 class="fw-bold">Informasi Mahasiswa</h5>
           <div class="col">
             <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', Auth::user()->name) }}" readonly>
+            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old(Auth::user()->name) }}" readonly>
             @error('name')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
           <div class="col">
             <label class="form-label">NPM Mahasiswa <span class="text-danger">*</span></label>
-            <input type="text" name="registration_number" class="form-control @error('registration_number') is-invalid @enderror" value="{{ old('registration_number', Auth::user()->registration_number) }}" readonly>
+            <input type="text" name="registration_number" class="form-control @error('registration_number') is-invalid @enderror" value="{{ old(Auth::user()->registration_number) }}" readonly>
             @error('registration_number')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror

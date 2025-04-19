@@ -29,6 +29,28 @@ class SkripsiController extends Controller
             'starting_date' => ['required', 'date'],
             'company_address' => ['required', 'string'],
             'note' => ['nullable', 'string'],
+        ], [
+            'name.required' => 'Nama mahasiswa wajib diisi',
+            'name.array' => 'Format nama mahasiswa tidak valid',
+            'name.min' => 'Minimal 1 nama mahasiswa harus diisi',
+            'registration_number.required' => 'NPM mahasiswa wajib diisi',
+            'registration_number.array' => 'Format NPM mahasiswa tidak valid', 
+            'registration_number.min' => 'Minimal 1 NPM mahasiswa harus diisi',
+            'research_purpose.required' => 'Keperluan penelitian wajib diisi',
+            'research_purpose.string' => 'Format keperluan penelitian tidak valid',
+            'research_title.required' => 'Judul penelitian wajib diisi',
+            'research_title.string' => 'Format judul penelitian tidak valid',
+            'company_name.required' => 'Nama perusahaan wajib diisi',
+            'company_name.string' => 'Format nama perusahaan tidak valid',
+            'company_division.required' => 'Divisi/bagian perusahaan wajib diisi',
+            'company_division.string' => 'Format divisi/bagian perusahaan tidak valid',
+            'company_phone.required' => 'Nomor telepon perusahaan wajib diisi',
+            'company_phone.numeric' => 'Nomor telepon harus berupa angka',
+            'starting_date.required' => 'Tanggal mulai penelitian wajib diisi',
+            'starting_date.date' => 'Format tanggal tidak valid',
+            'company_address.required' => 'Alamat perusahaan wajib diisi',
+            'company_address.string' => 'Format alamat perusahaan tidak valid',
+            'note.string' => 'Format catatan tidak valid'
         ]);
 
         foreach ($request->name as $key => $name) {

@@ -19,14 +19,25 @@ class ProfileController extends Controller
 
         $rules = [
             'name' => ['required', 'string', 'max:255'],
-            'registration_number' => ['required', 'numeric', 'digits:11'],
-            'department_id' => ['required', 'exists:departments,id'],
             'birth_place' => ['required', 'string', 'max:255'],
             'birth_date' => ['required', 'date'],
             'address' => ['required', 'string', 'max:255'],
         ];
 
-        $request->validate($rules);
+        $request->validate($rules, [
+            'name.required' => 'Nama lengkap wajib diisi',
+            'name.string' => 'Format nama lengkap tidak valid',
+            'name.max' => 'Nama lengkap maksimal 255 karakter',
+            'birth_place.required' => 'Tempat lahir wajib diisi',
+            'birth_place.string' => 'Format tempat lahir tidak valid', 
+            'birth_place.max' => 'Tempat lahir maksimal 255 karakter',
+            'birth_date.required' => 'Tanggal lahir wajib diisi',
+            'birth_date.date' => 'Format tanggal lahir tidak valid',
+            'address.required' => 'Alamat wajib diisi',
+            'address.string' => 'Format alamat tidak valid',
+            'address.max' => 'Alamat maksimal 255 karakter'
+        ]);
+
         $request->replace($request->only(array_keys($rules)));
         
         // insert data ke DB

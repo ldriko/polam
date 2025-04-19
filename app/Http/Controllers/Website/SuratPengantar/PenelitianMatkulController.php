@@ -27,6 +27,27 @@ class PenelitianMatkulController extends Controller
             'research_title' => ['required', 'string'],
             'company_name' => ['required', 'string'],
             'company_division' => ['required', 'string'],
+        ], [
+            'name.required' => 'Nama mahasiswa wajib diisi',
+            'name.array' => 'Format nama mahasiswa tidak valid',
+            'name.min' => 'Minimal 1 nama mahasiswa harus diisi',
+            'registration_number.required' => 'NPM mahasiswa wajib diisi',
+            'registration_number.array' => 'Format NPM mahasiswa tidak valid',
+            'registration_number.min' => 'Minimal 1 NPM mahasiswa harus diisi',
+            'subject_name.required' => 'Nama mata kuliah wajib diisi',
+            'subject_name.string' => 'Format nama mata kuliah tidak valid',
+            'application_letter.required' => 'Surat ajuan wajib diupload',
+            'application_letter.file' => 'Surat ajuan harus berupa file',
+            'application_letter.mimes' => 'Surat ajuan harus berformat PDF',
+            'application_letter.max' => 'Ukuran surat ajuan maksimal 2MB',
+            'research_purpose.required' => 'Keperluan penelitian wajib diisi',
+            'research_purpose.string' => 'Format keperluan penelitian tidak valid',
+            'research_title.required' => 'Judul penelitian wajib diisi',
+            'research_title.string' => 'Format judul penelitian tidak valid',
+            'company_name.required' => 'Nama perusahaan wajib diisi',
+            'company_name.string' => 'Format nama perusahaan tidak valid',
+            'company_division.required' => 'Divisi/bagian perusahaan wajib diisi',
+            'company_division.string' => 'Format divisi/bagian perusahaan tidak valid'
         ]);
 
         foreach ($request->name as $key => $name) {

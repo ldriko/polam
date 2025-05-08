@@ -67,7 +67,10 @@ class Submission extends Model
     }
 
     function approvedByEmployee() {
-        return $this->belongsTo(Employee::class, 'approved_by', 'id');
+        return $this->belongsTo(Employee::class, 'approved_by', 'id')
+            ->withDefault(function ($employee) {
+                return Employee::where('employee_position_id', 1)->first() ?? new Employee();
+            });
     }
 
     function rejectedByEmployee() {

@@ -35,7 +35,7 @@ class Employee extends Authenticatable
 
     function getSignatureImageAttribute() {
         if ($this->signature && Storage::exists($this->signature)) {
-            return asset($this->signature);
+            return asset('storage/' . $this->signature);
         }
 
         return asset('website/img/ttd/placeholder.png');

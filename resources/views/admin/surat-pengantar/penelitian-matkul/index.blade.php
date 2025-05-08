@@ -36,7 +36,10 @@
                   <td>{{ $submission->formattedCreatedAt }}</td>
                   <td><div class="badge badge-{{ $submission->StatusBadge }}">{{ $submission->status }}</div></td>
                   <td class="text-center"><a href="{{ asset('storage/' . json_decode($submission->data)->application_letter_path) }}" class="btn btn-warning" target="_blank">Preview</a></td>
-                  <td class="text-center"><a href="{{ route('admin.surat-pengantar.penelitian-matkul.show', $submission->id) }}" class="btn btn-primary">Detail</a></td>
+                  <td>
+                    <a href="{{ route('admin.surat-pengantar.penelitian-matkul.preview', $submission->id) }}" target="_blank" class="btn btn-warning">Preview</a>
+                    <a href="{{ route('admin.surat-pengantar.penelitian-matkul.show', $submission->id) }}" class="btn btn-primary">Detail</a>
+                  </td>
                 </tr>
                 @endforeach
               </table>

@@ -34,7 +34,10 @@
                   <td>{{ $submission->user->name }}</td>
                   <td>{{ $submission->formattedCreatedAt }}</td>
                   <td><div class="badge badge-{{ $submission->StatusBadge }}">{{ $submission->status }}</div></td>
-                  <td><a href="{{ route('admin.surat-pengantar.pkl.show', $submission->id) }}" class="btn btn-primary">Detail</a></td>
+                  <td>
+                    <a href="{{ route('admin.surat-pengantar.pkl.preview', $submission->id) }}" target="_blank" class="btn btn-warning">Preview</a>
+                    <a href="{{ route('admin.surat-pengantar.pkl.show', $submission->id) }}" class="btn btn-primary">Detail</a>
+                  </td>
                 </tr>
                 @endforeach
               </table>

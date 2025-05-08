@@ -3,10 +3,10 @@
         <img class="logo vertical-align-middle" src="{{ asset('website/img/logo-upn.png') }}" alt="">
     </div>
     <div class="vertical-align-middle" style="display: inline-block;">
-        <span class="d-block text-center">KEMENTERIAN PENDIDIKAN TINGGI, SAINS DAN TEKNOLOGI</span>
-        <span class="d-block text-center bold">UNIVERSITAS PEMBANGUNAN NASIONAL "VETERAN" JAWA TIMUR</span>
-        <span class="d-block text-center bolder" style="font-size: 25px;">FAKULTAS ILMU KOMPUTER</span>
-        <span class="d-block text-center" style="font-size: 15px;">Jalan Raya Rungkut Madya Gunung Anyar Surabaya 60294</span>
-        <span class="d-block text-center" style="font-size: 13px;">Email: fasilkom@upnjatim.ac.id <br> Laman: fasilkom.upnjatim.ac.id</span>
+        <span class="d-block text-center" style="font-size: 14pt;">KEMENTERIAN PENDIDIKAN TINGGI, SAINS DAN TEKNOLOGI</span>
+        <span class="d-block text-center bold" style="font-size: 12pt;">UNIVERSITAS PEMBANGUNAN NASIONAL "VETERAN" JAWA TIMUR</span>
+        <span class="d-block text-center bolder" style="font-size: 14pt;">FAKULTAS ILMU KOMPUTER</span>
+        <span class="d-block text-center" style="font-size: 12pt;">Jalan Raya Rungkut Madya Gunung Anyar Surabaya 60294</span>
+        <span class="d-block text-center" style="font-size: 12pt;">Email: fasilkom@upnjatim.ac.id <br> Laman: fasilkom.upnjatim.ac.id</span>
     </div>
 </div>

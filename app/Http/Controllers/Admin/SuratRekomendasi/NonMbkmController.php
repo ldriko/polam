@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Submission;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class NonMbkmController extends Controller
 {
@@ -59,5 +60,29 @@ class NonMbkmController extends Controller
             'status' => 'success',
             'message' => 'Ajuan berhasil diproses',
         ]);
+    }
+
+    public function preview(Request $request, Submission $submission)
+    {
+        // prepare tahun ajaran
+        $createdAt = Carbon::parse($submission->created_at);
+        $yearStart = $createdAt->year;
+        $yearEnd = $createdAt->year;
+
+        if ($createdAt->month <= 7) { // genap, februari sampai juli atau ganjil tahun lalu
+            $yearStart -= 1;
+        } else {
+            $yearEnd += 1;
+        }
+
+        // gabung tahun ajarannya
+        $academicYear = $yearStart . '-' . $yearEnd;
+
+        // lazy load relasinya biar ringan
+        $submission->load('user.department', 'approvedByEmployee');
+
+        // Prepare PDF nya
+        $file = view('pdf.surat-rekomendasi.non-mbkm.index', compact('submission', 'academicYear'))->render();
+        return Pdf::loadHTML($file)->setPaper('a4', 'potrait')->setWarnings(false)->stream();
     }
 }

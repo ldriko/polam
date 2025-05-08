@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Submission;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class BebasSanksiAkademikController extends Controller
 {
@@ -59,5 +60,15 @@ class BebasSanksiAkademikController extends Controller
             'status' => 'success',
             'message' => 'Ajuan berhasil diproses',
         ]);
+    }
+
+    public function preview(Request $request, Submission $submission)
+    {
+        // lazy load relasinya biar ringan
+        $submission->load('user.department', 'approvedByEmployee');
+
+        // Prepare PDF nya
+        $file = view('pdf.surat-keterangan.bebas-sanksi-akademik.index', compact('submission'))->render();
+        return Pdf::loadHTML($file)->setPaper('a4', 'potrait')->setWarnings(false)->stream();
     }
 }

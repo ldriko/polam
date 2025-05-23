@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Submission;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-use App\Models\Employee;
+use App\Models\Employee\Employee;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class PengunduranDiriController extends Controller

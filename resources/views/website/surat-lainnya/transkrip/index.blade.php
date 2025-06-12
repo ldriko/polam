@@ -129,6 +129,24 @@
           </div>
         </div>
 
+        <div class="row mb-3">
+          <div class="col-4">
+            <label class="form-label">Keperluan <span class="text-danger">*</span></label>
+            <select name="purpose" class="form-control @error('purpose') is-invalid @enderror" required>
+              <option value="" disabled selected>Pilih Keperluan</option>
+              <option value="Semhas">Semhas</option>
+              <option value="Beasiswa">Beasiswa</option>
+              <option value="KKN">KKN</option>
+              <option value="PKL">PKL</option>
+              <option value="Banding UKT">Banding UKT</option>
+              <option value="Lain-Lain">Lain-Lain</option>
+            </select>
+            @error('purpose')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>
+
         <div class="d-grid d-md-flex justify-content-md-end">
           <button type="submit" class="btn btn-primary btn-lg">Ajukan</button>
         </div>

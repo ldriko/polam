@@ -24,6 +24,7 @@ class TranskripController extends Controller
             'name' => ['required', 'string'],
             'registration_number' => ['required', 'string'],
             'department' => ['required', 'string'],
+            'purpose' => ['required', 'string', 'in:Semhas,Beasiswa,KKN,PKL,Banding UKT,Lain-Lain'],
         ]);
 
         $now = Carbon::now();
@@ -31,7 +32,6 @@ class TranskripController extends Controller
         // prepare semester genap
         $startSemester = Carbon::now()->startOfMonth()->setMonth(2); // 1 Februari Tahun Ini
         $endSemester = Carbon::now()->startOfMonth()->setMonth(7)->endOfMonth(); // 31 Juli Tahun Ini
-
         
         // jika bulan sekarang > juni
         if ($now->month > 6 || true) {

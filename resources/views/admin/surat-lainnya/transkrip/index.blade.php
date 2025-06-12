@@ -24,14 +24,19 @@
                 <tr>
                   <th>#</th>
                   <th>Nama Mahasiswa</th>
+                  <th>Keperluan</th>
                   <th>Tanggal Pengajuan</th>
                   <th>Status Pengajuan</th>
                   <th>Action</th>
                 </tr>
                 @foreach($submissions as $key => $submission)
+                @php
+                  $data = json_decode($submission->data);
+                @endphp
                 <tr>
                   <td>{{ $key+1 }}</td>
                   <td>{{ $submission->user->name }}</td>
+                  <td>{{ @$data->purpose ?? '-' }}</td>
                   <td>{{ $submission->formattedCreatedAt }}</td>
                   <td><div class="badge badge-{{ $submission->StatusBadge }}">{{ $submission->status }}</div></td>
                   <td><a href="{{ route('admin.surat-lainnya.transkrip.show', $submission->id) }}" class="btn btn-primary">Detail</a></td>

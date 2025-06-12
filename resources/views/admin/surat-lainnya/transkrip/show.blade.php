@@ -45,6 +45,14 @@
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col-4">
+                <div class="form-group">
+                  <label>Keperluan</label>
+                  <input type="text" class="form-control" value="{{ @$data->purpose ?? '-' }}" disabled>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

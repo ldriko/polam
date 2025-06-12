@@ -51,6 +51,28 @@
           <td>
             @if($datum->approved_at)
                 <a href="{{ route('surat-pengantar.penelitian-matkul.preview', $datum->id) }}" target="_blank" class="btn btn-primary">Buka</a>
+            @elseif($datum->rejected_at)
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rejectionModal{{ $datum->id }}">
+                    Alasan Ditolak
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="rejectionModal{{ $datum->id }}" tabindex="-1" aria-labelledby="rejectionModalLabel{{ $datum->id }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="rejectionModalLabel{{ $datum->id }}">Alasan Penolakan</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="preserve-whitespace">{!! $datum->rejected_note !!}</div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             @endif
           </td>
         </tr>

@@ -98,3 +98,7 @@
 .blog .blog-pagination li.active, .blog .blog-pagination li:hover {
     background: var(--secondary-bg);
 }
+
+.preserve-whitespace {
+    white-space: pre-line;
+}

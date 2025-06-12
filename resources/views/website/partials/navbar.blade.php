@@ -43,7 +43,7 @@
             <li><a href="{{ route('surat-lainnya.pengunduran-diri.index') }}">Pengunduran Diri</a></li>
           </ul>
         </li>
-        <li><a href="https://uyus.igsindonesia.org" target="_blank"><span>Yudisium</span></a></li>
+        <li><a href="https://u-yus.igsindonesia.org" target="_blank"><span>Yudisium</span></a></li>
         @if(auth()->user())
           <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
             <ul>

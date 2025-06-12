@@ -195,7 +195,7 @@
           </div>
           <div class="col">
             <label class="form-label">Bukti Re-Registrasi <span class="text-danger">*</span></label>
-            <input type="file" name="proof_re_registration" class="form-control @error('proof_re_registration') is-invalid @enderror" required>
+            <input type="file" name="proof_re_registration" class="form-control @error('proof_re_registration') is-invalid @enderror" accept="application/pdf" required>
             <div class="form-text">Format file berupa PDF, maksimal 2MB.</div>
             @error('proof_re_registration')
               <div class="invalid-feedback">{{ $message }}</div>

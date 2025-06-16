@@ -71,6 +71,16 @@
                     <input type="text" class="form-control" value="{{ $data->excuse }}" disabled>
                   </div>
                 </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label>Berkas Pendukung</label>
+                    @if($data->supporting_documents_path ?? false)
+                      <a href="{{ asset('storage/' . $data->supporting_documents_path) }}" class="btn btn-lg btn-primary form-control" target="_blank">Lihat PDF</a>
+                    @else
+                      <input type="text" class="form-control bg-white border-0" value="-" disabled>
+                    @endif
+                  </div>
+                </div>
               </div>
           </div>
         </div>

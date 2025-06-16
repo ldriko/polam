@@ -89,7 +89,7 @@
         <h2>Surat Lainnya Pengunduran Diri</h2>
         <p>Form Pengajuan</p>
       </header>
-      <form action="{{ route('surat-lainnya.pengunduran-diri.store') }}" method="post">
+      <form action="{{ route('surat-lainnya.pengunduran-diri.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         @if ($errors->any())
           <div class="alert alert-danger">
@@ -134,7 +134,7 @@
                     $now = Carbon\Carbon::now()->subYear(1);
                 @endphp
                 @for ($i = 0; $i < 5; $i++)
-                    <option value="{{ $now->year + $i . "/" . $now->year + $i + 1}}">{{ $now->year + $i . "/" . $now->year + $i + 1}}</option>
+                    <option value="{{ $now->year + $i . "/" . $now->year + $i + 1}}" {{ old('academic_year') == ($now->year + $i . "/" . $now->year + $i + 1) ? 'selected' : '' }}>{{ $now->year + $i . "/" . $now->year + $i + 1}}</option>
                 @endfor
             </select>
             @error('academic_year')
@@ -146,7 +146,7 @@
         <div class="row mb-4">
           <div class="col">
             <label class="form-label">Nama Orang Tua <span class="text-danger">*</span></label>
-            <input type="text" name="parent_name" class="form-control @error('parent_name') is-invalid @enderror" required>
+            <input type="text" name="parent_name" class="form-control @error('parent_name') is-invalid @enderror" value="{{ old('parent_name') }}" required>
             <div class="form-text">Orang tua yang akan bertanda tangan.</div>
             @error('parent_name')
               <div class="invalid-feedback">{{ $message }}</div>
@@ -157,8 +157,17 @@
         <div class="row mb-4">
           <div class="col">
             <label class="form-label">Alasan Pengunduran Diri <span class="text-danger">*</span></label>
-            <input type="text" name="excuse" class="form-control @error('excuse') is-invalid @enderror" required>
+            <input type="text" name="excuse" class="form-control @error('excuse') is-invalid @enderror" value="{{ old('excuse') }}" required>
             @error('excuse')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+          <div class="col">
+            <label class="form-label">Berkas Pendukung <span class="text-danger">*</span></label>
+            <input type="file" name="supporting_documents" class="form-control @error('supporting_documents') is-invalid @enderror" accept="application/pdf" required>
+            <div class="form-text">Format file berupa PDF, maksimal 2MB.</div>
+            <div class="form-text mt-0">Cantumkan semua berkas pendukung yang relevan dalam 1 file pdf.</div>
+            @error('supporting_documents')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>

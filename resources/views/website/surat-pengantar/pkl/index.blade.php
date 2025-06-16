@@ -203,9 +203,18 @@
             @enderror
           </div>
           <div class="col">
-            <label class="form-label">Tanggal Mulai PKL <span class="text-danger">*</span></label>
-            <input type="date" name="starting_date" class="form-control @error('starting_date') is-invalid @enderror" value="{{ old('starting_date') }}" required>
+            <label class="form-label">Tanggal Mulai PKL</label>
+            <input type="date" name="starting_date" class="form-control @error('starting_date') is-invalid @enderror" value="{{ old('starting_date') }}">
+            <div class="form-text">Masukkan tanggal mulai PKL jika ingin dicantumkan pada surat pengantar.</div>
             @error('starting_date')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+          <div class="col">
+            <label class="form-label">Tanggal Selesai PKL</label>
+            <input type="date" name="ending_date" class="form-control @error('ending_date') is-invalid @enderror" value="{{ old('ending_date') }}">
+            <div class="form-text">Masukkan tanggal selesai PKL jika ingin dicantumkan pada surat pengantar.</div>
+            @error('ending_date')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>

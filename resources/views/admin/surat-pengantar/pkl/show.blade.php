@@ -109,7 +109,14 @@
               <div class="col">
                 <div class="form-group">
                   <label>Tanggal Mulai PKL</label>
-                  <input type="text" class="form-control" value="{{ Carbon\Carbon::parse($data->starting_date)->locale('id') }}" disabled>
+                  <input type="text" class="form-control" value="{{ @$data->starting_date ? Carbon\Carbon::parse($data->starting_date)->locale('id')->isoFormat('D MMMM Y') : '-' }}" disabled>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="form-group">
+                  <label>Tanggal Selesai PKL</label>
+                  <input type="text" class="form-control" value="{{ @$data->ending_date ? Carbon\Carbon::parse($data->ending_date)->locale('id')->isoFormat('D MMMM Y') : '-' }}" disabled>
                 </div>
               </div>
             </div>

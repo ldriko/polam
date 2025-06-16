@@ -24,7 +24,8 @@ class PklController extends Controller
             'company_name' => ['required', 'string'],
             'company_division' => ['required', 'string'],
             'company_phone' => ['required', 'numeric'],
-            'starting_date' => ['required', 'date'],
+            'starting_date' => ['nullable', 'date', 'required_with:ending_date'],
+            'ending_date' => ['nullable', 'date', 'required_with:starting_date'],
             'company_address' => ['required', 'string'],
             'note' => ['nullable', 'string'],
         ], [
@@ -40,8 +41,10 @@ class PklController extends Controller
             'company_division.string' => 'Format divisi/bagian perusahaan tidak valid',
             'company_phone.required' => 'Nomor telepon perusahaan wajib diisi',
             'company_phone.numeric' => 'Nomor telepon hanya boleh berisi angka',
-            'starting_date.required' => 'Tanggal mulai PKL wajib diisi',
             'starting_date.date' => 'Format tanggal mulai PKL tidak valid',
+            'starting_date.required_with' => 'Tanggal mulai PKL wajib diisi jika tanggal selesai PKL diisi',
+            'ending_date.date' => 'Format tanggal selesai PKL tidak valid',
+            'ending_date.required_with' => 'Tanggal selesai PKL wajib diisi jika tanggal mulai PKL diisi',
             'company_address.required' => 'Alamat perusahaan wajib diisi',
             'company_address.string' => 'Format alamat perusahaan tidak valid',
             'note.string' => 'Format catatan tidak valid'

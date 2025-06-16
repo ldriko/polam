@@ -27,7 +27,21 @@ class CutiController extends Controller
             'academic_year' => ['required', 'string'],
             'parent_name' => ['required', 'string'],
             'excuse' => ['required', 'string'],
+            'supporting_documents' => ['required', 'file', 'mimes:pdf', 'max:2048'],
         ]);
+
+        // upload pdf dulu
+        if ($request->file('supporting_documents')->isValid()) {
+            $path = $request->supporting_documents->store('surat-lainnya/cuti');
+            if ($path) {
+                $request->merge(['supporting_documents_path' => $path]);
+            } else {
+                return redirect()->route('surat-lainnya.cuti.index')->with([
+                    'status' => 'error',
+                    'message' => 'Gagal upload berkas pendukung',
+                ]);
+            }
+        }
 
         $create = Submission::create([
             'user_id' => Auth::id(),

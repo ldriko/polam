@@ -89,7 +89,7 @@
         <h2>Surat Lainnya Cuti</h2>
         <p>Form Pengajuan</p>
       </header>
-      <form action="{{ route('surat-lainnya.cuti.store') }}" method="post">
+      <form action="{{ route('surat-lainnya.cuti.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         @if ($errors->any())
           <div class="alert alert-danger">
@@ -171,6 +171,15 @@
             <input type="text" name="excuse" class="form-control @error('excuse') is-invalid @enderror" required>
             <div class="form-text">Alasan ingin mengambil cuti.</div>
             @error('excuse')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+          <div class="col">
+            <label class="form-label">Berkas Pendukung <span class="text-danger">*</span></label>
+            <input type="file" name="supporting_documents" class="form-control @error('supporting_documents') is-invalid @enderror" accept="application/pdf" required>
+            <div class="form-text">Format file berupa PDF, maksimal 2MB.</div>
+            <div class="form-text mt-0">Cantumkan semua berkas pendukung yang relevan dalam 1 file pdf.</div>
+            @error('supporting_documents')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
